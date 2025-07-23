@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
+import { SidebarComponent } from '@layouts/sidebar/sidebar.component';
+import { NavbarComponent } from '@layouts/navbar/navbar.component';
+import { FooterComponent } from '@layouts/footer/footer.component';
 
 @Component({
   selector: 'app-layout-main',
@@ -18,7 +18,6 @@ import { FooterComponent } from '../footer/footer.component';
     FooterComponent,
   ],
   templateUrl: './layout-main.component.html',
- 
 })
 export class LayoutMainComponent {
   isSidebarOpen = false;

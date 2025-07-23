@@ -6,7 +6,7 @@
 
   <div class="flex items-center gap-2">
     <!-- Diminuir fonte -->
-    <button mat-icon-button (click)="adjustFont('decrease')">
+    <button mat-icon-button (click)="decreaseFont()">
       <span class="material-symbols-outlined">text_decrease</span>
     </button>
 
@@ -16,12 +16,14 @@
     </button>
 
     <!-- Aumentar fonte -->
-    <button mat-icon-button (click)="adjustFont('increase')">
+    <button mat-icon-button (click)="increaseFont()">
       <span class="material-symbols-outlined">text_increase</span>
     </button>
   </div>
 
   <button mat-icon-button (click)="toggleTheme()">
-    <mat-icon>{{ theme === "dark" ? "light_mode" : "dark_mode" }}</mat-icon>
+    <mat-icon>
+      {{ theme.theme() === "dark" ? "light_mode" : "dark_mode" }}</mat-icon
+    >
   </button>
 </div>

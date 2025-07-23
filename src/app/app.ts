@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ThemeService } from './design/theme/theme.service';
-import { FontSize, ThemeMode } from './design/theme/theme.types';
+import { ThemeState } from '@shared/state/theme.state';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +9,5 @@ import { FontSize, ThemeMode } from './design/theme/theme.types';
   template: `<router-outlet></router-outlet>`,
 })
 export class AppComponent {
-  theme: ThemeMode;
-  fontSize: FontSize;
-
-  constructor(private themeService: ThemeService) {
-    this.theme = this.themeService.getSavedTheme();
-    this.fontSize = this.themeService.getSavedFontSize();
-
-    this.themeService.setTheme(this.theme);
-    this.themeService.setFontSize(this.fontSize);
-  }
+  private readonly _theme = inject(ThemeState);
 }

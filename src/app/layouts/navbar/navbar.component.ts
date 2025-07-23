@@ -1,45 +1,31 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { ThemeService } from '../../design/theme/theme.service';
-import { FontSize, ThemeMode } from '../../design/theme/theme.types';
+import { ThemeState } from '@shared/state/theme.state';
 
 @Component({
   selector: 'app-navbar',
+  standalone: true,
   templateUrl: './navbar.component.html',
   imports: [MatIconModule],
 })
 export class NavbarComponent {
   @Output() toggleSidebar = new EventEmitter<void>();
-  theme: ThemeMode = 'light';
-  fontSizes: FontSize[] = ['sm', 'md', 'lg', 'xl'];
-  fontSize: FontSize = 'md';
 
-  constructor(private themeService: ThemeService) {
-    this.theme = this.themeService.getSavedTheme();
-    this.themeService.setTheme(this.theme);
-  }
+  constructor(public theme: ThemeState) {}
 
   toggleTheme() {
-    this.theme = this.theme === 'dark' ? 'light' : 'dark';
-    this.themeService.setTheme(this.theme);
+    this.theme.toggleTheme();
   }
 
-  setFontSize(size: FontSize) {
-    this.fontSize = size;
-    this.themeService.setFontSize(size);
+  increaseFont() {
+    this.theme.adjustFontSize('increase');
   }
 
-  adjustFont(direction: 'increase' | 'decrease') {
-    const currentIndex = this.fontSizes.indexOf(this.fontSize);
-    const nextIndex =
-      direction === 'increase'
-        ? Math.min(currentIndex + 1, this.fontSizes.length - 1)
-        : Math.max(currentIndex - 1, 0);
-
-    this.setFontSize(this.fontSizes[nextIndex]);
+  decreaseFont() {
+    this.theme.adjustFontSize('decrease');
   }
 
   resetFont() {
-    this.setFontSize('md');
+    this.theme.resetFontSize();
   }
 }
