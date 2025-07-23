@@ -1,0 +1,28 @@
+<div class="flex flex-col h-screen">
+  <div class="bg-gray-500">
+    <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+  </div>
+
+  <div class="theme-background flex flex-1 transition-all duration-300">
+    <div
+      [ngClass]="isSidebarOpen ? 'w-full md:w-1/5' : 'w-0'"
+      class="theme-surface overflow-hidden transition-all duration-300"
+    >
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div
+      class="flex-1 transition-all duration-300"
+      [ngClass]="{
+        'hidden md:block': isSidebarOpen,
+        block: !isSidebarOpen
+      }"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="bg-gray-500">
+    <app-footer></app-footer>
+  </div>
+</div>

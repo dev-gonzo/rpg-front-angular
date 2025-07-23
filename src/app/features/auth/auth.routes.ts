@@ -1,0 +1,24 @@
+import { Routes } from '@angular/router';
+import { AuthGuard } from '../../auth/guards/auth.guard';
+import { LayoutBlankComponent } from '../../layouts/layout-blank/layout-blank.component';
+
+export const AUTH_ROUTES: Routes = [
+  {
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        component: LayoutBlankComponent,
+        children: [
+          {
+            path: '',
+            loadComponent: () =>
+              import('./pages/login/login.component').then(
+                (m) => m.HomePrivateComponent
+              ),
+          },
+        ],
+      },
+    ],
+  },
+];
