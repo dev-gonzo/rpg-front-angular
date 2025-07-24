@@ -1,0 +1,18 @@
+<div class="w-full">
+  <label
+    class="block font-medium text-foreground mb-1"
+    [attr.for]="inputId"
+  >
+    {{ label }}
+  </label>
+  <input
+    [id]="inputId"
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="onInputChange($event)"
+    (blur)="onBlur()"
+    class="w-full font-normal px-3 py-2 rounded-md border border-border bg-surface text-foreground placeholder-muted shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+  />
+</div>

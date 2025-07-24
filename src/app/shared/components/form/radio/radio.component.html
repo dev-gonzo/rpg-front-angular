@@ -1,0 +1,20 @@
+<fieldset class="space-y-2">
+  <legend class="font-medium text-foreground mb-1">{{ label }}</legend>
+  <div class="flex flex-col gap-2">
+    <label
+      *ngFor="let opt of options"
+      class="inline-flex items-center gap-2 text-sm text-foreground cursor-pointer"
+    >
+      <input
+        type="radio"
+        class="w-4 h-4 text-primary focus:ring-primary"
+        [name]="name"
+        [value]="opt.value"
+        [checked]="value === opt.value"
+        [disabled]="disabled"
+        (change)="select(opt.value)"
+      />
+      {{ opt.label }}
+    </label>
+  </div>
+</fieldset>

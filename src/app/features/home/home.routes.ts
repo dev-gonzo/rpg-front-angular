@@ -7,7 +7,7 @@ import { LayoutMainComponent } from '../../layouts/layout-main/layout-main.compo
 export const HOME_ROUTES: Routes = [
 
   {
-    path: 'home',
+    path: '',
     children: [
       {
         path: 'private',

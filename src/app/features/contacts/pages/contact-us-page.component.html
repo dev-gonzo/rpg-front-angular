@@ -1,0 +1,76 @@
+<div class="p-4">
+  <form
+    *ngIf="form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="grid grid-cols-12 gap-4"
+  >
+    <div class="col-span-12">
+      <app-form-input label="Nome" formControlName="nome"></app-form-input>
+    </div>
+    <div class="col-span-12">
+      <app-form-input
+        label="Sobrenome"
+        formControlName="sobrenome"
+      ></app-form-input>
+    </div>
+    <div class="col-span-12">
+      <app-form-input label="CPF" formControlName="cpf"></app-form-input>
+    </div>
+    <div class="col-span-12">
+      <app-form-input
+        label="Celular"
+        formControlName="celular"
+      ></app-form-input>
+    </div>
+    <div class="col-span-12">
+      <app-form-input label="E-mail" formControlName="email" type="email"></app-form-input>
+    </div>
+    <div class="col-span-12">
+      <app-form-select
+        label="Estado"
+        formControlName="estado"
+        [options]="[
+          { label: 'SP', value: 'sp' },
+          { label: 'RJ', value: 'rj' },
+          { label: 'MG', value: 'mg' },
+        ]"
+      />
+    </div>
+    <div class="col-span-12">
+      <app-form-autocomplete
+        label="Cidade"
+        formControlName="cidade"
+        [options]="[
+          { label: 'São Paulo', value: 'sp' },
+          { label: 'Rio de Janeiro', value: 'rj' },
+          { label: 'Belo Horizonte', value: 'bh' },
+        ]"
+      />
+    </div>
+    <div class="col-span-12">
+      <app-form-radio
+      label="Membro"
+      name="membro"
+      formControlName="membro"
+      [options]="[
+        { label: 'Membro', value: 'membro' },
+        { label: 'Colaborador', value: 'colaborador' },
+        { label: 'Outro', value: 'outro' },
+      ]"
+      ></app-form-radio>
+    </div>
+    <div class="col-span-12 pt-5">
+      <app-form-checkbox
+        label="Aceito os termos"
+        formControlName="aceito"
+      ></app-form-checkbox>
+    </div>
+
+    <div class="col-span-12 flex justify-end">
+      <button type="submit" class="theme-primary px-4 py-2 rounded text-sm">
+        Salvar
+      </button>
+    </div>
+  </form>
+</div>
