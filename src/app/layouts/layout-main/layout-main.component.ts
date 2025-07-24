@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { SidebarComponent } from '@layouts/sidebar/sidebar.component';
 import { NavbarComponent } from '@layouts/navbar/navbar.component';
 import { FooterComponent } from '@layouts/footer/footer.component';

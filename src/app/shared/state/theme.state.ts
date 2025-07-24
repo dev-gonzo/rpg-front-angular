@@ -1,4 +1,5 @@
 import { Injectable, signal } from '@angular/core';
+
 import { FontSize, ThemeMode } from '../../design/theme/theme.types';
 
 @Injectable({ providedIn: 'root' })
@@ -24,33 +25,33 @@ export class ThemeState {
     return (localStorage.getItem(this.FONT_KEY) as FontSize) || 'md';
   }
 
-  private applyToDOM() {
+  private applyToDOM(): void {
     document.documentElement.setAttribute('data-theme', this._theme());
     document.documentElement.setAttribute('data-font', this._fontSize());
   }
 
-  setTheme(value: ThemeMode) {
+  setTheme(value: ThemeMode): void {
     this._theme.set(value);
     localStorage.setItem(this.THEME_KEY, value);
     this.applyToDOM();
   }
 
-  toggleTheme() {
+  toggleTheme(): void {
     const next = this._theme() === 'dark' ? 'light' : 'dark';
     this.setTheme(next);
   }
 
-  setFontSize(size: FontSize) {
+  setFontSize(size: FontSize): void {
     this._fontSize.set(size);
     localStorage.setItem(this.FONT_KEY, size);
     this.applyToDOM();
   }
 
-  resetFontSize() {
+  resetFontSize(): void {
     this.setFontSize('md');
   }
 
-  adjustFontSize(direction: 'increase' | 'decrease') {
+  adjustFontSize(direction: 'increase' | 'decrease'): void {
     const allSizes: FontSize[] = ['sm', 'md', 'lg', 'xl'];
     const index = allSizes.indexOf(this._fontSize());
     const nextIndex =

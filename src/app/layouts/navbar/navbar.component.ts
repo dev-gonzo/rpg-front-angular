@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+
 import { ThemeState } from '@shared/state/theme.state';
 
 @Component({
@@ -11,21 +12,21 @@ import { ThemeState } from '@shared/state/theme.state';
 export class NavbarComponent {
   @Output() toggleSidebar = new EventEmitter<void>();
 
-  constructor(public theme: ThemeState) {}
+  theme = inject(ThemeState);
 
-  toggleTheme() {
+  toggleTheme(): void {
     this.theme.toggleTheme();
   }
 
-  increaseFont() {
+  increaseFont(): void {
     this.theme.adjustFontSize('increase');
   }
 
-  decreaseFont() {
+  decreaseFont(): void {
     this.theme.adjustFontSize('decrease');
   }
 
-  resetFont() {
+  resetFont(): void {
     this.theme.resetFontSize();
   }
 }
