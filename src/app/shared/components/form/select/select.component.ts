@@ -1,11 +1,10 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
+  AbstractControl,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 export interface SelectOption {
   label: string;
@@ -17,54 +16,40 @@ export interface SelectOption {
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './select.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectComponent),
-      multi: true,
-    },
-  ],
 })
-export class SelectComponent implements ControlValueAccessor {
+export class SelectComponent {
+  @Input({ required: true }) control!: AbstractControl;
   @Input() label = '';
   @Input() options: SelectOption[] = [];
   @Input() placeholder = 'Selecione';
   @Input() id?: string;
 
-  value: string | number | null = '';
-  disabled = false;
-
-  private onChange: (value: string | number | null) => void = () => {};
-  private onTouched: () => void = () => {};
-
   get selectId(): string {
     return this.id ?? `select-${this.label.toLowerCase().replace(/\s+/g, '-')}`;
   }
 
-  writeValue(value: string | number | null): void {
-    this.value = value ?? '';
-  }
+  get error(): string | null {
+    if (!this.control || !this.control.touched || !this.control.errors) {
+      return null;
+    }
 
-  registerOnChange(fn: (value: string | number | null) => void): void {
-    this.onChange = fn;
-  }
+    const errors = this.control.errors;
 
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
+    if (typeof errors['schema'] === 'string') {
+      return errors['schema'];
+    }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    return null;
   }
 
   onSelectChange(event: Event): void {
     const select = event.target as HTMLSelectElement;
     const selectedValue = select.value === '' ? null : select.value;
-    this.value = selectedValue;
-    this.onChange(selectedValue);
+    this.control.setValue(selectedValue);
+    this.control.markAsDirty();
   }
 
   onBlur(): void {
-    this.onTouched();
+    this.control.markAsTouched();
   }
 }

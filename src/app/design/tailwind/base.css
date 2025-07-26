@@ -1,23 +1,22 @@
-/* src/app/design/tailwind/base.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root[data-theme="light"] {
-  --color-background: #ffffff;
-  --color-foreground: #212529;
+  --color-background: #f5f0ea;
+  --color-foreground: #2e1e17;
 
-  --color-primary: #003366;
+  --color-primary: #351807;
   --color-primary-contrast: #ffffff;
 
-  --color-secondary: #6c757d;
-  --color-secondary-contrast: #ffffff;
+  --color-secondary: #64442a;
+  --color-secondary-contrast: #2e1e17;
 
-  --color-surface: #f8f9fa;
-  --color-surface-contrast: #212529;
+  --color-surface: #f1e7dd;
+  --color-surface-contrast: #29140b;
 
-  --color-muted: #e9ecef;
-  --color-border: #dee2e6;
+  --color-muted: #e0d2c4;
+  --color-border: #cbb8a9;
 }
 
 :root[data-theme="dark"] {

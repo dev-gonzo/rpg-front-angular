@@ -18,11 +18,15 @@ export class ThemeState {
   }
 
   private loadTheme(): ThemeMode {
-    return (localStorage.getItem(this.THEME_KEY) as ThemeMode) || 'light';
+    const stored = localStorage.getItem(this.THEME_KEY);
+    return stored === 'light' || stored === 'dark' ? stored : 'dark';
   }
 
   private loadFontSize(): FontSize {
-    return (localStorage.getItem(this.FONT_KEY) as FontSize) || 'md';
+    const stored = localStorage.getItem(this.FONT_KEY);
+    return ['sm', 'md', 'lg', 'xl'].includes(stored as FontSize)
+      ? (stored as FontSize)
+      : 'md';
   }
 
   private applyToDOM(): void {
@@ -37,7 +41,7 @@ export class ThemeState {
   }
 
   toggleTheme(): void {
-    const next = this._theme() === 'dark' ? 'light' : 'dark';
+    const next = this._theme() === 'light' ? 'dark' : 'light';
     this.setTheme(next);
   }
 

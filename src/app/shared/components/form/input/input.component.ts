@@ -1,68 +1,51 @@
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import {
-  Component,
-  Input,
-  forwardRef,
-} from '@angular/core';
-import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
+  AbstractControl,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-form-input',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './input.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
-      multi: true,
-    },
-  ],
 })
-export class InputComponent implements ControlValueAccessor {
+export class InputComponent {
+  @Input({ required: true }) control!: AbstractControl;
   @Input() label = '';
   @Input() placeholder = '';
   @Input() type: 'text' | 'email' | 'password' | 'number' | 'tel' = 'text';
   @Input() id?: string;
-
-  value = '';
-  disabled = false;
-
-  private onChange: (value: string) => void = () => {};
-  private onTouched: () => void = () => {};
+  @Input() mask?: string;
 
   get inputId(): string {
     return this.id ?? `input-${this.label.toLowerCase().replace(/\s+/g, '-')}`;
   }
 
-  writeValue(value: string | null): void {
-    this.value = value ?? '';
-  }
+  get error(): string | null {
+    if (!this.control || !this.control.touched || !this.control.errors) {
+      return null;
+    }
 
-  registerOnChange(fn: (value: string) => void): void {
-    this.onChange = fn;
-  }
+    const errors = this.control.errors;
 
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
+    if (typeof errors['schema'] === 'string') {
+      return errors['schema'];
+    }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    return null;
   }
 
   onInputChange(event: Event): void {
     const input = event.target as HTMLInputElement;
-    this.value = input.value;
-    this.onChange(this.value);
+    this.control.setValue(input.value);
+    this.control.markAsDirty();
   }
 
   onBlur(): void {
-    this.onTouched();
+    this.control.markAsTouched();
   }
 }

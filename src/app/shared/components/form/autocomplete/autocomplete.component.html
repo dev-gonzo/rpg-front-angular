@@ -1,21 +1,30 @@
 <div class="w-full relative">
   <label
     [attr.for]="inputId"
-    class="block font-medium text-foreground mb-1"
+    class="block font-medium mb-1"
+    [ngClass]="{
+      'text-foreground': !error,
+      'text-red-500': error,
+    }"
   >
     {{ label }}
   </label>
+
   <input
     #inputRef
     [id]="inputId"
     type="text"
-    class="w-full font-normal px-3 py-2 rounded-md border border-border bg-surface text-foreground  shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+    class="w-full font-normal px-3 py-2 rounded-md border bg-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
     [placeholder]="placeholder"
-    [value]="value"
-    [disabled]="disabled"
+    [value]="displayLabel"
     (input)="onInput($event)"
     (blur)="onBlur()"
+    [ngClass]="{
+      'text-foreground border-border': !error,
+      'text-red-500 border-red-500 border-2  placeholder:text-red-500': error,
+    }"
   />
+
   <ul
     *ngIf="showDropdown && filteredOptions.length > 0"
     class="absolute z-10 w-full bg-surface border border-border rounded-md mt-1 shadow-lg max-h-60 overflow-y-auto"
@@ -28,4 +37,8 @@
       {{ opt.label }}
     </li>
   </ul>
+
+  <p *ngIf="error" class="text-sm text-red-500 mt-1 px-2">
+    {{ error }}
+  </p>
 </div>

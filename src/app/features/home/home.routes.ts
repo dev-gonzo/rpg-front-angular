@@ -10,7 +10,7 @@ export const HOME_ROUTES: Routes = [
     path: '',
     children: [
       {
-        path: 'private',
+        path: 'home',
         component: LayoutMainComponent,
         children: [
           {

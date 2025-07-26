@@ -1,16 +1,26 @@
-<div class="flex items-center space-x-3">
-  <input
-    [id]="checkboxId"
-    type="checkbox"
-    class="w-5 h-5 rounded-xl border border-border bg-surface accent-primary focus:outline-none cursor-pointer"
-    [checked]="value"
-    [disabled]="disabled"
-    (change)="onCheckboxChange($event)"
-  />
-  <label
-    [attr.for]="checkboxId"
-    class="font-medium  mb-1 select-none cursor-pointer"
-  >
-    {{ label }}
-  </label>
+<div class="w-full">
+  <div class="flex items-center space-x-3">
+    <input
+      [id]="checkboxId"
+      type="checkbox"
+      class="w-5 h-5 rounded border border-border bg-surface accent-primary focus:outline-none cursor-pointer"
+      [checked]="value"
+      [disabled]="disabled"
+      (change)="onCheckboxChange($event)"
+    />
+    <label
+      [attr.for]="checkboxId"
+      class="font-medium select-none cursor-pointer"
+      [ngClass]="{
+        'text-foreground': !error,
+        'text-red-500': error
+      }"
+    >
+      {{ label }}
+    </label>
+  </div>
+
+  <p *ngIf="error" class="text-sm text-red-500 mt-1 px-1">
+    {{ error }}
+  </p>
 </div>

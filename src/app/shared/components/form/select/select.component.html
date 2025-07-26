@@ -1,21 +1,34 @@
 <div class="w-full">
-  <label [attr.for]="selectId" class="block font-medium text-foreground mb-1">
+  <label
+    [attr.for]="selectId"
+    class="block font-medium mb-1"
+    [ngClass]="{
+      'text-foreground': !error,
+      'text-red-500': error,
+    }"
+  >
     {{ label }}
   </label>
+
   <select
     [id]="selectId"
-    [disabled]="disabled"
-    [value]="value"
+    [value]="control.value"
     (change)="onSelectChange($event)"
     (blur)="onBlur()"
-    class="w-full px-3 py-2 rounded-md border border-border bg-surface text-foreground placeholder-muted shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary font-normal"
+    class="w-full px-3 py-2 rounded-md border bg-surface shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-normal"
+    [ngClass]="{
+      'border-border text-foreground': !error && control.value,
+      'text-gray-400 focus:text-foreground': !error && !control.value,
+      'border-red-500 text-red-500 border-2': error,
+    }"
   >
-    <option value="" disabled selected hidden>{{ placeholder }}</option>
-    <option
-      *ngFor="let opt of options"
-      [value]="opt.value"
-    >
+    <option value="" disabled hidden>{{ placeholder }}</option>
+    <option *ngFor="let opt of options" [value]="opt.value">
       {{ opt.label }}
     </option>
   </select>
+
+  <p *ngIf="error" class="text-sm text-red-500 mt-1 px-2">
+    {{ error }}
+  </p>
 </div>

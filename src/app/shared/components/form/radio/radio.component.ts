@@ -1,11 +1,10 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
+  AbstractControl,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 export interface RadioOption {
   label: string;
@@ -17,45 +16,38 @@ export interface RadioOption {
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './radio.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => RadioComponent),
-      multi: true,
-    },
-  ],
 })
-export class RadioComponent implements ControlValueAccessor {
+export class RadioComponent {
+  @Input({ required: true }) control!: AbstractControl;
   @Input() label = '';
   @Input() name = '';
   @Input() options: RadioOption[] = [];
 
-  value: string | number | null = null;
-  disabled = false;
-
-  private onChange: (value: string | number | null) => void = () => {};
-  private onTouched: () => void = () => {};
-
-  writeValue(value: string | number | null): void {
-    this.value = value;
+  get value(): string | number | null {
+    return this.control?.value;
   }
 
-  registerOnChange(fn: (value: string | number | null) => void): void {
-    this.onChange = fn;
+  get disabled(): boolean {
+    return this.control?.disabled ?? false;
   }
 
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
+  get error(): string | null {
+    if (!this.control || !this.control.touched || !this.control.errors) {
+      return null;
+    }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    const errors = this.control.errors;
+    if (typeof errors['schema'] === 'string') {
+      return errors['schema'];
+    }
+
+    return null;
   }
 
   select(value: string | number): void {
     if (this.disabled) return;
-    this.value = value;
-    this.onChange(value);
-    this.onTouched();
+    this.control.setValue(value);
+    this.control.markAsTouched();
+    this.control.markAsDirty();
   }
 }

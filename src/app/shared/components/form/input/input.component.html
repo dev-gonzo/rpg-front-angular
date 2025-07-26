@@ -1,18 +1,31 @@
 <div class="w-full">
-  <label
-    class="block font-medium text-foreground mb-1"
-    [attr.for]="inputId"
+  <label 
+  [attr.for]="inputId"
+  class="block font-medium mb-1" 
+   [ngClass]="{
+      'text-foreground': !error,
+      'text-red-500': error,
+    }"
   >
     {{ label }}
   </label>
+
   <input
     [id]="inputId"
     [type]="type"
     [placeholder]="placeholder"
-    [value]="value"
-    [disabled]="disabled"
+    [value]="control.value"
     (input)="onInputChange($event)"
     (blur)="onBlur()"
-    class="w-full font-normal px-3 py-2 rounded-md border border-border bg-surface text-foreground placeholder-muted shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+    [mask]="mask"
+    class="w-full font-normal px-3 py-2 rounded-md border border-border bg-surface shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+    [ngClass]="{
+      'border-border text-foreground': !error,
+      'border-red-500 text-red-500  border-2 placeholder:text-red-500': error,
+    }"
   />
+
+  <p *ngIf="error" class="text-sm text-red-500 mt-1 px-2">
+    {{ error }}
+  </p>
 </div>

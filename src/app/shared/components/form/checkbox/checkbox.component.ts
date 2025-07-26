@@ -1,34 +1,21 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
+  AbstractControl,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form-checkbox',
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './checkbox.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CheckboxComponent),
-      multi: true,
-    },
-  ],
 })
-export class CheckboxComponent implements ControlValueAccessor {
+export class CheckboxComponent {
+  @Input({ required: true }) control!: AbstractControl;
   @Input() label = '';
   @Input() id?: string;
-
-  value = false;
-  disabled = false;
-
-  private onChange: (value: boolean) => void = () => {};
-  private onTouched: () => void = () => {};
 
   get checkboxId(): string {
     return (
@@ -36,26 +23,31 @@ export class CheckboxComponent implements ControlValueAccessor {
     );
   }
 
-  writeValue(value: boolean): void {
-    this.value = value ?? false;
+  get value(): boolean {
+    return !!this.control?.value;
   }
 
-  registerOnChange(fn: (value: boolean) => void): void {
-    this.onChange = fn;
+  get disabled(): boolean {
+    return this.control?.disabled ?? false;
   }
 
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
+  get error(): string | null {
+    if (!this.control || !this.control.touched || !this.control.errors) {
+      return null;
+    }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    const errors = this.control.errors;
+    if (typeof errors['schema'] === 'string') {
+      return errors['schema'];
+    }
+
+    return null;
   }
 
   onCheckboxChange(event: Event): void {
     const input = event.target as HTMLInputElement;
-    this.value = input.checked;
-    this.onChange(this.value);
-    this.onTouched();
+    this.control.setValue(input.checked);
+    this.control.markAsTouched();
+    this.control.markAsDirty();
   }
 }

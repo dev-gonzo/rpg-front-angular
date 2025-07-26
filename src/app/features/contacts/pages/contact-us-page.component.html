@@ -6,64 +6,49 @@
     class="grid grid-cols-12 gap-4"
   >
     <div class="col-span-12">
-      <app-form-input label="Nome" formControlName="nome"></app-form-input>
+      <app-form-input
+        label="Nome"
+        placeholder="Digite seu nome"
+        [control]="form.get('nome')!"
+      />
     </div>
     <div class="col-span-12">
       <app-form-input
-        label="Sobrenome"
-        formControlName="sobrenome"
-      ></app-form-input>
-    </div>
-    <div class="col-span-12">
-      <app-form-input label="CPF" formControlName="cpf"></app-form-input>
-    </div>
-    <div class="col-span-12">
-      <app-form-input
-        label="Celular"
-        formControlName="celular"
-      ></app-form-input>
-    </div>
-    <div class="col-span-12">
-      <app-form-input label="E-mail" formControlName="email" type="email"></app-form-input>
+        label="CPF"
+        placeholder="Digite seu CPF"
+        [control]="form.get('cpf')!"
+        mask="000.000.000-00"
+      />
     </div>
     <div class="col-span-12">
       <app-form-select
-        label="Estado"
-        formControlName="estado"
-        [options]="[
-          { label: 'SP', value: 'sp' },
-          { label: 'RJ', value: 'rj' },
-          { label: 'MG', value: 'mg' },
-        ]"
-      />
+        [control]="form.get('estado')!"
+        [options]="selectOptions"
+        label="Tipo de usuário"
+        placeholder="Selecione uma opção"
+      ></app-form-select>
     </div>
     <div class="col-span-12">
       <app-form-autocomplete
-        label="Cidade"
-        formControlName="cidade"
-        [options]="[
-          { label: 'São Paulo', value: 'sp' },
-          { label: 'Rio de Janeiro', value: 'rj' },
-          { label: 'Belo Horizonte', value: 'bh' },
-        ]"
-      />
+        label="Buscar cidade"
+        placeholder="Digite uma cidade"
+        [options]="cidades"
+        [control]="form.get('cidade')!"
+      ></app-form-autocomplete>
     </div>
     <div class="col-span-12">
       <app-form-radio
-      label="Membro"
-      name="membro"
-      formControlName="membro"
-      [options]="[
-        { label: 'Membro', value: 'membro' },
-        { label: 'Colaborador', value: 'colaborador' },
-        { label: 'Outro', value: 'outro' },
-      ]"
+        label="Tipo de usuário"
+        name="tipoUsuario"
+        [options]="opcoesUsuario"
+        [control]="form.get('tipoUsuario')!"
       ></app-form-radio>
     </div>
-    <div class="col-span-12 pt-5">
+
+    <div class="col-span-12">
       <app-form-checkbox
         label="Aceito os termos"
-        formControlName="aceito"
+        [control]="form.get('aceito')!"
       ></app-form-checkbox>
     </div>
 

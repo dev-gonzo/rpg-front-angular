@@ -1,16 +1,8 @@
 import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import {
-  Component,
-  ElementRef,
-  forwardRef,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import {
-  ControlValueAccessor,
+  AbstractControl,
   FormsModule,
-  NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
 } from '@angular/forms';
 
@@ -24,15 +16,9 @@ export interface AutocompleteOption {
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './autocomplete.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => AutocompleteComponent),
-      multi: true,
-    },
-  ],
 })
-export class AutocompleteComponent implements ControlValueAccessor, OnInit {
+export class AutocompleteComponent implements OnInit {
+  @Input({ required: true }) control!: AbstractControl;
   @Input() label = '';
   @Input() options: AutocompleteOption[] = [];
   @Input() placeholder = 'Digite para buscar...';
@@ -40,15 +26,8 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
 
   @ViewChild('inputRef') inputRef!: ElementRef<HTMLInputElement>;
 
-  value: string | number | null = '';
   filteredOptions: AutocompleteOption[] = [];
-
-  disabled = false;
-  touched = false;
   showDropdown = false;
-
-  private onChange: (value: string | number | null) => void = () => {};
-  private onTouched: () => void = () => {};
 
   get inputId(): string {
     return (
@@ -56,54 +35,54 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
     );
   }
 
+  get value(): string {
+    return this.control?.value ?? '';
+  }
+
+  get error(): string | null {
+    if (!this.control || !this.control.touched || !this.control.errors)
+      return null;
+
+    const errors = this.control.errors;
+
+    if (typeof errors['schema'] === 'string') {
+      return errors['schema'];
+    }
+
+    return null;
+  }
+
   ngOnInit(): void {
     this.filteredOptions = this.options;
   }
 
-  writeValue(value: string | number | null): void {
-    this.value = value ?? '';
-  }
-
-  registerOnChange(fn: (value: string | number | null) => void): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
-
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
-
   onInput(event: Event): void {
     const input = (event.target as HTMLInputElement).value;
-    this.value = input;
+    this.control.setValue(input);
+    this.control.markAsDirty();
+
     this.filteredOptions = this.options.filter((o) =>
       o.label.toLowerCase().includes(input.toLowerCase()),
     );
     this.showDropdown = true;
-    this.onChange(input);
   }
 
   selectOption(option: AutocompleteOption): void {
-    this.value = option.label;
+    this.control.setValue(option.value);
+    this.control.markAsTouched();
     this.showDropdown = false;
-    this.onChange(option.value);
-    this.markAsTouched();
   }
 
-  markAsTouched(): void {
-    if (!this.touched) {
-      this.onTouched();
-      this.touched = true;
-    }
+  get displayLabel(): string {
+    const val = this.control?.value;
+    const selected = this.options.find((o) => o.value === val);
+    return selected?.label ?? val ?? '';
   }
 
   onBlur(): void {
     setTimeout(() => {
       this.showDropdown = false;
-      this.markAsTouched();
+      this.control.markAsTouched();
     }, 150);
   }
 }
