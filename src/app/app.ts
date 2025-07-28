@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { ThemeState } from '@shared/state/theme.state';
+import { ThemeService } from '@app/design/theme/theme.sevice';
 
 import { ToastComponent } from './shared/components/toast/toast.component';
 
@@ -15,5 +15,5 @@ import { ToastComponent } from './shared/components/toast/toast.component';
   `,
 })
 export class AppComponent {
-  private readonly _theme = inject(ThemeState);
+  private readonly _theme = inject(ThemeService);
 }

@@ -13,8 +13,8 @@ export const NOT_FOUND_ROUTES: Routes = [
           {
             path: '',
             loadComponent: () =>
-              import('./pages/not-found.component').then(
-                (m) => m.NotFoundComponent,
+              import('./pages/not-found.page').then(
+                (m) => m.NotFoundPage,
               ),
           },
         ],

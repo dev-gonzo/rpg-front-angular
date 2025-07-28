@@ -15,6 +15,6 @@ export class ToastComponent {
   cssClass = computed(() => ({
     'bg-green-900': this.toast.type() === 'success',
     'bg-red-900': this.toast.type() === 'error',
-    'bg-blue-900': this.toast.type() === 'info',
+    'bg-blue-600': this.toast.type() === 'info',
   }));
 }

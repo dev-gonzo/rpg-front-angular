@@ -5,7 +5,7 @@ const path = require('path');
 const env = dotenv.config().parsed;
 
 if (!env || !env.API_URL) {
-  console.error('⚠️  .env não encontrado ou variável API_URL ausente.');
+  console.error('.env não encontrado ou variável API_URL ausente.');
   process.exit(1);
 }
 

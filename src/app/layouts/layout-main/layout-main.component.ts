@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
-import { SidebarComponent } from '@layouts/sidebar/sidebar.component';
-import { NavbarComponent } from '@layouts/navbar/navbar.component';
-import { FooterComponent } from '@layouts/footer/footer.component';
+import { SidebarComponent } from '../component/sidebar/sidebar.component';
+import { NavbarComponent } from '../component/navbar/navbar.component';
+import { FooterComponent } from '../component/footer/footer.component';
+
 
 @Component({
   selector: 'app-layout-main',

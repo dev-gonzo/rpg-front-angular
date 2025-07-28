@@ -16,8 +16,8 @@ export const HOME_ROUTES: Routes = [
           {
             path: '',
             loadComponent: () =>
-              import('./pages/private/home-private.component').then(
-                (m) => m.HomePrivateComponent
+              import('./pages/private/home-private.page').then(
+                (m) => m.HomePrivatePage
               ),
             canActivate: [AuthGuard],
           },
@@ -30,8 +30,8 @@ export const HOME_ROUTES: Routes = [
           {
             path: '',
             loadComponent: () =>
-              import('./pages/public/home-public.component').then(
-                (m) => m.HomePublicComponent
+              import('./pages/public/home-public.page').then(
+                (m) => m.HomePublicPage
               ),
           },
         ],
