@@ -4,9 +4,7 @@
       [id]="checkboxId"
       type="checkbox"
       class="w-5 h-5 rounded border border-border bg-surface accent-primary focus:outline-none cursor-pointer"
-      [checked]="value"
-      [disabled]="disabled"
-      (change)="onCheckboxChange($event)"
+      [formControl]="control"
     />
     <label
       [attr.for]="checkboxId"

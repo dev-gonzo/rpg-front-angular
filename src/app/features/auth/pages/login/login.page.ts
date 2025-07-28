@@ -1,16 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { createFormFromSchema } from '@app/core/utils/createFormFromSchema';
-import { InputComponent } from '@app/shared/components/form/input/input.component';
-import { FormValidatorService } from '@app/core/services/form-validation/form-validator.service';
 import { AuthApiService } from '@app/api/auth/auth.api.service';
 import { AuthService } from '@app/auth/service/auth.service';
+import { FormValidatorService } from '@app/core/services/form-validation/form-validator.service';
+import { TypedFormGroup } from '@app/core/types/forms';
+import { createFormFromSchema } from '@app/core/utils/createFormFromSchema';
+import { InputComponent } from '@app/shared/components/form/input/input.component';
 import { ToastService } from '@app/shared/components/toast/toast.service';
 
-import { loginSchema } from './login.schema';
+import { LoginFormData, loginSchema } from './login.schema';
 
 @Component({
   standalone: true,
@@ -26,7 +27,7 @@ export class HomePrivatePage implements OnInit {
   private readonly router = inject(Router);
   private readonly toast = inject(ToastService);
 
-  form!: FormGroup;
+  form!: TypedFormGroup<LoginFormData>;
 
   ngOnInit(): void {
     const { form } = createFormFromSchema(
@@ -35,6 +36,7 @@ export class HomePrivatePage implements OnInit {
     );
     this.form = form;
     
+
     requestAnimationFrame(() => this.cdRef.detectChanges());
   }
 
@@ -47,7 +49,7 @@ export class HomePrivatePage implements OnInit {
       return;
     }
 
-    this.authApi.login(this.form.value).subscribe({
+    this.authApi.login(this.form.value as LoginFormData).subscribe({
       next: ({ token }) => {
         this.auth.setToken(token);
         this.router.navigate(['/home']);
@@ -55,6 +57,8 @@ export class HomePrivatePage implements OnInit {
       },
       error: () => {
         this.toast.error('E-mail ou senha inválidos');
+
+
       },
     });
   }

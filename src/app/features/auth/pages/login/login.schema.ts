@@ -4,6 +4,7 @@ export const loginSchema = yup.object({
   email: yup
     .string()
     .required('O e-mail é obrigatório')
+    .email('E-mail inválido')
     .min(3, 'Mínimo de 3 caracteres'),
   password: yup.string().required('O Senha é obrigatório'),
 });

@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import {
-  AbstractControl,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export interface SelectOption {
   label: string;
@@ -18,7 +14,7 @@ export interface SelectOption {
   templateUrl: './select.component.html',
 })
 export class SelectComponent {
-  @Input({ required: true }) control!: AbstractControl;
+  @Input({ required: true }) control!: FormControl;
   @Input() label = '';
   @Input() options: SelectOption[] = [];
   @Input() placeholder = 'Selecione';
@@ -34,19 +30,7 @@ export class SelectComponent {
     }
 
     const errors = this.control.errors;
-
-    if (typeof errors['schema'] === 'string') {
-      return errors['schema'];
-    }
-
-    return null;
-  }
-
-  onSelectChange(event: Event): void {
-    const select = event.target as HTMLSelectElement;
-    const selectedValue = select.value === '' ? null : select.value;
-    this.control.setValue(selectedValue);
-    this.control.markAsDirty();
+    return typeof errors['schema'] === 'string' ? errors['schema'] : null;
   }
 
   onBlur(): void {

@@ -14,7 +14,7 @@
       <app-form-input
         label="E-mail"
         placeholder="Digite seu e-mail"
-        [control]="form.get('email')!"
+        [control]="form.controls.email"
       />
     </div>
     <div class="col-span-12">
@@ -22,7 +22,7 @@
         label="Senha"
         placeholder="Digite sua senha"
         type="password"
-        [control]="form.get('password')!"
+        [control]="form.controls.password"
       />
     </div>
     <div class="col-span-12 flex justify-end">

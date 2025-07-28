@@ -13,9 +13,19 @@ export interface FormHandler<T extends yup.Maybe<yup.AnyObject>> {
   submit: () => Promise<T | undefined>;
 }
 
+/**
+ * Cria um FormGroup a partir de um schema Yup.
+ * 
+ * @param schema Schema de validação do Yup
+ * @param onValid Callback chamado com os dados validados
+ * @param initialValues Valores iniciais para preencher o formulário (ex: em edição)
+ * 
+ * @returns Um FormGroup e função de submit
+ */
 export function createFormFromSchema<T extends yup.Maybe<yup.AnyObject>>(
   schema: yup.ObjectSchema<T>,
-  onValid: (data: T) => void
+  onValid: (data: T) => void,
+  initialValues?: Partial<T>
 ): FormHandler<T> {
   const fb = new FormBuilder();
   const mergedShape: Record<string, [unknown]> = {};
@@ -23,23 +33,29 @@ export function createFormFromSchema<T extends yup.Maybe<yup.AnyObject>>(
 
   for (const key in shape) {
     const field = shape[key];
+    const userValue = initialValues?.[key as keyof T];
 
     let defaultValue: unknown;
-    switch (field.type) {
-      case 'number':
-        defaultValue = null;
-        break;
-      case 'boolean':
-        defaultValue = false;
-        break;
-      case 'array':
-        defaultValue = [];
-        break;
-      case 'object':
-        defaultValue = {};
-        break;
-      default:
-        defaultValue = '';
+
+    if (userValue !== undefined) {
+      defaultValue = userValue;
+    } else {
+      switch (field.type) {
+        case 'number':
+          defaultValue = null;
+          break;
+        case 'boolean':
+          defaultValue = false;
+          break;
+        case 'array':
+          defaultValue = [];
+          break;
+        case 'object':
+          defaultValue = {};
+          break;
+        default:
+          defaultValue = '';
+      }
     }
 
     mergedShape[key] = [defaultValue];
@@ -59,14 +75,12 @@ export function createFormFromSchema<T extends yup.Maybe<yup.AnyObject>>(
       if (err instanceof yup.ValidationError) {
         err.inner.forEach((e) => {
           if (e.path) {
-            form.get(e.path)?.setErrors({ schema: e.message });
+            form.get(e.path)?.setErrors({ message: e.message });
           }
         });
-        form.markAllAsTouched();
       }
+      return undefined;
     }
-
-    return undefined;
   }
 
   return { form, submit };

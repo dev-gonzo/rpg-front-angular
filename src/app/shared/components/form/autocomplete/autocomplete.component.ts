@@ -1,9 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import {
-  AbstractControl,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import {
+  FormControl,
   FormsModule,
-  ReactiveFormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
 
 export interface AutocompleteOption {
@@ -18,7 +24,7 @@ export interface AutocompleteOption {
   templateUrl: './autocomplete.component.html',
 })
 export class AutocompleteComponent implements OnInit {
-  @Input({ required: true }) control!: AbstractControl;
+  @Input({ required: true }) control!: FormControl;
   @Input() label = '';
   @Input() options: AutocompleteOption[] = [];
   @Input() placeholder = 'Digite para buscar...';
@@ -35,48 +41,39 @@ export class AutocompleteComponent implements OnInit {
     );
   }
 
-  get value(): string {
-    return this.control?.value ?? '';
-  }
-
   get error(): string | null {
-    if (!this.control || !this.control.touched || !this.control.errors)
-      return null;
-
+    if (!this.control || !this.control.touched || !this.control.errors) return null;
     const errors = this.control.errors;
-
-    if (typeof errors['schema'] === 'string') {
-      return errors['schema'];
-    }
-
-    return null;
+    return typeof errors['schema'] === 'string' ? errors['schema'] : null;
   }
 
   ngOnInit(): void {
     this.filteredOptions = this.options;
+
+    // exibir o label correspondente ao valor inicial
+    setTimeout(() => {
+      const selected = this.options.find(o => o.value === this.control.value);
+      if (selected) {
+        this.inputRef.nativeElement.value = selected.label;
+      }
+    });
   }
 
   onInput(event: Event): void {
     const input = (event.target as HTMLInputElement).value;
-    this.control.setValue(input);
-    this.control.markAsDirty();
 
-    this.filteredOptions = this.options.filter((o) =>
-      o.label.toLowerCase().includes(input.toLowerCase()),
+    this.filteredOptions = this.options.filter(o =>
+      o.label.toLowerCase().includes(input.toLowerCase())
     );
+
     this.showDropdown = true;
   }
 
   selectOption(option: AutocompleteOption): void {
     this.control.setValue(option.value);
     this.control.markAsTouched();
+    this.inputRef.nativeElement.value = option.label;
     this.showDropdown = false;
-  }
-
-  get displayLabel(): string {
-    const val = this.control?.value;
-    const selected = this.options.find((o) => o.value === val);
-    return selected?.label ?? val ?? '';
   }
 
   onBlur(): void {
@@ -84,5 +81,11 @@ export class AutocompleteComponent implements OnInit {
       this.showDropdown = false;
       this.control.markAsTouched();
     }, 150);
+  }
+
+  get displayLabel(): string {
+    const val = this.control?.value;
+    const selected = this.options.find(o => o.value === val);
+    return selected?.label ?? val ?? '';
   }
 }

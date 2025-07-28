@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import {
-  AbstractControl,
+  FormControl,
   FormsModule,
-  ReactiveFormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
 
 export interface RadioOption {
@@ -18,18 +18,10 @@ export interface RadioOption {
   templateUrl: './radio.component.html',
 })
 export class RadioComponent {
-  @Input({ required: true }) control!: AbstractControl;
+  @Input({ required: true }) control!: FormControl;
   @Input() label = '';
   @Input() name = '';
   @Input() options: RadioOption[] = [];
-
-  get value(): string | number | null {
-    return this.control?.value;
-  }
-
-  get disabled(): boolean {
-    return this.control?.disabled ?? false;
-  }
 
   get error(): string | null {
     if (!this.control || !this.control.touched || !this.control.errors) {
@@ -37,17 +29,6 @@ export class RadioComponent {
     }
 
     const errors = this.control.errors;
-    if (typeof errors['schema'] === 'string') {
-      return errors['schema'];
-    }
-
-    return null;
-  }
-
-  select(value: string | number): void {
-    if (this.disabled) return;
-    this.control.setValue(value);
-    this.control.markAsTouched();
-    this.control.markAsDirty();
+    return typeof errors['schema'] === 'string' ? errors['schema'] : null;
   }
 }

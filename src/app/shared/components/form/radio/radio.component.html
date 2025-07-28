@@ -3,7 +3,7 @@
     class="font-medium mb-1"
     [ngClass]="{
       'text-foreground': !error,
-      'text-red-500': error,
+      'text-red-500': error
     }"
   >
     {{ label }}
@@ -15,17 +15,15 @@
       class="inline-flex items-center gap-2 text-sm cursor-pointer"
       [ngClass]="{
         'text-foreground': !error,
-        'text-red-500': error,
+        'text-red-500': error
       }"
     >
       <input
         type="radio"
         class="w-4 h-4 focus:ring-primary"
         [name]="name"
+        [formControl]="control"
         [value]="opt.value"
-        [checked]="value === opt.value"
-        [disabled]="disabled"
-        (change)="select(opt.value)"
       />
       {{ opt.label }}
     </label>

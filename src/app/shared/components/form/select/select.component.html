@@ -4,7 +4,7 @@
     class="block font-medium mb-1"
     [ngClass]="{
       'text-foreground': !error,
-      'text-red-500': error,
+      'text-red-500': error
     }"
   >
     {{ label }}
@@ -12,14 +12,13 @@
 
   <select
     [id]="selectId"
-    [value]="control.value"
-    (change)="onSelectChange($event)"
+    [formControl]="control"
     (blur)="onBlur()"
     class="w-full px-3 py-2 rounded-md border bg-surface shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-normal"
     [ngClass]="{
       'border-border text-foreground': !error && control.value,
       'text-gray-400 focus:text-foreground': !error && !control.value,
-      'border-red-500 text-red-500 border-2': error,
+      'border-red-500 text-red-500 border-2': error
     }"
   >
     <option value="" disabled hidden>{{ placeholder }}</option>

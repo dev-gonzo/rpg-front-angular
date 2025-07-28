@@ -1,20 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import {
-  AbstractControl,
+  FormControl,
   FormsModule,
-  ReactiveFormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-form-input',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskDirective],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxMaskDirective
+  ],
   templateUrl: './input.component.html',
 })
 export class InputComponent {
-  @Input({ required: true }) control!: AbstractControl;
+  @Input({ required: true }) control!: FormControl<string | null>;
   @Input() label = '';
   @Input() placeholder = '';
   @Input() type: 'text' | 'email' | 'password' | 'number' | 'tel' = 'text';
@@ -26,26 +31,9 @@ export class InputComponent {
   }
 
   get error(): string | null {
-    if (!this.control || !this.control.touched || !this.control.errors) {
-      return null;
-    }
+    if (!this.control?.touched || !this.control.errors) return null;
 
     const errors = this.control.errors;
-
-    if (typeof errors['schema'] === 'string') {
-      return errors['schema'];
-    }
-
-    return null;
-  }
-
-  onInputChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    this.control.setValue(input.value);
-    this.control.markAsDirty();
-  }
-
-  onBlur(): void {
-    this.control.markAsTouched();
+    return typeof errors['schema'] === 'string' ? errors['schema'] : null;
   }
 }
