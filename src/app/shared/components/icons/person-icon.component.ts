@@ -6,8 +6,8 @@ import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   imports: [FontAwesomeModule],
   selector: 'app-icon-person',
-  template: '<fa-icon [icon]="faUser" />',
+  template: '<fa-icon [icon]="icon" />',
 })
 export class IconPersonComponent {
-  faUser = faAddressBook;
+  icon = faAddressBook;
 }

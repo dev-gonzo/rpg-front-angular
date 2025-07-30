@@ -1,0 +1,42 @@
+<div class="flex justify-between items-center w-full py-2 border-b border-white/20">
+  <!-- Esquerda -->
+  <div class="flex items-center gap-2">
+    <button
+      (click)="reload.emit()"
+      class="px-2 py-1 text-sm rounded bg-white text-black"
+    >
+      <app-icon-play />
+    </button>
+
+    <ng-container *ngFor="let col of [3, 4, 5]">
+      <button
+        (click)="setColumns(col)"
+        class="px-1 rounded bg-gray-600 text-white text-sm flex items-center justify-center"
+        [class.bg-gray-800]="activeColumns === col"
+      >
+        <app-icon-grid class="text-lg pr-1"/> <i class="fa fa-th mr-1"></i>{{ col }}
+      </button>
+    </ng-container>
+  </div>
+
+  <!-- Direita -->
+  <div class="flex items-center gap-2 text-xs text-white/60">
+    Filtrar:
+
+    <button
+      (click)="setFilter('players')"
+      class="px-2 py-1 text-sm rounded bg-white text-black"
+      [class.bg-gray-300]="filter === 'players'"
+    >
+      Players
+    </button>
+
+    <button
+      (click)="setFilter('npcs')"
+      class="px-2 py-1 text-sm rounded bg-white text-black"
+      [class.bg-gray-300]="filter === 'npcs'"
+    >
+      NPC's
+    </button>
+  </div>
+</div>

@@ -1,8 +1,12 @@
 <div class="flex flex-col w-full items-center">
-  <button class="w-14 h-14 rounded-full border">
+  <button
+    class="rounded-full transition-all duration-200"
+    [ngClass]="[sizeClass, colorClass]"
+  >
     <ng-content></ng-content>
   </button>
-  <small class="text-xs truncate w-full text-center p mt-1 px-4">
+
+  <small class="text-xxs truncate w-full text-center mt-1 px-4" *ngIf="label">
     {{ label }}
   </small>
 </div>

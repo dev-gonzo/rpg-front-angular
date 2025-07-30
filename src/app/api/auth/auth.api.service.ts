@@ -8,11 +8,14 @@ import { AuthRequest, AuthResponse } from './auth.api.types';
 
 @Injectable({ providedIn: 'root' })
 export class AuthApiService {
-  basePath  = '/auth/login';
+  basePath = '/auth/login';
   private readonly http = inject(HttpClient);
   private readonly baseUrl = inject(API_BASE_URL);
 
   login(data: AuthRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.baseUrl}${this.basePath}`, data);
+    return this.http.post<AuthResponse>(
+      `${this.baseUrl}${this.basePath}`,
+      data,
+    );
   }
 }

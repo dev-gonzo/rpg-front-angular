@@ -6,8 +6,8 @@ import { faFeatherPointed } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   imports: [FontAwesomeModule],
   selector: 'app-icon-background',
-  template: '<fa-icon [icon]="faUser" />',
+  template: '<fa-icon [icon]="icon" />',
 })
 export class IconBackgroundComponent {
-  faUser = faFeatherPointed;
+  icon = faFeatherPointed;
 }

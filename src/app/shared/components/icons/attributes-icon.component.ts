@@ -6,8 +6,8 @@ import { faClipboardUser } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   imports: [FontAwesomeModule],
   selector: 'app-icon-attributes',
-  template: '<fa-icon [icon]="faUser" />',
+  template: '<fa-icon [icon]="icon" />',
 })
 export class IconAttributesComponent {
-  faUser = faClipboardUser;
+  icon = faClipboardUser;
 }

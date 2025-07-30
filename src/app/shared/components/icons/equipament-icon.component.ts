@@ -6,8 +6,8 @@ import { faToolbox } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   imports: [FontAwesomeModule],
   selector: 'app-icon-equipament',
-  template: '<fa-icon [icon]="faUser" />',
+  template: '<fa-icon [icon]="icon" />',
 })
 export class IconEquipamentComponent {
-  faUser = faToolbox;
+  icon = faToolbox;
 }

@@ -6,8 +6,8 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   imports: [FontAwesomeModule],
   selector: 'app-icon-info',
-  template: '<fa-icon [icon]="faUser" />',
+  template: '<fa-icon [icon]="icon" />',
 })
 export class IconInfoComponent {
-  faUser = faUserSecret;
+  icon = faUserSecret;
 }

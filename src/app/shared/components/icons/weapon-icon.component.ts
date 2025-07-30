@@ -6,8 +6,8 @@ import { faPersonRifle } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   imports: [FontAwesomeModule],
   selector: 'app-icon-weapon',
-  template: '<fa-icon [icon]="faUser" />',
+  template: '<fa-icon [icon]="icon" />',
 })
 export class IconWeaponComponent {
-  faUser = faPersonRifle;
+  icon = faPersonRifle;
 }

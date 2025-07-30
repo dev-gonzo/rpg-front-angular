@@ -6,8 +6,8 @@ import { faBookSkull } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   imports: [FontAwesomeModule],
   selector: 'app-icon-ritual',
-  template: '<fa-icon [icon]="faUser" />',
+  template: '<fa-icon [icon]="icon" />',
 })
 export class IconRitualComponent {
-  faUser = faBookSkull;
+  icon = faBookSkull;
 }

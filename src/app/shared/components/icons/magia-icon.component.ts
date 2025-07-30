@@ -6,8 +6,8 @@ import { faHatWizard } from '@fortawesome/free-solid-svg-icons';
   standalone: true,
   imports: [FontAwesomeModule],
   selector: 'app-icon-magia',
-  template: '<fa-icon [icon]="faUser" />',
+  template: '<fa-icon [icon]="icon" />',
 })
 export class IconMagiaComponent {
-  faUser = faHatWizard;
+  icon = faHatWizard;
 }

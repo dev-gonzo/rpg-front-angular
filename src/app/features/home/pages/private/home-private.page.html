@@ -1,5 +1,11 @@
 <section>
   <app-page-header title="Personagens"></app-page-header>
-
+  <app-home-toolbar
+    [activeColumns]="columns"
+    [filter]="activeFilter"
+    (columnsChange)="columns = $event"
+    (filterChange)="activeFilter = $event"
+    (reload)="reloadCharacters()"
+  />
   <app-card-home [characters]="characters" />
 </section>

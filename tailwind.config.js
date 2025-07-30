@@ -21,10 +21,10 @@ module.exports = {
         muted: "var(--color-muted)",
         border: "var(--color-border)",
       },
-      extend: {
-        fontSize: {
-          base: "var(--font-size-base)",
-        },
+      fontSize: {
+        base: "var(--font-size-base)",
+        xs: "calc(var(--font-size-base) * 0.65)",
+        xxs: "calc(var(--font-size-base) * 0.55)",
       },
     },
   },
