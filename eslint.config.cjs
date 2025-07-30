@@ -12,14 +12,16 @@ module.exports = [
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: ["./tsconfig.app.json"],
+        project: ["./tsconfig.json"],
         sourceType: "module",
       },
     },
+
+    ignorePatterns: ["**/*.spec.ts"],
     settings: {
       "import/resolver": {
         typescript: {
-          project: "./tsconfig.app.json",
+          project: "./tsconfig.json",
         },
       },
     },
@@ -34,7 +36,7 @@ module.exports = [
       ...require("@typescript-eslint/eslint-plugin").configs.strict.rules,
 
       // Personalizadas
-       '@typescript-eslint/no-extraneous-class': 'off',
+      "@typescript-eslint/no-extraneous-class": "off",
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/explicit-function-return-type": "warn",
       "@typescript-eslint/no-inferrable-types": "warn",
@@ -66,16 +68,16 @@ module.exports = [
     },
   },
   {
-  files: ['**/*.component.html'],
-  languageOptions: {
-    parser: require('@angular-eslint/template-parser'),
+    files: ["**/*.component.html"],
+    languageOptions: {
+      parser: require("@angular-eslint/template-parser"),
+    },
+    plugins: {
+      "@angular-eslint/template": require("@angular-eslint/eslint-plugin-template"),
+    },
+    rules: {
+      ...require("@angular-eslint/eslint-plugin-template").configs.recommended
+        .rules,
+    },
   },
-  plugins: {
-    '@angular-eslint/template': require('@angular-eslint/eslint-plugin-template'),
-  },
-  rules: {
-    ...require('@angular-eslint/eslint-plugin-template').configs.recommended.rules,
-  },
-},
-
 ];

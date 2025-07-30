@@ -2,7 +2,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ToastService } from '@app/shared/components/toast/toast.service';
+import { ToastService } from '@/shared/components/toast/toast.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
-import { ThemeService } from '@app/design/theme/theme.sevice';
+import { ThemeService } from '@/design/theme/theme.sevice';
 
 @Component({
   selector: 'app-navbar',

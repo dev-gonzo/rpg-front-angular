@@ -1,0 +1,11 @@
+{
+  "plugins": ["import"],
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["../*", "./*"]
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { LayoutBlankComponent } from '@app/layouts/layout-blank/layout-blank.component';
+import { LayoutBlankComponent } from '@/layouts/layout-blank/layout-blank.component';
 
 export const NOT_FOUND_ROUTES: Routes = [
   {

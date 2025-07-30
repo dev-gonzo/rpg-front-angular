@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { ThemeService } from '@app/design/theme/theme.sevice';
+import { ThemeService } from '@/design/theme/theme.sevice';
 
 import { ToastComponent } from './shared/components/toast/toast.component';
 

@@ -3,13 +3,13 @@ import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthApiService } from '@app/api/auth/auth.api.service';
-import { AuthService } from '@app/auth/service/auth.service';
-import { FormValidatorService } from '@app/core/services/form-validation/form-validator.service';
-import { TypedFormGroup } from '@app/core/types/forms';
-import { createFormFromSchema } from '@app/core/utils/createFormFromSchema';
-import { InputComponent } from '@app/shared/components/form/input/input.component';
-import { ToastService } from '@app/shared/components/toast/toast.service';
+import { AuthApiService } from '@/api/auth/auth.api.service';
+import { AuthService } from '@/auth/service/auth.service';
+import { FormValidatorService } from '@/core/services/form-validation/form-validator.service';
+import { TypedFormGroup } from '@/core/types/forms';
+import { createFormFromSchema } from '@/core/utils/createFormFromSchema';
+import { InputComponent } from '@/shared/components/form/input/input.component';
+import { ToastService } from '@/shared/components/toast/toast.service';
 
 import { LoginFormData, loginSchema } from './login.schema';
 
@@ -35,7 +35,6 @@ export class HomePrivatePage implements OnInit {
       this.onSubmit.bind(this),
     );
     this.form = form;
-    
 
     requestAnimationFrame(() => this.cdRef.detectChanges());
   }
@@ -57,8 +56,6 @@ export class HomePrivatePage implements OnInit {
       },
       error: () => {
         this.toast.error('E-mail ou senha inválidos');
-
-
       },
     });
   }

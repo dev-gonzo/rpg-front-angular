@@ -1,0 +1,102 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div
+    class="rounded-lg border border-gray-700 border-opacity-45 overflow-hidden"
+    *ngFor="let character of characters as CharacterHomeDto"
+  >
+    <div class="rounded-sm borde">
+      <div class="flex flex-col">
+        <div class="h-72 overflow-hidden">
+          <img
+            src="{{ character.image }}"
+            alt="Ícone"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <div class="p-2">
+            <h1 class="text-xl font-bold">{{ character.name }}</h1>
+            <p class="my-4">
+              <span class="font-bold"> Profissão: </span><br />
+              {{ character.profession }}
+            </p>
+            <div class="flex justify-between">
+              <div class="text-center">
+                <span class="font-bold p-3"> Idade: </span><br />
+                {{ character.age }}
+              </div>
+              <div class="text-center">
+                <span class="font-bold p-3"> Idade Ap.: </span><br />
+                {{ character.apparentAge }}
+              </div>
+            </div>
+            <hr class="mt-3 border-gray-700 border-opacity-45" />
+          </div>
+        </div>
+        <div class="p-2 flex flex-col gap-2">
+          <div class="flex justify-between mb-3">
+            <h2 class="text-lg font-bold">Informações principais</h2>
+            <button><app-icon-edit class="text-lg text-gray-700" /></button>
+          </div>
+          <div class="flex gap-2">
+            <div
+              class="flex flex-col text-center w-2/4 py-2 border border-gray-700 border-opacity-45 rounded"
+            >
+              <div class="flex px-3 mb-3">
+                <app-icon-rotate class="text-lg text-gray-700" />
+              </div>
+              <h1 class="text-4xl font-bold">19 / 19</h1>
+              <small>Pontos de Vida</small>
+              <hr class="border-gray-700 border-opacity-45 m-2" />
+              <div class="flex justify-evenly">
+                <button class="flex justify-center items-center">
+                  <app-icon-minus class="text-2xl text-gray-700" />
+                </button>
+                <button class="flex justify-center items-center">
+                  <app-icon-plus class="text-2xl text-gray-700" />
+                </button>
+              </div>
+            </div>
+            <div
+              class="flex flex-col text-center w-2/4 py-6 border border-gray-700 border-opacity-45 rounded"
+            >
+              <h1 class="text-4xl font-bold">19 / 19</h1>
+              <small>Iniciativa</small>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <div
+              class="flex flex-col text-center w-2/4 py-6 border border-gray-700 border-opacity-45 rounded"
+            >
+              <h1 class="text-4xl font-bold">19 / 19</h1>
+              <small>Pontos de Vida</small>
+            </div>
+            <div
+              class="flex flex-col text-center w-2/4 py-6 border border-gray-700 border-opacity-45 rounded"
+            >
+              <h1 class="text-4xl font-bold">19 / 19</h1>
+              <small>Iniciativa</small>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <div
+              class="flex flex-col text-center w-2/4 py-6 border border-gray-700 border-opacity-45 rounded"
+            >
+              <h1 class="text-4xl font-bold">19 / 19</h1>
+              <small>Pontos de Vida</small>
+            </div>
+            <div
+              class="flex flex-col text-center w-2/4 py-6 border border-gray-700 border-opacity-45 rounded"
+            >
+              <h1 class="text-4xl font-bold">19</h1>
+              <small>Iniciativa</small>
+            </div>
+          </div>
+          <hr class="mt-1 border-gray-700 border-opacity-45" />
+        </div>
+        <div class="p-2">
+          <app-character-sheet-menu ></app-character-sheet-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

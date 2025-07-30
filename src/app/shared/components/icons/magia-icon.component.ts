@@ -1,0 +1,13 @@
+import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faHatWizard } from '@fortawesome/free-solid-svg-icons';
+
+@Component({
+  standalone: true,
+  imports: [FontAwesomeModule],
+  selector: 'app-icon-magia',
+  template: '<fa-icon [icon]="faUser" />',
+})
+export class IconMagiaComponent {
+  faUser = faHatWizard;
+}

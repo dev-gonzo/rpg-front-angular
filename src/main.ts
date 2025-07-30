@@ -6,8 +6,8 @@ import { provideRouter } from '@angular/router';
 import { provideNgxMask } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
 
-import { authErrorInterceptor } from '@app/auth/interceptors/auth-error.interceptor';
-import { authTokenInterceptor } from '@app/auth/interceptors/auth-token.interceptor';
+import { authErrorInterceptor } from '@/auth/interceptors/auth-error.interceptor';
+import { authTokenInterceptor } from '@/auth/interceptors/auth-token.interceptor';
 
 import { AppComponent } from './app/app';
 import { routes } from './app/app.routes';
