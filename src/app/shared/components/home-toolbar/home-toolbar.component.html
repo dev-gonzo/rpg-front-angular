@@ -1,42 +1,43 @@
-<div class="flex justify-between items-center w-full py-2 border-b border-white/20">
-  <!-- Esquerda -->
-  <div class="flex items-center gap-2">
-    <button
-      (click)="reload.emit()"
-      class="px-2 py-1 text-sm rounded bg-white text-black"
-    >
-      <app-icon-play />
-    </button>
+<div
+  class="z-50 flex flex-row-reverse items-start gap-2 fixed right-3 transition-[top] duration-300 ease-in-out"
+  [ngClass]="{ 'top-5': !atTop, 'top-16': atTop }"
+>
+  <div class="flex flex-col items-end gap-3">
+    <app-button-icon size="sm" (click)="toggleMenu()">
+      <app-icon-menu />
+    </app-button-icon>
 
-    <ng-container *ngFor="let col of [3, 4, 5]">
-      <button
-        (click)="setColumns(col)"
-        class="px-1 rounded bg-gray-600 text-white text-sm flex items-center justify-center"
-        [class.bg-gray-800]="activeColumns === col"
+    <div class="flex flex-col gap-2" *ngIf="showMenu">
+      <app-button-icon size="sm" color="secondary" (click)="setColumns(3)">
+        <app-icon-grid class="text-sm" />
+        <span class="text-xs ml-1">3</span>
+      </app-button-icon>
+
+      <app-button-icon size="sm" color="secondary" (click)="setColumns(4)">
+        <app-icon-grid class="text-sm" />
+        <span class="text-xs ml-1">4</span>
+      </app-button-icon>
+
+      <app-button-icon size="sm" color="secondary" (click)="setColumns(5)">
+        <app-icon-grid class="text-sm" />
+        <span class="text-xs ml-1">5</span>
+      </app-button-icon>
+
+      <app-button-icon
+        size="sm"
+        color="secondary"
+        (click)="setFilter('players')"
       >
-        <app-icon-grid class="text-lg pr-1"/> <i class="fa fa-th mr-1"></i>{{ col }}
-      </button>
-    </ng-container>
+        <span class="text-xs">Players</span>
+      </app-button-icon>
+
+      <app-button-icon size="sm" color="secondary" (click)="setFilter('npcs')">
+        <span class="text-xs">NPC's</span>
+      </app-button-icon>
+    </div>
   </div>
 
-  <!-- Direita -->
-  <div class="flex items-center gap-2 text-xs text-white/60">
-    Filtrar:
-
-    <button
-      (click)="setFilter('players')"
-      class="px-2 py-1 text-sm rounded bg-white text-black"
-      [class.bg-gray-300]="filter === 'players'"
-    >
-      Players
-    </button>
-
-    <button
-      (click)="setFilter('npcs')"
-      class="px-2 py-1 text-sm rounded bg-white text-black"
-      [class.bg-gray-300]="filter === 'npcs'"
-    >
-      NPC's
-    </button>
-  </div>
+  <app-button-icon size="sm" (click)="reload.emit()">
+    <app-icon-play />
+  </app-button-icon>
 </div>

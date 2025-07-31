@@ -11,21 +11,31 @@ import { ButtonSize, ButtonStyle } from './button-icon.types';
 export class ButtonIconComponent {
   @Input() label?: string;
   @Input() size: ButtonSize = 'md';
-  @Input() color: ButtonStyle = 'solid';
+  @Input() color: ButtonStyle = 'primary';
 
   get sizeClass(): string {
     switch (this.size) {
-      case 'xs': return 'w-6 h-6 text-xs';
-      case 'sm': return 'w-10 h-10 text-sm';
-      case 'lg': return 'w-16 h-16 text-xl';
+      case 'xs':
+        return 'w-8 h-8 text-xs';
+      case 'sm':
+        return 'w-10 h-10 text-sm';
+      case 'lg':
+        return 'w-16 h-16 text-xl';
       case 'md':
-      default: return 'w-14 h-14 text-base';
+      default:
+        return 'w-14 h-14 text-base';
     }
   }
 
   get colorClass(): string {
-    return this.color === 'outline'
-      ? 'border border-primary text-primary bg-transparent'
-      : 'bg-primary text-white';
+    switch (this.color) {
+      case 'outline':
+        return 'border border-white bg-primary text-white';
+      case 'secondary':
+        return 'theme-secondary';
+      case 'primary':
+      default:
+        return 'theme-primary';
+    }
   }
 }

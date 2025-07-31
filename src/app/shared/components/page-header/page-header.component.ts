@@ -1,14 +1,13 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { ButtonOutlineComponent } from '../button-outline/button-outline.component';
 
 import { PagAction } from './page-header.types';
 
 @Component({
   selector: 'app-page-header',
   templateUrl: './page-header.component.html',
-  imports: [CommonModule, ButtonOutlineComponent],
+  imports: [CommonModule],
   standalone: true,
 })
 export class PageHeaderComponent {
