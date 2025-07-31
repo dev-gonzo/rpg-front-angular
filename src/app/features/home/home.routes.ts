@@ -19,7 +19,7 @@ export const HOME_ROUTES: Routes = [
               import('./pages/private/home-private.page').then(
                 (m) => m.HomePrivatePage
               ),
-            canActivate: [AuthGuard],
+            // canActivate: [AuthGuard],
           },
         ],
       },

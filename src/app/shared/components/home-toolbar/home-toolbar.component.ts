@@ -1,15 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output, HostListener, AfterViewInit } from '@angular/core';
-import { IconPlayComponent } from "../icons/play-icon.component";
-import { IconGridComponent } from "../icons/grid-icon.component";
-import { IconMenuComponent } from "../icons/menu-icon.component";
-import { ButtonIconComponent } from "../button-icon/button-icon.component";
-import { IconRepeatComponent } from "../icons/repeat-icon.component";
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
+import { ButtonIconComponent } from '../button-icon/button-icon.component';
+import { IconGridComponent } from '../icons/grid-icon.component';
+import { IconMenuComponent } from '../icons/menu-icon.component';
+import { IconPlayComponent } from '../icons/play-icon.component';
 
 @Component({
   selector: 'app-home-toolbar',
   standalone: true,
-  imports: [CommonModule, IconPlayComponent, IconGridComponent, IconMenuComponent, ButtonIconComponent, IconRepeatComponent],
+  imports: [
+    CommonModule,
+    IconPlayComponent,
+    IconGridComponent,
+    IconMenuComponent,
+    ButtonIconComponent,
+  ],
   templateUrl: './home-toolbar.component.html',
 })
 export class HomeToolbarComponent implements AfterViewInit {

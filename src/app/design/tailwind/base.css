@@ -1,57 +1,9 @@
+@import '../theme/custom-theme.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root[data-theme="light"] {
-  --color-background: #ffffff;
-  --color-foreground: #1e293b;
-
-  --color-primary: #1c49aa;
-  --color-primary-contrast: #ffffff;
-
-  --color-secondary: #93c5fd;
-  --color-secondary-contrast: #1e3a8a;
-
-  --color-surface: #f1f5f9;
-  --color-surface-contrast: #1e293b;
-
-  --color-muted: #e2e8f0;
-  --color-border: #cbd5e1;
-}
-
-:root[data-theme="dark"] {
-  --color-background: #121212;
-  --color-foreground: #e9ecef;
-
-  --color-primary: #1a1a1a;
-  --color-primary-contrast: #ffffff;
-
-  --color-secondary: #343a40;
-  --color-secondary-contrast: #f8f9fa;
-
-  --color-surface: #1e1e1e;
-  --color-surface-contrast: #e9ecef;
-
-  --color-muted: #2c2c2c;
-  --color-border: #333333;
-}
-
-:root[data-font="sm"] {
-  --font-size-base: 12px;
-}
-
-:root[data-font="md"] {
-  --font-size-base: 16px;
-}
-
-:root[data-font="lg"] {
-  --font-size-base: 20px;
-}
-
-:root[data-font="xl"] {
-  --font-size-base: 30px;
-}
-
-body {
-  font-size: var(--font-size-base);
+html, body {
+  height: 100%;
+  font-family: Roboto, sans-serif;
 }
