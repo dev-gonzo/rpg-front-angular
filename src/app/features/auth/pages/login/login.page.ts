@@ -10,13 +10,18 @@ import { TypedFormGroup } from '@/core/types/forms';
 import { createFormFromSchema } from '@/core/utils/createFormFromSchema';
 import { InputComponent } from '@/shared/components/form/input/input.component';
 import { ToastService } from '@/shared/components/toast/toast.service';
-
 import { LoginFormData, loginSchema } from './login.schema';
 
 @Component({
   standalone: true,
   selector: 'app-login',
-  imports: [CommonModule, ReactiveFormsModule, InputComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    InputComponent,
+    CommonModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './login.page.html',
 })
 export class HomePrivatePage implements OnInit {

@@ -1,21 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule
-} from '@angular/forms';
-import { NgxMaskDirective } from 'ngx-mask';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-form-input',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgxMaskDirective
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './input.component.html',
 })
 export class InputComponent {

@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MatSidenavModule } from '@angular/material/sidenav';
 
-import { SidebarComponent } from '../component/sidebar/sidebar.component';
-import { NavbarComponent } from '../component/navbar/navbar.component';
 import { FooterComponent } from '../component/footer/footer.component';
-
+import { NavbarComponent } from '../component/navbar/navbar.component';
+import { SidebarComponent } from '../component/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-layout-main',
@@ -14,7 +12,6 @@ import { FooterComponent } from '../component/footer/footer.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    MatSidenavModule,
     SidebarComponent,
     NavbarComponent,
     FooterComponent,

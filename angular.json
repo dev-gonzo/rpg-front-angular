@@ -23,8 +23,8 @@
               }
             ],
             "styles": [
-              "src/app/design/theme/custom-theme.scss",
-              "src/app/design/tailwind/base.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/app/design/theme/custom-theme.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["./node_modules"]

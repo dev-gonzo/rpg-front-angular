@@ -1,32 +1,33 @@
-<section class="flex flex-col">
-  <div class="flex justify-center">
-    <img src="assets/logo-gray.png" alt="Ícone" class="w-40" />
+<section class="theme-background d-flex flex-column align-items-center">
+  <div class="text-center my-3">
+    <img src="assets/logo-gray.png" alt="Ícone" width="160" />
+    <h1 class="text-title text-secondary mt-3">Login</h1>
   </div>
-  <h1 class="text-2xl font-bold text-green-700 my-4">Login</h1>
 
   <form
     *ngIf="form"
     [formGroup]="form"
     (ngSubmit)="onSubmit()"
-    class="grid grid-cols-12 gap-4"
+    class="container"
+    style="max-width: 400px;"
   >
-    <div class="col-span-12">
-      <app-form-input
-        label="E-mail"
-        placeholder="Digite seu e-mail"
-        [control]="form.controls.email"
-      />
-    </div>
-    <div class="col-span-12">
-      <app-form-input
-        label="Senha"
-        placeholder="Digite sua senha"
-        type="password"
-        [control]="form.controls.password"
-      />
-    </div>
-    <div class="col-span-12 flex justify-end">
-      <button type="submit" class="theme-primary px-4 py-2 rounded text-sm">
+    <!-- campo e-mail -->
+    <app-form-input
+      label="E-mail"
+      placeholder="Digite seu e-mail"
+      [control]="form.controls.email">
+    </app-form-input>
+
+    <!-- campo senha -->
+    <app-form-input
+      label="Senha"
+      placeholder="Digite sua senha"
+      type="password"
+      [control]="form.controls.password">
+    </app-form-input>
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary">
         Entrar
       </button>
     </div>

@@ -1,29 +1,15 @@
-<div class="w-full">
-  <label
-    [attr.for]="inputId"
-    class="block font-medium mb-1"
-    [ngClass]="{
-      'text-foreground': !error,
-      'text-red-500': error
-    }"
-  >
+<div class="mb-3">
+  <label [attr.for]="inputId" class="form-label">
     {{ label }}
   </label>
-
   <input
     [id]="inputId"
     [type]="type"
-    [placeholder]="placeholder"
+    class="form-control"
     [formControl]="control"
-    [mask]="mask"
-    class="w-full font-normal px-3 py-2 rounded-md border border-border bg-surface shadow-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
-    [ngClass]="{
-      'border-border text-foreground': !error,
-      'border-red-500 text-red-500 border-2 placeholder:text-red-500': error
-    }"
+    [placeholder]="placeholder"
   />
-
-  <p *ngIf="error" class="text-sm text-red-500 mt-1 px-2">
+  <div class="invalid-feedback d-block" *ngIf="error">
     {{ error }}
-  </p>
+  </div>
 </div>

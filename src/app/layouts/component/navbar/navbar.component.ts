@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
 import { ThemeService } from '@/design/theme/theme.sevice';
@@ -8,7 +7,7 @@ import { ThemeService } from '@/design/theme/theme.sevice';
   selector: 'app-navbar',
   standalone: true,
   templateUrl: './navbar.component.html',
-  imports: [MatIconModule, RouterModule],
+  imports: [RouterModule],
 })
 export class NavbarComponent {
   @Output() toggleSidebar = new EventEmitter<void>();

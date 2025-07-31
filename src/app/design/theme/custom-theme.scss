@@ -1,9 +1,11 @@
-@use '@angular/material' as mat;
+// Importa o CSS do Bootstrap para ter acesso às classes básicas
+@import "bootstrap/dist/css/bootstrap.min.css";
 
-/* ============================= */
-/* LIGHT THEME COLORS           */
-/* ============================= */
-html[data-theme="light"] {
+// =============================================================================
+// VARIÁVEIS DE COR (Design System)
+// =============================================================================
+
+:root {
   --md-sys-color-primary: #1c49aa;
   --md-sys-color-on-primary: #ffffff;
 
@@ -22,59 +24,25 @@ html[data-theme="light"] {
   --color-border: #cbd5e1;
 }
 
-/* ============================= */
-/* DARK THEME COLORS            */
-/* ============================= */
-html[data-theme="dark"] {
-  --md-sys-color-primary: #1a1a1a;
-  --md-sys-color-on-primary: #ffffff;
+// =============================================================================
+// TIPOGRAFIA BASE
+// =============================================================================
 
-  --md-sys-color-secondary: #343a40;
-  --md-sys-color-on-secondary: #f8f9fa;
-
-  --md-sys-color-surface: #1e1e1e;
-  --md-sys-color-on-surface: #e9ecef;
-
-  --md-sys-color-background: #121212;
-  --md-sys-color-on-background: #e9ecef;
-
-  --md-sys-color-outline: #333333;
-
-  --color-muted: #2c2c2c;
-  --color-border: #333333;
-}
-
-/* ============================= */
-/* FONT SIZE ACCESSIBILITY      */
-/* ============================= */
-html[data-font="sm"] {
-  --font-size-base: 12px;
-}
-
-html[data-font="md"] {
-  --font-size-base: 15px;
-}
-
-html[data-font="lg"] {
-  --font-size-base: 18px;
-}
-
-html[data-font="xl"] {
-  --font-size-base: 22px;
-}
-
-/* ============================= */
-/* DEFAULT BODY STYLE           */
-/* ============================= */
 html, body {
   height: 100%;
   font-family: Roboto, sans-serif;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-base, 15px);
 }
 
-/* ============================= */
-/* THEME UTILITY CLASSES        */
-/* ============================= */
+html[data-font="sm"] { --font-size-base: 12px; }
+html[data-font="md"] { --font-size-base: 15px; }
+html[data-font="lg"] { --font-size-base: 18px; }
+html[data-font="xl"] { --font-size-base: 22px; }
+
+// =============================================================================
+// CLASSES DE TEMA (cores de fundo e texto)
+// =============================================================================
+
 .theme-background {
   background-color: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
@@ -104,216 +72,32 @@ html, body {
   border-color: var(--color-border);
 }
 
-/* TEXT COLORS */
-.text-primary {
-  color: var(--md-sys-color-primary);
-}
+/* Cores de texto */
+.text-primary    { color: var(--md-sys-color-primary); }
+.text-secondary  { color: var(--md-sys-color-secondary); }
+.text-surface    { color: var(--md-sys-color-on-surface); }
+.text-background { color: var(--md-sys-color-on-background); }
 
-.text-secondary {
-  color: var(--md-sys-color-secondary);
-}
+/* Cores de fundo */
+.bg-surface    { background-color: var(--md-sys-color-surface); }
+.bg-background { background-color: var(--md-sys-color-background); }
 
-.text-surface {
-  color: var(--md-sys-color-on-surface);
-}
+/* Borda padrão */
+.border-default { border: 1px solid var(--color-border); }
 
-.text-background {
-  color: var(--md-sys-color-on-background);
-}
+// =============================================================================
+// UTILITÁRIOS DE TIPOGRAFIA
+// =============================================================================
 
-/* BACKGROUND COLORS */
-.bg-surface {
-  background-color: var(--md-sys-color-surface);
-}
-
-.bg-background {
-  background-color: var(--md-sys-color-background);
-}
-
-/* BORDER */
-.border-default {
-  border: 1px solid var(--color-border);
-}
-
-/* ============================= */
-/* TYPOGRAPHY UTIL CLASSES      */
-/* ============================= */
-.font-base {
-  font-size: var(--font-size-base);
-}
-
-.text-title {
-  font-size: calc(var(--font-size-base) * 1.5);
-  font-weight: 600;
-}
-
-.text-subtitle {
-  font-size: calc(var(--font-size-base) * 1.25);
-  font-weight: 500;
-}
-
-.text-body {
-  font-size: var(--font-size-base);
-  font-weight: 400;
-}
-
-.text-caption {
-  font-size: calc(var(--font-size-base) * 0.85);
-  font-weight: 400;
-}
+.font-base     { font-size: var(--font-size-base); }
+.text-title    { font-size: calc(var(--font-size-base) * 1.5);  font-weight: 600; }
+.text-subtitle { font-size: calc(var(--font-size-base) * 1.25); font-weight: 500; }
+.text-body     { font-size: var(--font-size-base);              font-weight: 400; }
+.text-caption  { font-size: calc(var(--font-size-base) * 0.85); font-weight: 400; }
 
 
-// ok
-// @use '@angular/material' as mat;
 
-
-// html[data-theme="light"] {
-//   --md-sys-color-primary: #1c49aa;
-//   --md-sys-color-on-primary: #ffffff;
-
-//   --md-sys-color-secondary: #93c5fd;
-//   --md-sys-color-on-secondary: #1e3a8a;
-
-//   --md-sys-color-surface: #f1f5f9;
-//   --md-sys-color-on-surface: #1e293b;
-
-//   --md-sys-color-background: #ffffff;
-//   --md-sys-color-on-background: #1e293b;
-
-//   --md-sys-color-outline: #cbd5e1;
-// }
-
-// html[data-theme="dark"] {
-//   --md-sys-color-primary: #1a1a1a;
-//   --md-sys-color-on-primary: #ffffff;
-
-//   --md-sys-color-secondary: #343a40;
-//   --md-sys-color-on-secondary: #f8f9fa;
-
-//   --md-sys-color-surface: #1e1e1e;
-//   --md-sys-color-on-surface: #e9ecef;
-
-//   --md-sys-color-background: #121212;
-//   --md-sys-color-on-background: #e9ecef;
-
-//   --md-sys-color-outline: #333333;
-// }
-
-// /* Variáveis base já devem estar definidas via :root[data-theme="light"] e [data-theme="dark"] */
-
-// /* Estilos utilitários usando as variáveis do tema */
-// .theme-background {
-//   background-color: var(--md-sys-color-background);
-//   color: var(--md-sys-color-on-background);
-// }
-
-// .theme-surface {
-//   background-color: var(--md-sys-color-surface);
-//   color: var(--md-sys-color-on-surface);
-// }
-
-// .theme-primary {
-//   background-color: var(--md-sys-color-primary);
-//   color: var(--md-sys-color-on-primary);
-// }
-
-// .theme-secondary {
-//   background-color: var(--md-sys-color-secondary);
-//   color: var(--md-sys-color-on-secondary);
-// }
-
-// .theme-muted {
-//   background-color: var(--color-muted);
-//   color: var(--color-foreground);
-// }
-
-// .theme-border {
-//   border-color: var(--color-border);
-// }
-
-// /* Somente texto */
-// .text-primary {
-//   color: var(--md-sys-color-primary);
-// }
-
-// .text-secondary {
-//   color: var(--md-sys-color-secondary);
-// }
-
-// .text-surface {
-//   color: var(--md-sys-color-on-surface);
-// }
-
-// .text-background {
-//   color: var(--md-sys-color-on-background);
-// }
-
-// /* Somente fundo */
-// .bg-surface {
-//   background-color: var(--md-sys-color-surface);
-// }
-
-// .bg-background {
-//   background-color: var(--md-sys-color-background);
-// }
-
-// /* Borda */
-// .border-default {
-//   border: 1px solid var(--color-border);
-// }
-
-// html[data-font="sm"] {
-//   --font-size-base: 12px;
-// }
-
-// html[data-font="md"] {
-//   --font-size-base: 16px;
-// }
-
-// html[data-font="lg"] {
-//   --font-size-base: 20px;
-// }
-
-// html[data-font="xl"] {
-//   --font-size-base: 30px;
-// }
-
-
-// fim ok
-
-
-// html[data-theme="light"] {
-//   // Override direto da cor primária
-//   --md-sys-color-primary: #2196f3;
-//   --md-sys-color-on-primary: black;
-
-//   color-scheme: light;
-//   background-color: var(--md-sys-color-surface, blue);
-//   color: var(--md-sys-color-on-surface, red);
-//   font: var(--md-sys-typescale-body-medium-font, 16px Roboto, sans-serif);
-// }
-
-
-// html[data-theme="dark"] {
-//   @include mat.theme((
-//     color: (
-//       primary: mat.$azure-palette,
-//       tertiary: mat.$blue-palette,
-//     ),
-//     density: 0,
-//   ));
-
-//   color-scheme: dark;
-//   background-color: var(--mat-sys-surface);
-//   color: var(--mat-sys-on-surface);
-//   font: var(--mat-sys-body-medium);
-// }
-
-html, body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+/* Tamanho padrão para a logo */
+.logo-small {
+  width: 10rem;
 }
