@@ -1,11 +1,13 @@
-<div class="theme-background flex flex-col h-screen">
-  <div class="flex flex-1 transition-all duration-300">
-    <div class="flex-1 transition-all duration-300 p-4">
+<div class="theme-background d-flex flex-column min-vh-100">
+  <!-- Conteúdo principal ocupa toda a altura disponível -->
+  <div class="d-flex flex-grow-1">
+    <div class="flex-grow-1 p-4">
       <router-outlet></router-outlet>
     </div>
   </div>
 
-  <div class="bg-gray-500">
+  <!-- Rodapé com cor neutra definida pelo tema -->
+  <div class="theme-muted">
     <app-footer></app-footer>
   </div>
 </div>

@@ -1,28 +1,35 @@
-<div class="flex flex-col h-screen">
-  <div class="bg-gray-500">
+<div class="theme-background d-flex flex-column min-vh-100">
+  <!-- Navbar -->
+  <div class="theme-muted">
     <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
   </div>
 
-  <div class="theme-background flex flex-1 transition-all duration-75">
-    <div
-      [ngClass]="isSidebarOpen ? 'w-full md:w-1/5' : 'w-0'"
-      class="theme-surface overflow-hidden transition-all duration-75"
-    >
-      <app-sidebar></app-sidebar>
-    </div>
+  <!-- Área principal -->
+  <div class="flex-grow-1">
+    <div class="row g-0 h-100">
+      <!-- Sidebar: ocupa 12 colunas no mobile e 3 colunas no md quando aberta -->
+      <div
+        [ngClass]="isSidebarOpen ? 'col-12 col-md-3' : 'd-none'"
+        class="theme-surface overflow-hidden"
+      >
+        <app-sidebar></app-sidebar>
+      </div>
 
-    <div
-      class="flex-1 transition-all duration-75 p-4"
-      [ngClass]="{
-        'hidden md:block': isSidebarOpen,
-        block: !isSidebarOpen
-      }"
-    >
-      <router-outlet></router-outlet>
+      <!-- Conteúdo: esconde no mobile quando sidebar aberta; ocupa 9 colunas no md -->
+      <div
+        [ngClass]="{
+          'd-none d-md-block col-md-9': isSidebarOpen,
+          'col-12': !isSidebarOpen
+        }"
+        class="p-4"
+      >
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 
-  <div class="bg-gray-500">
+  <!-- Rodapé -->
+  <div class="theme-muted">
     <app-footer></app-footer>
   </div>
 </div>

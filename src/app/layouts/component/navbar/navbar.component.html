@@ -1,31 +1,43 @@
-<div class="theme-primary border-border p-3 flex gap-2">
-  <button class="flex" mat-icon-button (click)="toggleSidebar.emit()">
-    <!-- <mat-icon>menu</mat-icon> -->
+<div class="theme-primary border-default p-3 d-flex align-items-center gap-2">
+  <!-- Botão de menu lateral -->
+  <button
+    class="btn p-0 d-flex align-items-center"
+    type="button"
+    (click)="toggleSidebar.emit()"
+  >
+    <app-icon-bars class="fs-4"></app-icon-bars>
   </button>
-  <a href="/home" class="ml-4 font-semibold flex-1">
-    <img src="assets/logo-white.png" alt="Ícone" class="w-28" />
+
+  <!-- Logo/link para home -->
+  <a
+    href="/home"
+    class="ms-4 fw-semibold flex-grow-1 d-flex align-items-center"
+  >
+    <img src="assets/logo-white.png" alt="Ícone" style="width: 7rem" />
   </a>
 
-  <div class="flex items-center gap-2">
-    <!-- Diminuir fonte -->
-    <button mat-icon-button (click)="decreaseFont()">
+  <!-- Controles de tamanho de fonte -->
+  <div class="d-flex align-items-center gap-2">
+    <button class="btn p-0" type="button" (click)="decreaseFont()">
       <span class="material-symbols-outlined">text_decrease</span>
     </button>
 
-    <!-- Fonte padrão -->
-    <button mat-icon-button (click)="resetFont()">
+    <button class="btn p-0" type="button" (click)="resetFont()">
       <span class="material-symbols-outlined">format_size</span>
     </button>
 
-    <!-- Aumentar fonte -->
-    <button mat-icon-button (click)="increaseFont()">
+    <button class="btn p-0" type="button" (click)="increaseFont()">
       <span class="material-symbols-outlined">text_increase</span>
     </button>
   </div>
 
-  <button mat-icon-button (click)="toggleTheme()">
-    <!-- <mat-icon>
-      {{ theme.theme() === "dark" ? "light_mode" : "dark_mode" }}</mat-icon
-    > -->
+  <!-- Botão de alternar tema -->
+  <button class="btn p-0" type="button" (click)="toggleTheme()">
+    <ng-container *ngIf="theme.theme() !== 'dark'; else darkTheme">
+      <app-icon-sun class="fs-4"></app-icon-sun>
+    </ng-container>
+    <ng-template #darkTheme>
+      <app-icon-moon class="fs-4"></app-icon-moon>
+    </ng-template>
   </button>
 </div>
