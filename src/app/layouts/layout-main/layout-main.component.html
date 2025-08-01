@@ -5,26 +5,26 @@
   </div>
 
   <!-- Área principal -->
-  <div class="flex-grow-1">
-    <div class="row g-0 h-100">
-      <!-- Sidebar: ocupa 12 colunas no mobile e 3 colunas no md quando aberta -->
-      <div
-        [ngClass]="isSidebarOpen ? 'col-12 col-md-3' : 'd-none'"
-        class="theme-surface overflow-hidden"
-      >
-        <app-sidebar></app-sidebar>
-      </div>
+  <div class="d-flex flex-grow-1 h-100 position-relative">
+    <!-- Sidebar -->
+    <div
+      class="sidebar-container"
+      [ngClass]="{
+        'sidebar-open': isSidebarOpen,
+        'sidebar-closed': !isSidebarOpen,
+      }"
+    >
+      <app-sidebar></app-sidebar>
+    </div>
 
-      <!-- Conteúdo: esconde no mobile quando sidebar aberta; ocupa 9 colunas no md -->
-      <div
-        [ngClass]="{
-          'd-none d-md-block col-md-9': isSidebarOpen,
-          'col-12': !isSidebarOpen
-        }"
-        class="p-4"
+    <!-- Conteúdo principal -->
+    <div class="main-content p-4 flex-grow-1"
+     [ngClass]="{
+        'd-none d-md-block': isSidebarOpen,
+        '': !isSidebarOpen,
+      }"
       >
-        <router-outlet></router-outlet>
-      </div>
+      <router-outlet></router-outlet>
     </div>
   </div>
 

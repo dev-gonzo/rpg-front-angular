@@ -1,38 +1,34 @@
 <div
-  class="z-50 flex flex-row-reverse items-start gap-2 fixed right-3 transition-[top] duration-300 ease-in-out"
+  class="d-flex flex-row-reverse align-items-start gap-2 top-fixed transition-top"
   [ngClass]="{ 'top-5': !atTop, 'top-16': atTop }"
 >
-  <div class="flex flex-col items-end gap-3">
+  <div class="d-flex flex-column align-items-end gap-3">
     <app-button-icon size="sm" (click)="toggleMenu()">
       <app-icon-menu />
     </app-button-icon>
 
-    <div class="flex flex-col gap-2" *ngIf="showMenu">
+    <div class="d-flex flex-column gap-2" *ngIf="showMenu">
       <app-button-icon size="sm" color="secondary" (click)="setColumns(3)">
-        <app-icon-grid class="text-sm" />
-        <span class="text-xs ml-1">3</span>
+        <app-icon-grid class="small" />
+        <span class="text-xs ms-1">3</span>
       </app-button-icon>
 
       <app-button-icon size="sm" color="secondary" (click)="setColumns(4)">
-        <app-icon-grid class="text-sm" />
-        <span class="text-xs ml-1">4</span>
+        <app-icon-grid class="small" />
+        <span class="text-xs ms-1">4</span>
       </app-button-icon>
 
       <app-button-icon size="sm" color="secondary" (click)="setColumns(5)">
-        <app-icon-grid class="text-sm" />
-        <span class="text-xs ml-1">5</span>
+        <app-icon-grid class="small" />
+        <span class="text-xs ms-1">5</span>
       </app-button-icon>
 
-      <app-button-icon
-        size="sm"
-        color="secondary"
-        (click)="setFilter('players')"
-      >
-        <span class="text-xs">Players</span>
+      <app-button-icon size="sm" color="secondary" (click)="setFilter('players')">
+        <span class="text-xxs">Players</span>
       </app-button-icon>
 
       <app-button-icon size="sm" color="secondary" (click)="setFilter('npcs')">
-        <span class="text-xs">NPC's</span>
+        <span class="text-xxs">NPC's</span>
       </app-button-icon>
     </div>
   </div>

@@ -1,103 +1,337 @@
-// Importa o CSS do Bootstrap para ter acesso às classes básicas
+// Importa o CSS do Bootstrap
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-// =============================================================================
-// VARIÁVEIS DE COR (Design System)
-// =============================================================================
-
-:root {
+/* ===================== TEMA CLARO ===================== */
+html[data-theme="light"] {
+  /* Paleta principal */
   --md-sys-color-primary: #1c49aa;
   --md-sys-color-on-primary: #ffffff;
 
+  /* Paleta secundária */
   --md-sys-color-secondary: #93c5fd;
   --md-sys-color-on-secondary: #1e3a8a;
 
+  /* Superfície e fundo */
   --md-sys-color-surface: #f1f5f9;
   --md-sys-color-on-surface: #1e293b;
-
   --md-sys-color-background: #ffffff;
   --md-sys-color-on-background: #1e293b;
 
+  /* Borda e cores neutras */
   --md-sys-color-outline: #cbd5e1;
-
   --color-muted: #e2e8f0;
   --color-border: #cbd5e1;
 }
 
-// =============================================================================
-// TIPOGRAFIA BASE
-// =============================================================================
+/* ===================== TEMA ESCURO ===================== */
+html[data-theme="dark"] {
+  --md-sys-color-primary: #1a1a1a;
+  --md-sys-color-on-primary: #ffffff;
 
-html, body {
+  --md-sys-color-secondary: #343a40;
+  --md-sys-color-on-secondary: #f8f9fa;
+
+  --md-sys-color-surface: #1e1e1e;
+  --md-sys-color-on-surface: #e9ecef;
+  --md-sys-color-background: #121212;
+  --md-sys-color-on-background: #e9ecef;
+
+  --md-sys-color-outline: #333333;
+  --color-muted: #2c2c2c;
+  --color-border: #333333;
+}
+
+/* ===================== TIPOGRAFIA E UTILITÁRIOS ===================== */
+html,
+body {
   height: 100%;
   font-family: Roboto, sans-serif;
   font-size: var(--font-size-base, 15px);
 }
 
-html[data-font="sm"] { --font-size-base: 12px; }
-html[data-font="md"] { --font-size-base: 15px; }
-html[data-font="lg"] { --font-size-base: 18px; }
-html[data-font="xl"] { --font-size-base: 22px; }
-
-// =============================================================================
-// CLASSES DE TEMA (cores de fundo e texto)
-// =============================================================================
+html[data-font="sm"] {
+  --font-size-base: 12px;
+}
+html[data-font="md"] {
+  --font-size-base: 15px;
+}
+html[data-font="lg"] {
+  --font-size-base: 18px;
+}
+html[data-font="xl"] {
+  --font-size-base: 22px;
+}
 
 .theme-background {
   background-color: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
 }
-
 .theme-surface {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
 }
-
 .theme-primary {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
 }
-
 .theme-secondary {
   background-color: var(--md-sys-color-secondary);
   color: var(--md-sys-color-on-secondary);
 }
-
 .theme-muted {
   background-color: var(--color-muted);
   color: var(--md-sys-color-on-surface);
 }
-
 .theme-border {
   border-color: var(--color-border);
 }
 
-/* Cores de texto */
-.text-primary    { color: var(--md-sys-color-primary); }
-.text-secondary  { color: var(--md-sys-color-secondary); }
-.text-surface    { color: var(--md-sys-color-on-surface); }
-.text-background { color: var(--md-sys-color-on-background); }
+.text-primary {
+  color: var(--md-sys-color-primary);
+}
+.text-secondary {
+  color: var(--md-sys-color-secondary);
+}
+.text-surface {
+  color: var(--md-sys-color-on-surface);
+}
+.text-background {
+  color: var(--md-sys-color-on-background);
+}
 
-/* Cores de fundo */
-.bg-surface    { background-color: var(--md-sys-color-surface); }
-.bg-background { background-color: var(--md-sys-color-background); }
+.bg-surface {
+  background-color: var(--md-sys-color-surface);
+}
+.bg-background {
+  background-color: var(--md-sys-color-background);
+}
 
-/* Borda padrão */
-.border-default { border: 1px solid var(--color-border); }
+.font-base {
+  font-size: var(--font-size-base);
+}
+.text-title {
+  font-size: calc(var(--font-size-base) * 1.5);
+  font-weight: 600;
+}
+.text-subtitle {
+  font-size: calc(var(--font-size-base) * 1.25);
+  font-weight: 500;
+}
+.text-body {
+  font-size: var(--font-size-base);
+  font-weight: 400;
+}
+.text-caption {
+  font-size: calc(var(--font-size-base) * 0.85);
+  font-weight: 400;
+}
 
-// =============================================================================
-// UTILITÁRIOS DE TIPOGRAFIA
-// =============================================================================
-
-.font-base     { font-size: var(--font-size-base); }
-.text-title    { font-size: calc(var(--font-size-base) * 1.5);  font-weight: 600; }
-.text-subtitle { font-size: calc(var(--font-size-base) * 1.25); font-weight: 500; }
-.text-body     { font-size: var(--font-size-base);              font-weight: 400; }
-.text-caption  { font-size: calc(var(--font-size-base) * 0.85); font-weight: 400; }
-
-
-
-/* Tamanho padrão para a logo */
 .logo-small {
   width: 10rem;
+}
+
+.form-control.bg-surface:focus {
+  background-color: var(--md-sys-color-surface) !important;
+  color: var(--md-sys-color-on-surface) !important;
+  border-color: var(--md-sys-color-primary); /* opcional: destaque a borda */
+  box-shadow: none; /* opcional: remove o glow azulado do Bootstrap */
+}
+
+/* Garante que a cor de borda dos inputs com border-default seja a do design system */
+.form-control.border-default {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-border);
+}
+
+/* Ajusta também no estado :focus, para não ficar branca */
+.form-control.border-default:focus {
+  border-color: var(--color-border) !important;
+  box-shadow: none; /* remove o glow azulado do Bootstrap */
+}
+
+input::placeholder {
+  color: inherit;
+}
+
+input.text-danger::placeholder {
+  color: #dc3545; /* ou use a variável Bootstrap: var(--bs-danger) */
+}
+
+html[data-theme="dark"] .btn-primary {
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+  border: none;
+}
+
+html[data-theme="dark"] .btn-primary:hover {
+  filter: brightness(1.15);
+}
+
+html[data-theme="dark"] .btn-primary:hover {
+  background-color: #495057; /* tom mais claro que #343a40 */
+}
+
+.btn-circle {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Extra Small */
+.btn-circle-xs {
+  width: 24px;
+  height: 24px;
+  font-size: 0.75rem;
+}
+
+/* Small */
+.btn-circle-sm {
+  width: 32px;
+  height: 32px;
+  font-size: 0.875rem;
+}
+
+/* Medium (default) */
+.btn-circle-md {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+/* Large */
+.btn-circle-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
+}
+
+/* Extra Large */
+.btn-circle-xl {
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
+}
+
+html[data-theme="dark"] .btn-circle {
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+  border: none;
+}
+
+html[data-theme="dark"] .btn-circle:hover {
+  filter: brightness(1.15);
+}
+
+html[data-theme="dark"] .btn-circle:hover {
+  background-color: #495057; /* tom mais claro que #343a40 */
+}
+
+/* Transição suave da posição top */
+.transition-top {
+  transition: top 0.3s ease-in-out;
+}
+
+/* Posição fixa no topo com controle */
+.top-fixed {
+  position: fixed;
+  right: 1rem;
+  // z-index: 1050;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
+.top-16 {
+  top: 5rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-xxs {
+  font-size: 0.625rem;
+}
+
+/* Corrige visual do list-group em temas customizados */
+.theme-surface .list-group-item {
+  background-color: var(--md-sys-color-surface) !important;
+  color: var(--md-sys-color-on-surface) !important;
+  border: none; /* ou use uma borda com var(--color-border) se quiser */
+}
+
+/* Adiciona hover customizado */
+.theme-surface .list-group-item:hover {
+  background-color: var(--color-muted) !important;
+}
+
+/* Base sidebar container */
+.sidebar-container {
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+/* MOBILE (mobile-first default) */
+.sidebar-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Quando aberta no mobile */
+.sidebar-open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 767px) {
+.sidebar-container {
+  height: 100%;
+}
+}
+/* DESKTOP override */
+@media (min-width: 768px) {
+  .sidebar-container {
+    position: relative;
+    width: 25%;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar-closed {
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sidebar-open {
+    width: 25%;
+    opacity: 1;
+  }
+
+  .main-content {
+    transition: all 0.3s ease;
+    max-width: 100%;
+  }
+
+  .sidebar-open ~ .main-content {
+    max-width: 75%;
+  }
+
+  .sidebar-closed ~ .main-content {
+    max-width: 100%;
+  }
 }

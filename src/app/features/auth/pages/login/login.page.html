@@ -1,7 +1,6 @@
 <section class="theme-background d-flex flex-column align-items-center">
   <div class="text-center my-3">
     <img src="assets/logo-gray.png" alt="Ícone" width="160" />
-    <h1 class="text-title text-secondary mt-3">Login</h1>
   </div>
 
   <form
@@ -9,13 +8,15 @@
     [formGroup]="form"
     (ngSubmit)="onSubmit()"
     class="container"
-    style="max-width: 400px;"
+    style="max-width: 400px"
   >
+    <h1 class="text-title text-success my-3">Login</h1>
     <!-- campo e-mail -->
     <app-form-input
       label="E-mail"
       placeholder="Digite seu e-mail"
-      [control]="form.controls.email">
+      [control]="form.controls.email"
+    >
     </app-form-input>
 
     <!-- campo senha -->
@@ -23,13 +24,12 @@
       label="Senha"
       placeholder="Digite sua senha"
       type="password"
-      [control]="form.controls.password">
+      [control]="form.controls.password"
+    >
     </app-form-input>
 
     <div class="text-end">
-      <button type="submit" class="btn btn-primary">
-        Entrar
-      </button>
+      <button type="submit" class="btn btn-primary">Entrar</button>
     </div>
   </form>
 </section>

@@ -1,13 +1,22 @@
 <div class="mb-3">
-  <label [attr.for]="inputId" class="form-label">
+  <label [attr.for]="inputId" class="form-label"
+   [ngClass]="{
+      '': !error,
+      'text-danger': error
+    }"
+  >
     {{ label }}
   </label>
   <input
     [id]="inputId"
     [type]="type"
-    class="form-control"
+    class="form-control bg-surface text-surface border-default"
     [formControl]="control"
     [placeholder]="placeholder"
+    [ngClass]="{
+      '': !error,
+      'border-danger text-danger': error
+    }"
   />
   <div class="invalid-feedback d-block" *ngIf="error">
     {{ error }}
