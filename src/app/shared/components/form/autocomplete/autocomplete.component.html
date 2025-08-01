@@ -1,43 +1,45 @@
-<div class="w-full relative">
+<div class="w-100 position-relative">
+  <!-- Label -->
   <label
     [attr.for]="inputId"
-    class="block font-medium mb-1"
+    class="form-label mb-1 fw-medium"
     [ngClass]="{
-      'text-foreground': !error,
-      'text-red-500': error
+      'text-surface': !error,
+      'text-danger': error
     }"
   >
     {{ label }}
   </label>
 
+  <!-- Input -->
   <input
     #inputRef
     [id]="inputId"
     type="text"
-    class="w-full font-normal px-3 py-2 rounded-md border bg-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+    class="form-control bg-surface shadow-sm"
+    [class.is-invalid]="error"
     [placeholder]="placeholder"
     (input)="onInput($event)"
     (blur)="onBlur()"
-    [ngClass]="{
-      'text-foreground border-border': !error,
-      'text-red-500 border-red-500 border-2 placeholder:text-red-500': error
-    }"
   />
 
+  <!-- Dropdown de opções -->
   <ul
     *ngIf="showDropdown && filteredOptions.length > 0"
-    class="absolute z-10 w-full bg-surface border border-border rounded-md mt-1 shadow-lg max-h-60 overflow-y-auto"
+    class="list-group position-absolute z-3 w-100 mt-1 shadow max-vh-50 overflow-auto"
+    style="max-height: 15rem;"
   >
     <li
       *ngFor="let opt of filteredOptions"
       (click)="selectOption(opt)"
-      class="px-3 py-2 hover:bg-primary hover:text-primary-contrast cursor-pointer"
+      class="list-group-item list-group-item-action cursor-pointer"
     >
       {{ opt.label }}
     </li>
   </ul>
 
-  <p *ngIf="error" class="text-sm text-red-500 mt-1 px-2">
+  <!-- Erro -->
+  <div *ngIf="error" class="invalid-feedback d-block mt-1 px-2">
     {{ error }}
-  </p>
+  </div>
 </div>

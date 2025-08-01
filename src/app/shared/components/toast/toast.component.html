@@ -1,7 +1,7 @@
-<div *ngIf="toast.visible()" class="fixed bottom-20 w-full flex justify-center z-50">
+<div *ngIf="toast.visible()" class="position-fixed bottom-0 start-50 translate-middle-x mb-5 w-100 d-flex justify-content-center z-3">
   <div
     [ngClass]="cssClass()"
-    class="px-4 py-2 rounded shadow-md text-white"
+    class="px-4 py-2 rounded shadow text-white"
   >
     {{ toast.message() }}
   </div>

@@ -1,18 +1,23 @@
-<div
-  class="w-full flex flex-col text-center py-2 border border-gray-700 border-opacity-45 rounded"
->
-  <div class="flex px-3 mb-3">
-    <app-icon-rotate class="text-lg text-gray-700" />
+<div class="w-100 d-flex flex-column text-center py-2 rounded theme-border">
+  <!-- Ícone superior -->
+  <div class="btn d-flex justify-content-start ">
+    <app-icon-rotate class="fs-6 text-secondary" />
   </div>
-  <h1 class="text-4xl font-bold">19 / 19</h1>
+
+  <!-- Valor de pontos -->
+  <h1 class="display-5 fw-bold">19 / 19</h1>
   <small>Pontos de Vida</small>
-  <hr class="border-gray-700 border-opacity-45 m-2" />
-  <div class="flex justify-evenly">
-    <button class="flex justify-center items-center">
-      <app-icon-minus class="text-2xl text-gray-700" />
+
+  <!-- Linha divisória -->
+  <hr class="theme-border my-2" />
+
+  <!-- Botões -->
+  <div class="d-flex justify-content-evenly">
+    <button class="btn p-1 d-flex justify-content-center align-items-center">
+      <app-icon-minus class="fs-3 text-secondary" />
     </button>
-    <button class="flex justify-center items-center">
-      <app-icon-plus class="text-2xl text-gray-700" />
+    <button class="btn p-1 d-flex justify-content-center align-items-center">
+      <app-icon-plus class="fs-3 text-secondary" />
     </button>
   </div>
 </div>

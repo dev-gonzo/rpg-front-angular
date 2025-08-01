@@ -1,35 +1,41 @@
-<fieldset class="w-full space-y-2">
+<fieldset class="w-100">
   <legend
-    class="font-medium mb-1"
+    class="fw-medium mb-1"
     [ngClass]="{
-      'text-foreground': !error,
-      'text-red-500': error
+      'text-surface': !error,
+      'text-danger': error
     }"
   >
     {{ label }}
   </legend>
 
-  <div class="flex flex-col gap-2">
-    <label
+  <div class="d-flex flex-column gap-2">
+    <div
       *ngFor="let opt of options"
-      class="inline-flex items-center gap-2 text-sm cursor-pointer"
+      class="form-check"
       [ngClass]="{
-        'text-foreground': !error,
-        'text-red-500': error
+        'text-surface': !error,
+        'text-danger': error
       }"
     >
       <input
+        class="form-check-input"
         type="radio"
-        class="w-4 h-4 focus:ring-primary"
         [name]="name"
         [formControl]="control"
         [value]="opt.value"
+        [id]="name + '-' + opt.value"
       />
-      {{ opt.label }}
-    </label>
+      <label
+        class="form-check-label"
+        [attr.for]="name + '-' + opt.value"
+      >
+        {{ opt.label }}
+      </label>
+    </div>
   </div>
 
-  <p *ngIf="error" class="text-sm text-red-500 mt-1 px-1">
+  <div *ngIf="error" class="invalid-feedback d-block mt-1 px-1">
     {{ error }}
-  </p>
+  </div>
 </fieldset>

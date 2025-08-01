@@ -1,13 +1,13 @@
 <div
-  class="z-50 flex flex-row-reverse items-start gap-2 fixed right-3 transition-[top] duration-300 ease-in-out"
+  class="d-flex flex-row-reverse align-items-start gap-2 top-fixed transition-top z-3"
   [ngClass]="{ 'top-5': !atTop, 'top-16': atTop }"
 >
-  <div class="flex flex-col items-end gap-3">
+ <div class="d-flex flex-column align-items-end gap-3">
     <app-button-icon size="sm" (click)="toggleMenu()">
       <app-icon-menu />
     </app-button-icon>
 
-    <div class="flex flex-col gap-2" *ngIf="showMenu && !showExtras">
+    <div class="d-flex flex-column gap-2" *ngIf="showMenu && !showExtras">
       <app-button-icon size="sm" (click)="toggleExtras()">
         <app-icon-repeat class="text-xs" />
       </app-button-icon>
@@ -45,7 +45,7 @@
       </app-button-icon>
     </div>
 
-    <div class="flex flex-col gap-2" *ngIf="showMenu && showExtras">
+    <div class="d-flex flex-column gap-2" *ngIf="showMenu && showExtras">
       <app-button-icon size="sm" (click)="toggleExtras()">
         <app-icon-repeat class="text-xs" />
       </app-button-icon>

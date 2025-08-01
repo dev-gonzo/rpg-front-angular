@@ -5,12 +5,12 @@ import { Component, Input } from '@angular/core';
   selector: 'app-input-view',
   standalone: true,
   imports: [CommonModule],
-  host: { class: 'col-span-2 md:col-span-6 lg:col-span-8' },
+  host: { class: 'col-12 col-md-6 col-lg-8' }, 
 
   template: `
-    <label class="text-xs">{{ label || ' ' }}</label>
-    <p class="mb-1"><ng-content />&nbsp;</p>
-    <hr />
+    <label class="form-label text-xs">{{ label || ' ' }}</label>
+    <p class="mb-2"><ng-content />&nbsp;</p>
+    <hr class="theme-border" />
   `,
 })
 export class InputViewComponent {

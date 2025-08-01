@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
+import { Component, Input, forwardRef } from '@angular/core';
 import {
-  Component,
-  Input,
-  forwardRef,
-} from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormsModule } from '@angular/forms';
+  NG_VALUE_ACCESSOR,
+  ControlValueAccessor,
+  FormsModule,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-switch',
@@ -18,6 +18,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormsModule } from '@angular/f
       multi: true,
     },
   ],
+  styleUrls: ['./switch.component.scss'],
 })
 export class SwitchComponent implements ControlValueAccessor {
   @Input() label = '';

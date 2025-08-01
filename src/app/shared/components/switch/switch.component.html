@@ -1,24 +1,13 @@
-<div class="flex flex-col items-center gap-1">
-  <label
-    class="relative inline-flex items-center cursor-pointer"
-    (click)="toggle()"
-  >
+<div class="d-flex flex-column align-items-center gap-1">
+  <label class="position-relative d-inline-flex align-items-center switch-toggle" (click)="toggle()">
     <input
       type="checkbox"
-      class="sr-only"
+      class="visually-hidden"
       [checked]="value"
       [disabled]="disabled"
     />
-    <div
-      class="w-10 h-4 bg-gray-700 rounded-full peer transition-colors duration-300"
-      [ngClass]="{ 'bg-gray-900': value }"
-    ></div>
-    <div
-      class="absolute left-0.5 top-0.5 w-3 h-3 bg-white rounded-full transition-transform duration-300"
-      [ngClass]="{ 'translate-x-5': value }"
-    ></div>
+    <div class="switch-track" [class.bg-on]="value"></div>
+    <div class="switch-thumb" [class.translate-x]="value"></div>
   </label>
-  <small class="text-xxs text-white">
-    {{ label }}
-  </small>
+  <small class="text-xxs text-white">{{ label }}</small>
 </div>

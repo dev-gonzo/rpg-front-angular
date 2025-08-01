@@ -1,24 +1,26 @@
-<div class="w-full">
-  <div class="flex items-center space-x-3">
+<div class="w-100">
+  <div class="d-flex align-items-center gap-3">
     <input
       [id]="checkboxId"
       type="checkbox"
-      class="w-5 h-5 rounded border border-border bg-surface accent-primary focus:outline-none cursor-pointer"
+      class="form-check-input me-2 bg-surface theme-border cursor-pointer"
+      [class.is-invalid]="error"
       [formControl]="control"
     />
+
     <label
       [attr.for]="checkboxId"
-      class="font-medium select-none cursor-pointer"
+      class="form-check-label fw-medium user-select-none cursor-pointer"
       [ngClass]="{
-        'text-foreground': !error,
-        'text-red-500': error
+        'text-surface': !error,
+        'text-danger': error
       }"
     >
       {{ label }}
     </label>
   </div>
 
-  <p *ngIf="error" class="text-sm text-red-500 mt-1 px-1">
+  <div *ngIf="error" class="invalid-feedback d-block mt-1 px-1">
     {{ error }}
-  </p>
+  </div>
 </div>
