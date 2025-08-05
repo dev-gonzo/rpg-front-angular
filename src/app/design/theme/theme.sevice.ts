@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { TranslationService } from '@/core/i18n/translation.service';
 
 import { FontSize, ThemeMode } from './theme.types';
 
@@ -11,16 +12,12 @@ export class ThemeService {
 
   private readonly _theme = signal<ThemeMode>(this.loadTheme());
   private readonly _fontSize = signal<FontSize>(this.loadFontSize());
-  private readonly _language = signal<string>(this.loadLanguage());
 
   readonly theme = this._theme.asReadonly();
   readonly fontSize = this._fontSize.asReadonly();
-  readonly language = this._language.asReadonly();
 
-  constructor(private _translate: TranslateService) {
+  constructor() {
     this.applyToDOM();
-    this._translate.setDefaultLang('pt');
-    this._translate.use(this._language());
   }
 
   private loadTheme(): ThemeMode {
@@ -33,18 +30,6 @@ export class ThemeService {
     return ['sm', 'md', 'lg', 'xl'].includes(stored as FontSize)
       ? (stored as FontSize)
       : 'md';
-  }
-
-  private loadLanguage(): string {
-    const stored = localStorage.getItem(this.LANG_KEY);
-    const lang = stored === 'pt' || stored === 'en' ? stored : 'pt';
-
-    document.documentElement.setAttribute(
-      'lang',
-      lang === 'pt' ? 'pt-BR' : 'en',
-    );
-
-    return lang;
   }
 
   private applyToDOM(): void {
@@ -61,22 +46,6 @@ export class ThemeService {
   toggleTheme(): void {
     const next = this._theme() === 'light' ? 'dark' : 'light';
     this.setTheme(next);
-  }
-
-  setLanguage(lang: string): void {
-    if (lang !== 'pt' && lang !== 'en') return;
-
-    this._language.set(lang);
-    localStorage.setItem(this.LANG_KEY, lang);
-
-    this._translate.use(lang);
-    const html = document.documentElement;
-    html.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
-  }
-
-  toggleLanguage(): void {
-    const next = this._language() === 'pt' ? 'en' : 'pt';
-    this.setLanguage(next);
   }
 
   setFontSize(size: FontSize): void {

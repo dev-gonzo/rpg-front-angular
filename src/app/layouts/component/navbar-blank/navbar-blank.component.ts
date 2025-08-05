@@ -7,6 +7,7 @@ import { IconLanguageComponent } from '@/shared/components/icons/language-icon.c
 import { IconMoonComponent } from '@/shared/components/icons/moon-icon.component';
 import { IconSunComponent } from '@/shared/components/icons/sun-icon.component';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '@/core/i18n/translation.service';
 
 @Component({
   selector: 'app-navbar-blank',
@@ -25,13 +26,14 @@ export class NavbarBlankComponent {
   @Output() toggleSidebar = new EventEmitter<void>();
 
   theme = inject(ThemeService);
+  lang = inject(TranslationService);
 
   toggleTheme(): void {
     this.theme.toggleTheme();
   }
 
   toggleLanguage(): void {
-    this.theme.toggleLanguage();
+    this.lang.toggleLanguage();
   }
 
   increaseFont(): void {

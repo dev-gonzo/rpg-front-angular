@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { ToastComponent } from './shared/components/toast/toast.component';
+import { TranslationService } from './core/i18n/translation.service';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,6 @@ import { ToastComponent } from './shared/components/toast/toast.component';
     <app-toast />
   `,
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(public translation: TranslationService) {}
+}

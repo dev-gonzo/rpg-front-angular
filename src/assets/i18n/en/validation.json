@@ -1,0 +1,19 @@
+{
+  "VALIDATION": {
+    "REQUIRED": "{{field}} is required",
+    "EMAIL": "{{field}} must be a valid email address",
+    "MIN_LENGTH": "{{field}} must be at least {{min}} characters",
+    "MAX_LENGTH": "{{field}} must be at most {{max}} characters",
+    "MIN": "{{field}} must be greater than or equal to {{min}}",
+    "MAX": "{{field}} must be less than or equal to {{max}}",
+    "PATTERN": "{{field}} has an invalid format",
+    "MATCH": "{{field}} does not match",
+    "INVALID_CREDENTIALS": "Invalid username or password",
+    "UNIQUE": "{{field}} must be unique",
+    "INVALID_DATE": "{{field}} is an invalid date",
+    "DATE_TOO_EARLY": "{{field}} must be after {{minDate}}",
+    "DATE_TOO_LATE": "{{field}} must be before {{maxDate}}",
+    "TOO_SHORT": "{{field}} is too short",
+    "TOO_LONG": "{{field}} is too long"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "CHARACTER": {
+    "ATTRIBUTES": {
+      "CON": {
+        "ABB": "CON",
+        "LABEL": "Constitution"
+      }
+    }
+  }
+}
