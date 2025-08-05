@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ColumnHostClass } from '../../abstract/ColumnHostClass';
 
 @Component({
   selector: 'app-form-input',
@@ -8,13 +9,14 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './input.component.html',
 })
-export class InputComponent {
+export class InputComponent extends ColumnHostClass {
   @Input({ required: true }) control!: FormControl<string | null>;
   @Input() label = '';
   @Input() placeholder = '';
   @Input() type: 'text' | 'email' | 'password' | 'number' | 'tel' = 'text';
   @Input() id?: string;
   @Input() mask?: string;
+  
 
   get inputId(): string {
     return this.id ?? `input-${this.label.toLowerCase().replace(/\s+/g, '-')}`;
@@ -26,4 +28,5 @@ export class InputComponent {
     const errors = this.control.errors;
     return typeof errors['schema'] === 'string' ? errors['schema'] : null;
   }
+  
 }

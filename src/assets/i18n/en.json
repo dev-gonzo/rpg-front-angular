@@ -1,0 +1,6 @@
+{
+  "PUBLIC": {
+    "TITLE": "Public Area",
+    "DESCRIPTION": "Welcome to the public home page without authentication."
+  }
+}

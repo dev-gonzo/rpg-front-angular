@@ -1,4 +1,4 @@
-import { CharacterHomeDto } from '@/api/characters/character.types';
+import { CharacterHomeDto } from '@/api/characters/character-home.types';
 import { CharacterSheetMenuComponent } from '@/shared/components/character/character-sheet-menu/character-sheet-menu.component';
 import { IconEditComponent } from '@/shared/components/icons/edit-icon.component';
 import { CommonModule } from '@angular/common';

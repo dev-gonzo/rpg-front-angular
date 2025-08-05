@@ -3,33 +3,41 @@
     <img src="assets/logo-gray.png" alt="Ícone" width="160" />
   </div>
 
-  <form
-    *ngIf="form"
-    [formGroup]="form"
-    (ngSubmit)="onSubmit()"
-    class="container"
-    style="max-width: 400px"
-  >
-    <h1 class="text-title text-success my-3">Login</h1>
-    <!-- campo e-mail -->
-    <app-form-input
-      label="E-mail"
-      placeholder="Digite seu e-mail"
-      [control]="form.controls.email"
+  <div class="container">
+    <form
+      *ngIf="form"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="row gap-2 align-items-center flex-column"
     >
-    </app-form-input>
+      <div class="col-12 col-md-5">
 
-    <!-- campo senha -->
-    <app-form-input
-      label="Senha"
-      placeholder="Digite sua senha"
-      type="password"
-      [control]="form.controls.password"
-    >
-    </app-form-input>
+        <h1 class="text-title text-success my-3">Login</h1>
+      </div>
+      <!-- campo e-mail -->
+      <app-form-input
+        label="E-mail"
+        placeholder="Digite seu e-mail"
+        [control]="form.controls.email!"
+        col="12"
+        colMd="5"
+      >
+      </app-form-input>
 
-    <div class="text-end">
-      <button type="submit" class="btn btn-primary">Entrar</button>
-    </div>
-  </form>
+      <!-- campo senha -->
+      <app-form-input
+        label="Senha"
+        placeholder="Digite sua senha"
+        type="password"
+        [control]="form.controls.password!"
+         col="12"
+        colMd="5"
+      >
+      </app-form-input>
+
+      <div class="col-12 col-md-5 text-end">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </div>
+    </form>
+  </div>
 </section>

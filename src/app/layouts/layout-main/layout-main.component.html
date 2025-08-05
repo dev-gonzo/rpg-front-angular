@@ -1,29 +1,51 @@
-<div class="theme-background d-flex flex-column min-vh-100">
+<!-- BACKDROP GLOBAL -->
+<div
+  class="offcanvas-backdrop fade"
+  [class.show]="isSidebarOpen"
+  *ngIf="isSidebarOpen"
+  (click)="closeSidebar()"
+></div>
+
+<!-- OFFCANVAS (Sidebar) -->
+<div
+  class="offcanvas offcanvas-start theme-surface show"
+  tabindex="-1"
+  role="dialog"
+  aria-modal="true"
+  *ngIf="isSidebarOpen"
+  style="
+    visibility: visible;
+    display: block;
+    background-color: var(--md-sys-color-surface);
+    z-index: 1045;
+  "
+>
+  <div class="offcanvas-header  d-flex justify-content-between">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button
+      type="button"
+      class="btn p-0 border-0 bg-transparent text-secondary"
+      (click)="closeSidebar()"
+    >
+      <app-icon-close class="text-lg" />
+    </button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <app-sidebar></app-sidebar>
+  </div>
+</div>
+
+<!-- LAYOUT PRINCIPAL -->
+<div class="theme-background d-flex flex-column min-vh-100 position-relative">
   <!-- Navbar -->
   <div class="theme-muted">
     <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
   </div>
 
   <!-- Área principal -->
-  <div class="d-flex flex-grow-1 h-100 position-relative">
-    <!-- Sidebar -->
-    <div
-      class="sidebar-container"
-      [ngClass]="{
-        'sidebar-open': isSidebarOpen,
-        'sidebar-closed': !isSidebarOpen,
-      }"
-    >
-      <app-sidebar></app-sidebar>
-    </div>
-
+  <div class="d-flex flex-grow-1 h-100">
     <!-- Conteúdo principal -->
-    <div class="main-content p-4 flex-grow-1"
-     [ngClass]="{
-        'd-none d-md-block': isSidebarOpen,
-        '': !isSidebarOpen,
-      }"
-      >
+    <div class="main-content p-4 flex-grow-1">
       <router-outlet></router-outlet>
     </div>
   </div>

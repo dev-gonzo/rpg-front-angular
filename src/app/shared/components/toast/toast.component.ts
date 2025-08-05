@@ -13,8 +13,8 @@ export class ToastComponent {
   toast = inject(ToastService);
 
   cssClass = computed(() => ({
-    'bg-green-900': this.toast.type() === 'success',
-    'bg-red-900': this.toast.type() === 'error',
-    'bg-blue-600': this.toast.type() === 'info',
+    'bg-success': this.toast.type() === 'success',
+    'bg-danger': this.toast.type() === 'error',
+    'bg-info': this.toast.type() === 'info',
   }));
 }

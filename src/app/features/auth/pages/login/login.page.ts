@@ -5,12 +5,12 @@ import { Router } from '@angular/router';
 
 import { AuthApiService } from '@/api/auth/auth.api.service';
 import { AuthService } from '@/auth/service/auth.service';
-import { FormValidatorService } from '@/core/services/form-validation/form-validator.service';
 import { TypedFormGroup } from '@/core/types/forms';
 import { createFormFromSchema } from '@/core/utils/createFormFromSchema';
 import { InputComponent } from '@/shared/components/form/input/input.component';
 import { ToastService } from '@/shared/components/toast/toast.service';
 import { LoginFormData, loginSchema } from './login.schema';
+import { FormValidatorService } from '@/core/forms/form-validator.service';
 
 @Component({
   standalone: true,
@@ -24,7 +24,7 @@ import { LoginFormData, loginSchema } from './login.schema';
   ],
   templateUrl: './login.page.html',
 })
-export class HomePrivatePage implements OnInit {
+export class LoginPage implements OnInit {
   private readonly cdRef = inject(ChangeDetectorRef);
   private readonly validator = inject(FormValidatorService);
   private readonly authApi = inject(AuthApiService);
@@ -57,10 +57,14 @@ export class HomePrivatePage implements OnInit {
       next: ({ token }) => {
         this.auth.setToken(token);
         this.router.navigate(['/home']);
-        this.toast.success('Login efetuado!');
+        this.toast.success('Login successful!');
       },
-      error: () => {
-        this.toast.error('E-mail ou senha inválidos');
+      error: (err) => {
+        if (err.status === 401) {
+          this.toast.error('Invalid email or password');
+        } else {
+          this.toast.error('An error occurred while trying to log in');
+        }
       },
     });
   }

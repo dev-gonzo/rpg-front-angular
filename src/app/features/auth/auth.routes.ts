@@ -14,7 +14,7 @@ export const AUTH_ROUTES: Routes = [
             path: '',
             loadComponent: () =>
               import('./pages/login/login.page').then(
-                (m) => m.HomePrivatePage
+                (m) => m.LoginPage
               ),
           },
         ],

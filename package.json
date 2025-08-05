@@ -30,6 +30,8 @@
     "@angular/router": "^20.1.0",
     "@fortawesome/angular-fontawesome": "^2.0.1",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "bootstrap": "^5.3.7",
     "date-fns": "^4.1.0",
     "jwt-decode": "^4.0.0",
