@@ -1,0 +1,16 @@
+{
+  "PAGE": {
+    "HOME": {
+      "TITLE": "Página Inicial",
+      "DESCRIPTION": "Bem-vindo à home pública"
+    },
+    "LOGIN": {
+      "TITLE": "Entrar"
+    },
+    "CHARACTER": {
+      "INFO": {
+        "TITLE": "Dados Básicos"
+      }
+    }
+  }
+}

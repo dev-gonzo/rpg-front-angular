@@ -39,8 +39,7 @@ export class TranslationService {
       `assets/i18n/${lang}/placeholder.${lang}.json`,
       `assets/i18n/${lang}/msg.${lang}.json`,
 
-      `assets/i18n/${lang}/feature/home.${lang}.json`,
-      `assets/i18n/${lang}/feature/login.${lang}.json`,
+      `assets/i18n/${lang}/feature.${lang}.json`,
 
       `assets/i18n/${lang}/shared/character/attributes.${lang}.json`,
     ];

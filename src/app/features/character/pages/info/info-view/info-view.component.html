@@ -1,6 +1,44 @@
 <div class="row">
-  <app-input-view label="Label 1" >Valor 1</app-input-view>
-  <app-input-view label="Label 1">
-
+  <app-input-view [label]="'CHARACTER.NAME' | translate">
+    {{ character?.name }}
+  </app-input-view>
+  <app-input-view [label]="'CHARACTER.PROFESSION' | translate">
+    {{ character?.profession }}
+  </app-input-view>
+  <app-input-view [label]="'CHARACTER.BIRTHDATE' | translate">
+    {{ character?.birthDate | date: "dd/MM/yyyy" }}
+  </app-input-view>
+  <app-input-view [label]="'CHARACTER.BIRTHPLACE' | translate">
+    {{ character?.birthPlace }}
+  </app-input-view>
+  <app-input-view [label]="'CHARACTER.GENDER' | translate">
+    {{ character?.gender }}
+  </app-input-view>
+  <app-input-view [label]="'CHARACTER.AGE' | translate" [col]="6" [colMd]="12">
+    {{ character?.age }}
+  </app-input-view>
+  <app-input-view
+    [label]="'CHARACTER.APPARENTAGE' | translate"
+    [col]="6"
+    [colMd]="12"
+  >
+    {{ character?.apparentAge }}
+  </app-input-view>
+  <app-input-view
+    [label]="'CHARACTER.HEIGHTCM' | translate"
+    [col]="6"
+    [colMd]="12"
+  >
+    {{ character?.heightCm }}
+  </app-input-view>
+  <app-input-view
+    [label]="'CHARACTER.WEIGHTKG' | translate"
+    [col]="6"
+    [colMd]="12"
+  >
+    {{ character?.weightKg }}
+  </app-input-view>
+  <app-input-view [label]="'CHARACTER.RELIGION' | translate">
+    {{ character?.religion }}
   </app-input-view>
 </div>

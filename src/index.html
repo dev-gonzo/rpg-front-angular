@@ -1,17 +1,44 @@
 <!doctype html>
 <html lang="pt-BR" data-theme="dark" data-font="md">
-<head>
-  <meta charset="utf-8">
-  <title>RPG System</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="assets/icon.png">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <head>
+    <meta charset="utf-8" />
+    <title>RPG System</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+    <link rel="manifest" id="app-manifest" href="" />
+    <meta name="theme-color" id="meta-theme-color" content="" />
+
+    <link rel="icon" type="image/x-icon" href="assets/icon.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <script>
+    (function () {
+      const theme = localStorage.getItem("user-theme") || "dark";
+      const meta =
+        document.querySelector('meta[name="theme-color"]') ||
+        document.createElement("meta");
+      meta.name = "theme-color";
+      meta.content = theme === "dark" ? "#121212" : "#ffffff";
+      document.head.appendChild(meta);
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+
+  <body>
+    <app-root></app-root>
+  </body>
 </html>

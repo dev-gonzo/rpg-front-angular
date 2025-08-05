@@ -1,20 +1,23 @@
 import { CharacterInfoApiService } from '@/api/characters/character-info.api.servive';
 import { CharacterInfoDto } from '@/api/characters/character.types';
+import { BaseTranslateComponent } from '@/core/base/base-translate.component';
 import { InputViewComponent } from '@/shared/components/input-view/input-view.component';
+import { DatePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-info-view',
-  imports: [InputViewComponent],
+  imports: [InputViewComponent, TranslateModule, DatePipe],
   templateUrl: './info-view.component.html',
 })
-export class InfoViewComponent implements OnInit {
+export class InfoViewComponent
+  extends BaseTranslateComponent
+  implements OnInit
+{
   private readonly CharacterInfoDto = inject(CharacterInfoApiService);
   id!: string;
   character: CharacterInfoDto | null = null;
-
-  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.id = this.route.parent?.snapshot.paramMap.get('id') ?? '';
@@ -26,6 +29,8 @@ export class InfoViewComponent implements OnInit {
     this.CharacterInfoDto.characterInfo(this.id).subscribe({
       next: (response) => {
         this.character = response;
+        this.character.birthDate = new Date(this.character.birthDate);
+
         console.log('Personagem:', response);
       },
       error: (err) => {

@@ -14,7 +14,5 @@ import { ColumnHostClass } from '../abstract/ColumnHostClass';
 })
 export class InputViewComponent extends ColumnHostClass {
   override col = 12;
-  override colMd = 6;
-  // override colLg = 2;
   @Input() label = '';
 }

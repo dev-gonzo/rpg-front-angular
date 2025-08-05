@@ -1,5 +1,15 @@
 {
   "CHARACTER": {
+    "NAME": "Name",
+    "PROFESSION": "Profession",
+    "BIRTHDATE": "Birth date",
+    "BIRTHPLACE": "Birth place",
+    "GENDER": "Gender",
+    "AGE": "Age",
+    "APPARENTAGE": "Apparent age",
+    "HEIGHTCM": "Height (cm)",
+    "WEIGHTKG": "Weight (kg)",
+    "RELIGION": "Religion",
     "ATTRIBUTES": {
       "CON": {
         "ABB": "CON",

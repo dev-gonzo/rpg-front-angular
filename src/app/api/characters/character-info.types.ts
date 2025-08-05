@@ -7,6 +7,13 @@ export interface CharacterInfoDto {
   apparentAge: number;
   profession: string;
 
+  birthDate: string | Date;
+  birthPlace: string;
+  gender: string;
+  heightCm: number;
+  weightKg: number;
+  religion: string;
+
   hitPoints: number;
   currentHitPoints: number;
   initiative: number;

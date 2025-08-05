@@ -1,0 +1,16 @@
+{
+  "PAGE": {
+    "HOME": {
+      "TITLE": "Home",
+      "DESCRIPTION": "Welcome to the public home"
+    },
+    "LOGIN": {
+      "TITLE": "Login"
+    },
+    "CHARACTER": {
+      "INFO": {
+        "TITLE": "Basic Information"
+      }
+    }
+  }
+}
