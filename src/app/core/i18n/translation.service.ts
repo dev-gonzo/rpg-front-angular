@@ -9,15 +9,15 @@ export class TranslationService {
   private readonly _language = signal<'pt' | 'en'>('pt');
   readonly language = this._language.asReadonly();
 
+  private readonly _ready = signal(false);
+  readonly ready = this._ready.asReadonly();
+
   constructor(
     private http: HttpClient,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {
     const lang = this.getStoredLanguage();
-    this._language.set(lang);
-    this.applyLangToDOM(lang);
-    this.translate.use(lang); // pré-define enquanto carrega
-    this.loadTranslations(lang);
+    this.setLanguage(lang); // já chama loadTranslations internamente
   }
 
   private getStoredLanguage(): 'pt' | 'en' {
@@ -26,21 +26,31 @@ export class TranslationService {
   }
 
   private applyLangToDOM(lang: 'pt' | 'en') {
-    document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+    document.documentElement.setAttribute(
+      'lang',
+      lang === 'pt' ? 'pt-BR' : 'en',
+    );
   }
 
   async loadTranslations(lang: 'pt' | 'en'): Promise<void> {
     const files = [
       `assets/i18n/${lang}/common.${lang}.json`,
+      `assets/i18n/${lang}/validation.${lang}.json`,
+      `assets/i18n/${lang}/placeholder.${lang}.json`,
+
       `assets/i18n/${lang}/feature/home.${lang}.json`,
+      `assets/i18n/${lang}/feature/login.${lang}.json`,
+
       `assets/i18n/${lang}/shared/character/attributes.${lang}.json`,
     ];
 
     const translationData = await Promise.all(
-      files.map(path => firstValueFrom(this.http.get<Record<string, any>>(path)))
+      files.map((path) =>
+        firstValueFrom(this.http.get<Record<string, any>>(path)),
+      ),
     );
 
-    translationData.forEach(data => {
+    translationData.forEach((data) => {
       this.translate.setTranslation(lang, data, true); // ✅ merge=true
     });
 
@@ -51,7 +61,10 @@ export class TranslationService {
     this._language.set(lang);
     localStorage.setItem(this.LANG_KEY, lang);
     this.applyLangToDOM(lang);
+
     await this.loadTranslations(lang);
+
+    this._ready.set(true); // ✅ Marca como pronto
   }
 
   toggleLanguage(): void {

@@ -19,13 +19,14 @@ export const HOME_ROUTES: Routes = [
               import('./pages/private/home-private.page').then(
                 (m) => m.HomePrivatePage
               ),
-            canActivate: [AuthGuard],
-          },
-        ],
-      },
-      {
-        path: '',
-        component: LayoutBlankComponent,
+              canActivate: [AuthGuard],
+            },
+          ],
+        },
+        {
+          path: '',
+          component: LayoutMainComponent,
+        // component: LayoutBlankComponent,
         children: [
           {
             path: '',

@@ -10,6 +10,7 @@ import { ButtonSize, ButtonStyle } from './button-icon.types';
 })
 export class ButtonIconComponent {
   @Input() label?: string;
+  @Input() badge?: string;
   @Input() size: ButtonSize = 'md';
   @Input() color: ButtonStyle = 'primary';
 

@@ -1,4 +1,4 @@
-<div class="theme-primary border-default p-3 d-flex align-items-center gap-2 ">
+<div class="theme-primary border-default p-3 d-flex align-items-center gap-2">
   <!-- Botão de menu lateral -->
   <button
     class="btn p-0 d-flex align-items-center text-light"
@@ -19,25 +19,32 @@
   <!-- Controles de tamanho de fonte -->
   <div class="d-flex align-items-center gap-2">
     <button class="btn p-0 text-light" type="button" (click)="decreaseFont()">
-      <span class="material-symbols-outlined">text_decrease</span>
+      <span class="material-symbols-outlined fs-5">text_decrease</span>
     </button>
 
     <button class="btn p-0 text-light" type="button" (click)="resetFont()">
-      <span class="material-symbols-outlined">format_size</span>
+      <span class="material-symbols-outlined  fs-5">format_size</span>
     </button>
 
     <button class="btn p-0 text-light" type="button" (click)="increaseFont()">
-      <span class="material-symbols-outlined">text_increase</span>
+      <span class="material-symbols-outlined  fs-5">text_increase</span>
     </button>
+
+    <app-button-icon
+      (click)="toggleLanguage()"
+      badge="{{ lang.language() === 'pt' ? 'PT' : 'EN' }}"
+    >
+      <app-icon-language class="fs-5" />
+    </app-button-icon>
   </div>
 
   <!-- Botão de alternar tema -->
   <button class="btn p-0 text-light" type="button" (click)="toggleTheme()">
     <ng-container *ngIf="theme.theme() !== 'dark'; else darkTheme">
-      <app-icon-sun class="fs-4"></app-icon-sun>
+      <app-icon-sun class="fs-5"></app-icon-sun>
     </ng-container>
     <ng-template #darkTheme>
-      <app-icon-moon class="fs-4"></app-icon-moon>
+      <app-icon-moon class="fs-5"></app-icon-moon>
     </ng-template>
   </button>
 </div>

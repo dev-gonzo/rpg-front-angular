@@ -11,13 +11,18 @@
       class="row gap-2 align-items-center flex-column"
     >
       <div class="col-12 col-md-5">
-
-        <h1 class="text-title text-success my-3">Login</h1>
+        <h1 class="text-title text-success my-3">
+          {{ "LOGIN.TITLE" | translate }}
+        </h1>
       </div>
       <!-- campo e-mail -->
       <app-form-input
-        label="E-mail"
-        placeholder="Digite seu e-mail"
+        [label]="'COMMON.EMAIL' | translate"
+        [placeholder]="
+          'PLACEHOLDER.DEFAULT'
+            | translate
+              : { field: translate.instant('COMMON.EMAIL'), pronoun: 'seu' }
+        "
         [control]="form.controls.email!"
         col="12"
         colMd="5"
@@ -26,17 +31,21 @@
 
       <!-- campo senha -->
       <app-form-input
-        label="Senha"
-        placeholder="Digite sua senha"
+        [label]="'COMMON.PASSWORD' | translate"
+        [placeholder]="
+          'PLACEHOLDER.DEFAULT'
+            | translate
+              : { field: translate.instant('COMMON.PASSWORD'), pronoun: 'sua' }
+        "
         type="password"
         [control]="form.controls.password!"
-         col="12"
+        col="12"
         colMd="5"
       >
       </app-form-input>
 
       <div class="col-12 col-md-5 text-end">
-        <button type="submit" class="btn btn-primary">Entrar</button>
+        <button type="submit" class="btn btn-primary">{{ "COMMON.LOGIN" | translate }}</button>
       </div>
     </form>
   </div>

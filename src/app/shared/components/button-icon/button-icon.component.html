@@ -1,4 +1,4 @@
-<div class="d-flex flex-column w-100 align-items-center">
+<div class="d-flex flex-column w-100 align-items-center position-relative">
   <button
     class="btn btn-circle btn-circle-md rounded-pill transition-all btn-primary border-0"
     [ngClass]="[sizeClass, colorClass]"
@@ -6,7 +6,17 @@
     <ng-content></ng-content>
   </button>
 
-  <small class="text-secondary text-truncate w-100 text-center mt-1 px-3" *ngIf="label">
+  <small
+    class="text-secondary text-truncate w-100 text-center mt-1 px-3"
+    *ngIf="label"
+    >
     {{ label }}
+  </small>
+  
+  <small
+  class="position-absolute top-50 start-50 translate-middle-x badge rounded-pill theme-secondary mt-2 ms-3 mt-2 text-xxs"
+  *ngIf="badge"
+  >
+    {{ badge }}
   </small>
 </div>
