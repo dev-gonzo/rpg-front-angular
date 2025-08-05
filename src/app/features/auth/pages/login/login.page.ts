@@ -63,13 +63,13 @@ export class LoginPage extends BaseTranslateComponent implements OnInit {
       next: ({ token }) => {
         this.auth.setToken(token);
         this.router.navigate(['/home']);
-        this.toast.success(this.translate.instant('LOGIN.SUCCESS'));
+        this.toast.success(this.translate.instant('MSG.LOGIN.SUCCESS'));
       },
       error: (err) => {
         const msg =
           err.status === 401
-            ? this.translate.instant('LOGIN.INVALID')
-            : this.translate.instant('LOGIN.ERROR');
+            ? this.translate.instant('MSG.LOGIN.INVALID')
+            : this.translate.instant('MSG.LOGIN.ERROR');
         this.toast.error(msg);
       },
     });

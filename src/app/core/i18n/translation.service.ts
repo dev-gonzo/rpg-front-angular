@@ -37,6 +37,7 @@ export class TranslationService {
       `assets/i18n/${lang}/common.${lang}.json`,
       `assets/i18n/${lang}/validation.${lang}.json`,
       `assets/i18n/${lang}/placeholder.${lang}.json`,
+      `assets/i18n/${lang}/msg.${lang}.json`,
 
       `assets/i18n/${lang}/feature/home.${lang}.json`,
       `assets/i18n/${lang}/feature/login.${lang}.json`,

@@ -1,0 +1,17 @@
+{
+  "MSG": {
+    "LOGIN": {
+      "SUCCESS": "Acesso realizado com sucesso",
+      "ERROR": "Não foi possível acessar sua conta",
+      "REQUIRED": "Você precisa estar logado para continuar",
+      "INVALID": "E-mail ou senha inválidos",
+      "EXPIRED": "Sua sessão expirou. Faça login novamente"
+    },
+    "LOGOUT": {
+      "SUCCESS": "Você saiu com sucesso",
+      "ERROR": "Falha ao sair da conta",
+      "CONFIRM": "Tem certeza que deseja sair da sua conta?",
+      "FORCED": "Você foi desconectado por inatividade"
+    }
+  }
+}

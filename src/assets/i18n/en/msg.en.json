@@ -1,0 +1,17 @@
+{
+  "MSG": {
+    "LOGIN": {
+      "SUCCESS": "Login successful",
+      "ERROR": "Unable to access your account",
+      "REQUIRED": "You need to be logged in to continue",
+      "INVALID": "Invalid email or password",
+      "EXPIRED": "Your session has expired. Please log in again"
+    },
+    "LOGOUT": {
+      "SUCCESS": "You have logged out successfully",
+      "ERROR": "Failed to log out",
+      "CONFIRM": "Are you sure you want to log out?",
+      "FORCED": "You have been logged out due to inactivity"
+    }
+  }
+}
