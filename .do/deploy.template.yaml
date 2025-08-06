@@ -10,3 +10,8 @@ services:
     http_port: 8080
     routes:
       - path: /
+        preserve_path_prefix: true
+        redirect:
+          source: /(.+)
+          destination: /
+          status_code: 200
