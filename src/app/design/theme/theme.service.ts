@@ -1,6 +1,4 @@
 import { Injectable, signal } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { TranslationService } from '@/core/i18n/translation.service';
 
 import { FontSize, ThemeMode } from './theme.types';
 
@@ -23,7 +21,6 @@ export class ThemeService {
   private loadTheme(): ThemeMode {
     const stored = localStorage.getItem(this.THEME_KEY);
     const theme = stored === 'light' || stored === 'dark' ? stored : 'dark';
-    this.updateManifestAndMetaThemeColor(theme);
     return theme;
   }
 
@@ -43,7 +40,6 @@ export class ThemeService {
     this._theme.set(value);
     localStorage.setItem(this.THEME_KEY, value);
     this.applyToDOM();
-    this.updateManifestAndMetaThemeColor(value);
   }
 
   toggleTheme(): void {
@@ -71,24 +67,5 @@ export class ThemeService {
     this.setFontSize(allSizes[nextIndex]);
   }
 
-  private updateManifestAndMetaThemeColor(theme: ThemeMode): void {
-    const manifestEl = document.querySelector('link[rel="manifest"]');
-    const metaThemeEl = document.querySelector('meta[name="theme-color"]');
-
-    if (manifestEl) {
-      manifestEl.setAttribute(
-        'href',
-        theme === 'dark'
-          ? 'assets/manifest-dark.webmanifest'
-          : 'assets/manifest-light.webmanifest',
-      );
-    }
-
-    if (metaThemeEl) {
-      metaThemeEl.setAttribute(
-        'content',
-        theme === 'dark' ? '#121212' : '#ffffff',
-      );
-    }
-  }
+ 
 }
