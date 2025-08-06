@@ -13,6 +13,7 @@ import { InputComponent } from '@/shared/components/form/input/input.component';
 import { ToastService } from '@/shared/components/toast/toast.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { createLoginSchema, LoginFormData } from './login.schema';
+import { API_BASE_URL } from '@/core/tokens/api-base-url.token';
 
 @Component({
   standalone: true,
@@ -35,6 +36,8 @@ export class LoginPage extends BaseTranslateComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly toast = inject(ToastService);
   loginSchema!: ReturnType<typeof createLoginSchema>;
+
+  public readonly baseUrl = inject(API_BASE_URL);
 
   form!: TypedFormGroup<LoginFormData>;
 
