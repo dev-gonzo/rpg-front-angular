@@ -214,3 +214,53 @@ html[data-theme="dark"] input::placeholder {
 input.text-danger::placeholder {
   color: #dc3545;
 }
+
+/* ===================== TRANSIÇÃO DE ROTA ===================== */
+/* Duração e suavidade */
+::view-transition-old(root),
+::view-transition-new(root),
+::view-transition-group(root) {
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+}
+
+/* Grupo recebe fundo preto durante a transição */
+::view-transition-group(root) {
+  background: black;
+}
+
+/* Tela antiga desvanece para preto */
+::view-transition-old(root) {
+  opacity: 1;
+  animation-name: fade-out;
+}
+
+/* Tela nova aparece suavemente */
+::view-transition-new(root) {
+  opacity: 0;
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+html, body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+app-root, body > div {
+  background-color: black;
+  min-height: 100vh;
+}
