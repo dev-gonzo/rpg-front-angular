@@ -24,20 +24,6 @@
       rel="stylesheet"
     />
   </head>
-
-  <script>
-    (function () {
-      const theme = localStorage.getItem("user-theme") || "dark";
-      const meta =
-        document.querySelector('meta[name="theme-color"]') ||
-        document.createElement("meta");
-      meta.name = "theme-color";
-      meta.content = theme === "dark" ? "#121212" : "#ffffff";
-      document.head.appendChild(meta);
-      document.documentElement.setAttribute("data-theme", theme);
-    })();
-  </script>
-
   <body>
     <app-root></app-root>
   </body>
