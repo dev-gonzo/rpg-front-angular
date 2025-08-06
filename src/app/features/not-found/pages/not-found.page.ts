@@ -35,18 +35,12 @@ export class NotFoundPage {
   };
 
   constructor() {
+    this.library.addIcons(faGem, faShieldHalved, faSkull, faGavel, faHatWizard);
+
+    // Carrega e escolhe uma das mensagens do arquivo de tradução
     this.translate.get('MSG.HTTP.NOT_FOUND').subscribe((messages: any[]) => {
-      this.selectedMessage = messages[20]; // ← testando uma específica
+      const index = Math.floor(Math.random() * messages.length);
+      this.selectedMessage = messages[index];
     });
   }
-
-  // constructor() {
-  //   this.library.addIcons(faGem, faShieldHalved, faSkull, faGavel, faHatWizard);
-
-  //   // Carrega e escolhe uma das mensagens do arquivo de tradução
-  //   this.translate.get('MSG.HTTP.NOT_FOUND').subscribe((messages: any[]) => {
-  //     const index = Math.floor(Math.random() * messages.length);
-  //     this.selectedMessage = messages[index];
-  //   });
-  // }
 }
