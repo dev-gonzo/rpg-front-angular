@@ -2,7 +2,10 @@ const fs = require('fs');
 const dotenv = require('dotenv');
 const path = require('path');
 
-const env = dotenv.config().parsed;
+const dotenvEnv = dotenv.config().parsed || {};
+const env = {
+  API_URL: process.env.API_URL || dotenvEnv.API_URL
+};
 
 if (!env || !env.API_URL) {
   console.error('.env não encontrado ou variável API_URL ausente.');
