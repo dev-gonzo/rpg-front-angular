@@ -1,17 +1,18 @@
-<div class="w-100 p-2 d-flex justify-content-end gap-2">
+<div class="w-100 p-3 d-flex justify-content-end gap-4">
   <app-button-icon
     (click)="toggleLanguage()"
     badge="{{ lang.language() === 'pt' ? 'PT' : 'EN' }}"
+    size="sm"
   >
-    <app-icon-language class="fs-5" />
+    <app-icon-language class="fs-6" />
   </app-button-icon>
 
-  <app-button-icon (click)="toggleTheme()" style="width: 24px;">
+  <app-button-icon (click)="toggleTheme()" style="width: 24px" size="sm">
     <ng-container *ngIf="theme.theme() !== 'dark'; else darkTheme">
-      <app-icon-sun class="fs-4"/>
+      <app-icon-sun class="fs-6" />
     </ng-container>
     <ng-template #darkTheme>
-      <app-icon-moon class="fs-4" />
+      <app-icon-moon class="fs-6" />
     </ng-template>
   </app-button-icon>
 </div>

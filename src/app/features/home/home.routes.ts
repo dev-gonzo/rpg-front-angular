@@ -5,7 +5,6 @@ import { LayoutBlankComponent } from '../../layouts/layout-blank/layout-blank.co
 import { LayoutMainComponent } from '../../layouts/layout-main/layout-main.component';
 
 export const HOME_ROUTES: Routes = [
-
   {
     path: '',
     children: [
@@ -17,22 +16,21 @@ export const HOME_ROUTES: Routes = [
             path: '',
             loadComponent: () =>
               import('./pages/private/home-private.page').then(
-                (m) => m.HomePrivatePage
+                (m) => m.HomePrivatePage,
               ),
-              canActivate: [AuthGuard],
-            },
-          ],
-        },
-        {
-          path: '',
-          component: LayoutMainComponent,
-        // component: LayoutBlankComponent,
+            canActivate: [AuthGuard],
+          },
+        ],
+      },
+      {
+        path: '',
+        component: LayoutBlankComponent,
         children: [
           {
             path: '',
             loadComponent: () =>
               import('./pages/public/home-public.page').then(
-                (m) => m.HomePublicPage
+                (m) => m.HomePublicPage,
               ),
           },
         ],
