@@ -1,3 +1,5 @@
 <app-page-header [title]="'PAGE.CHARACTER.INFO.TITLE' | translate" />
 <app-menu-flutuante />
-<app-info-view />
+<app-info-edit [character]="character"/>
+<app-info-edit *ngIf="isEditMode" [character]="character"/>
+<app-info-view *ngIf="!isEditMode" [character]="character"/>

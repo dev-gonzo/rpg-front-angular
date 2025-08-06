@@ -1,17 +1,24 @@
-import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectorRef,
+  Component,
+  inject,
+  Input,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { CharacterInfoDto } from '@/api/characters/character-info.types';
 import { BaseTranslateComponent } from '@/core/base/base-translate.component';
-import { createFormFromSchema } from '@/core/utils/createFormFromSchema';
-import { TypedFormGroup } from '@/core/types/forms';
 import { FormValidatorService } from '@/core/forms/form-validator.service';
-import { createInfoEditSchema, InfoEditFormData } from './info-edit.schema';
+import { TypedFormGroup } from '@/core/types/forms';
+import { createFormFromSchema } from '@/core/utils/createFormFromSchema';
 import { InputComponent } from '@/shared/components/form/input/input.component';
-import { CharacterInfoApiService } from '@/api/characters/character-info.api.servive';
-import { ActivatedRoute } from '@angular/router';
 import { ToastService } from '@/shared/components/toast/toast.service';
+import { createInfoEditSchema, InfoEditFormData } from './info-edit.schema';
+import { formatToDayMonthYear } from '@/core/utils/formatToDayMonthYear';
 
 @Component({
   selector: 'app-info-edit',
@@ -25,8 +32,8 @@ export class InfoEditComponent
 {
   private readonly cdRef = inject(ChangeDetectorRef);
   private readonly validator = inject(FormValidatorService);
-  private readonly characterApi = inject(CharacterInfoApiService);
   private readonly toast = inject(ToastService);
+  @Input() character: CharacterInfoDto | null = null;
 
   form!: TypedFormGroup<InfoEditFormData>;
   id!: string;
@@ -40,26 +47,23 @@ export class InfoEditComponent
     );
 
     this.form = form;
-    this.loadCharacter();
+    if (this.character) {
+      this.applyCharacterPatch();
+    }
 
     requestAnimationFrame(() => this.cdRef.detectChanges());
   }
 
-  loadCharacter(): void {
-    this.characterApi.characterInfo(this.id).subscribe({
-      next: (character) => {
-        this.form.patchValue({
-          ...character,
-          birthDate:
-            character.birthDate instanceof Date
-              ? character.birthDate.toISOString().split('T')[0] as string
-              : new Date(character.birthDate).toISOString().split('T')[0],
-        });
-      },
-      error: (err) => {
-        this.toast.error(this.translate.instant('MSG.ERROR.LOAD'));
-        console.error(err);
-      },
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['character'] && this.character && this.form) {
+      this.applyCharacterPatch();
+    }
+  }
+
+  private applyCharacterPatch(): void {
+    this.form.patchValue({
+      ...this.character,
+      birthDate: formatToDayMonthYear(this.character?.birthDate),
     });
   }
 

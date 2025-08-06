@@ -17,6 +17,24 @@ export const CHARACTER_ROUTES: Routes = [
               import('./pages/info/info.page').then((m) => m.InfoPage),
             canActivate: [AuthGuard],
           },
+          {
+            path: 'info/:edit',
+            loadComponent: () =>
+              import('./pages/info/info.page').then((m) => m.InfoPage),
+            canActivate: [AuthGuard],
+          },
+        ],
+      },
+      {
+        path: 'character',
+        component: LayoutMainComponent,
+        children: [
+          {
+            path: 'create',
+            loadComponent: () =>
+              import('./pages/info/info.page').then((m) => m.InfoPage),
+            canActivate: [AuthGuard],
+          },
         ],
       },
     ],
