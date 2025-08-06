@@ -17,14 +17,15 @@ export class ButtonIconComponent {
   get sizeClass(): string {
     switch (this.size) {
       case 'xs':
-        return 'w-8 h-8 text-xs';
+        return 'btn-circle-xs';
       case 'sm':
-        return 'w-10 h-10 text-sm';
+        return 'btn-circle-sm';
       case 'lg':
-        return 'w-16 h-16 text-xl';
+        return 'btn-circle-lg';
       case 'md':
+        return 'btn-circle-md';
       default:
-        return 'w-14 h-14 text-base';
+        return 'btn-circle-md';
     }
   }
 

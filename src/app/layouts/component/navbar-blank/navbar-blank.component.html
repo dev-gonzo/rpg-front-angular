@@ -6,9 +6,9 @@
     <app-icon-language class="fs-5" />
   </app-button-icon>
 
-  <app-button-icon (click)="toggleTheme()">
+  <app-button-icon (click)="toggleTheme()" style="width: 24px;">
     <ng-container *ngIf="theme.theme() !== 'dark'; else darkTheme">
-      <app-icon-sun class="fs-4" />
+      <app-icon-sun class="fs-4"/>
     </ng-container>
     <ng-template #darkTheme>
       <app-icon-moon class="fs-4" />
