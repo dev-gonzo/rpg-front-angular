@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { ThemeService } from '@/design/theme/theme.sevice';
+import { ThemeService } from '@/design/theme/theme.service';
 import { ButtonIconComponent } from '@/shared/components/button-icon/button-icon.component';
 import { IconLanguageComponent } from '@/shared/components/icons/language-icon.component';
 import { IconMoonComponent } from '@/shared/components/icons/moon-icon.component';
