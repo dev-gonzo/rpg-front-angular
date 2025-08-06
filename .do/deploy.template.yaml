@@ -1,0 +1,12 @@
+services:
+  - name: rpg-front
+    github:
+      branch: main
+      deploy_on_push: true
+    source_dir: .
+    build_command: npm run generate-env && npm run build
+    run_command: ''
+    environment_slug: node-js
+    http_port: 8080
+    routes:
+      - path: /
