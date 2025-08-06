@@ -12,6 +12,115 @@
       "ERROR": "Failed to log out",
       "CONFIRM": "Are you sure you want to log out?",
       "FORCED": "You have been logged out due to inactivity"
+    },
+    "HTTP": {
+      "NOT_FOUND": [
+        {
+          "TITLE": "The journey ends here...",
+          "DESCRIPTION": "You tried to open a locked door without the key... and failed!",
+          "ICON_NUMBER": 8
+        },
+        {
+          "TITLE": "Trap Triggered",
+          "DESCRIPTION": "You fell into a trap! The path you tried to follow simply... doesn't exist.",
+          "ICON_NUMBER": 6
+        },
+        {
+          "TITLE": "Incomplete Map",
+          "DESCRIPTION": "The quest was accepted, but the map is blank... This route has not been charted by any cartographer of the realm.",
+          "ICON_NUMBER": 11
+        },
+        {
+          "TITLE": "Arcane Fog",
+          "DESCRIPTION": "A magical fog blocks your vision. It seems this page was lost between planes.",
+          "ICON_NUMBER": 12
+        },
+        {
+          "TITLE": "Corrupted Scroll",
+          "DESCRIPTION": "The scroll crumbles in your hands. Nothing remains of this content but dust and echoes.",
+          "ICON_NUMBER": 6
+        },
+        {
+          "TITLE": "Silent Oracle",
+          "DESCRIPTION": "You consult the oracle... and get no answer. This page responds to no god.",
+          "ICON_NUMBER": 9
+        },
+        {
+          "TITLE": "Inaccessible Portal",
+          "DESCRIPTION": "The portal did not open. Maybe this URL requires a legendary artifact to work.",
+          "ICON_NUMBER": 8
+        },
+        {
+          "TITLE": "Lost Tavern",
+          "DESCRIPTION": "The tavern you seek was burned down by goblins. Sadly, only ashes remain.",
+          "ICON_NUMBER": 6
+        },
+        {
+          "TITLE": "Illusion Spell",
+          "DESCRIPTION": "You encountered an illusion. This page looked real... but was just an empty spell.",
+          "ICON_NUMBER": 2
+        },
+        {
+          "TITLE": "Code Guardian",
+          "DESCRIPTION": "The code guardian blocks your entry. Only real pages may pass. This one is not.",
+          "ICON_NUMBER": 10
+        },
+        {
+          "TITLE": "Wrong Path",
+          "DESCRIPTION": "You turned left when you should have entered the dungeon. Recalculate your journey, adventurer.",
+          "ICON_NUMBER": 8
+        },
+        {
+          "TITLE": "Invalid Symbol",
+          "DESCRIPTION": "The symbol was drawn incorrectly in the summoning circle. This page could not be brought from another plane.",
+          "ICON_NUMBER": 2
+        },
+        {
+          "TITLE": "Empty Grimoire",
+          "DESCRIPTION": "You flip through the Grimoire... but the pages are blank. The knowledge you seek has been sealed by arcane forces.",
+          "ICON_NUMBER": 7
+        },
+        {
+          "TITLE": "Threshold Guardian",
+          "DESCRIPTION": "The Guardian of the Threshold stares at you in silence. Access denied. Turn back before it grows angry.",
+          "ICON_NUMBER": 4
+        },
+        {
+          "TITLE": "Abyssal Silence",
+          "DESCRIPTION": "You heard a whisper... and then absolute silence. This page was devoured by the Shadows.",
+          "ICON_NUMBER": 10
+        },
+        {
+          "TITLE": "Failed Convergence",
+          "DESCRIPTION": "The Convergence did not happen. Without the proper alignment, this information cannot be revealed.",
+          "ICON_NUMBER": 1
+        },
+        {
+          "TITLE": "Impenetrable Veil",
+          "DESCRIPTION": "The silver blade failed to cut through the darkness. This page is shielded by a veil even the Hunter cannot pierce.",
+          "ICON_NUMBER": 3
+        },
+        {
+          "TITLE": "Erased Name",
+          "DESCRIPTION": "You tried to access the Registry... but the name was crossed out. This page was forgotten by even the oldest gods.",
+          "ICON_NUMBER": 10
+        },
+        {
+          "TITLE": "Absent Reflection",
+          "DESCRIPTION": "The black mirror showed nothing. This content has been banished beyond the Abyss.",
+          "ICON_NUMBER": 11
+        },
+        {
+          "TITLE": "Cabala Denies",
+          "DESCRIPTION": "The Cabal did not grant you access. You must gain more occult knowledge to proceed.",
+          "ICON_NUMBER": 7
+        },
+        {
+          "TITLE": "Digital Ruins",
+          "DESCRIPTION": "The entity that once inhabited this page left long ago. Now only echoes and digital ruins remain.",
+          "ICON_NUMBER": 2
+        }
+      ]
     }
   }
 }

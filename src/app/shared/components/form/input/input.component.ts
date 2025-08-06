@@ -10,7 +10,7 @@ import { ColumnHostClass } from '../../abstract/ColumnHostClass';
   templateUrl: './input.component.html',
 })
 export class InputComponent extends ColumnHostClass {
-  @Input({ required: true }) control!: FormControl<string | null>;
+  @Input({ required: true }) control!: FormControl<any>;
   @Input() label = '';
   @Input() placeholder = '';
   @Input() type: 'text' | 'email' | 'password' | 'number' | 'tel' = 'text';

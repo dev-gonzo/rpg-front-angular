@@ -12,6 +12,115 @@
       "ERROR": "Falha ao sair da conta",
       "CONFIRM": "Tem certeza que deseja sair da sua conta?",
       "FORCED": "Você foi desconectado por inatividade"
+    },
+    "HTTP": {
+      "NOT_FOUND": [
+        {
+          "TITLE": "A jornada parou aqui...",
+          "DESCRIPTION": "Você tentou abrir uma porta trancada sem a chave... e falhou!",
+          "ICON_NUMBER": 8
+        },
+        {
+          "TITLE": "Armadilha Ativada",
+          "DESCRIPTION": "Você caiu em uma armadilha! O caminho que tentou seguir simplesmente... não existe.",
+          "ICON_NUMBER": 6
+        },
+        {
+          "TITLE": "Mapa Incompleto",
+          "DESCRIPTION": "A missão foi aceita, mas o mapa está em branco... Essa rota não foi encontrada por nenhum cartógrafo do reino.",
+          "ICON_NUMBER": 11
+        },
+        {
+          "TITLE": "Nevoeiro Arcano",
+          "DESCRIPTION": "Um nevoeiro mágico bloqueia sua visão. Parece que essa página se perdeu entre os planos.",
+          "ICON_NUMBER": 12
+        },
+        {
+          "TITLE": "Pergaminho Corrompido",
+          "DESCRIPTION": "O pergaminho se desfaz em suas mãos. Nada restou desse conteúdo além do pó do tempo.",
+          "ICON_NUMBER": 6
+        },
+        {
+          "TITLE": "Oráculo Silencioso",
+          "DESCRIPTION": "Você consulta o oráculo... e não obtém resposta. Essa página não responde nem aos deuses.",
+          "ICON_NUMBER": 9
+        },
+        {
+          "TITLE": "Portal Inacessível",
+          "DESCRIPTION": "O portal não se abriu. Talvez essa URL precise de um artefato lendário para funcionar.",
+          "ICON_NUMBER": 8
+        },
+        {
+          "TITLE": "Taverna Perdida",
+          "DESCRIPTION": "A taverna que você procura foi queimada por goblins. Infelizmente, nada restou além de cinzas.",
+          "ICON_NUMBER": 6
+        },
+        {
+          "TITLE": "Feitiço de Ilusão",
+          "DESCRIPTION": "Você encontrou uma ilusão. Essa página parecia real... mas não passa de um feitiço vazio.",
+          "ICON_NUMBER": 2
+        },
+        {
+          "TITLE": "Guardião do Código",
+          "DESCRIPTION": "O guardião do código impede sua entrada. Apenas páginas reais podem passar. Essa não é uma delas.",
+          "ICON_NUMBER": 10
+        },
+        {
+          "TITLE": "Caminho Errado",
+          "DESCRIPTION": "Você virou à esquerda quando deveria ter ido à masmorra. Recalcule sua jornada, aventureiro.",
+          "ICON_NUMBER": 8
+        },
+        {
+          "TITLE": "Símbolo Inválido",
+          "DESCRIPTION": "O símbolo foi traçado errado no círculo de invocação. Essa página não pôde ser trazida do outro plano.",
+          "ICON_NUMBER": 12
+        },
+        {
+          "TITLE": "Grimório Vazio",
+          "DESCRIPTION": "Você folheia o Grimório... mas as páginas estão em branco. O conhecimento que busca foi selado por forças arcanas.",
+          "ICON_NUMBER": 7
+        },
+        {
+          "TITLE": "Guardião do Umbral",
+          "DESCRIPTION": "O Guardião do Umbral te encara em silêncio. A entrada está negada. Volte antes que ele se irrite.",
+          "ICON_NUMBER": 4
+        },
+        {
+          "TITLE": "Silêncio Abissal",
+          "DESCRIPTION": "Você ouviu um sussurro... e então o silêncio absoluto. Essa página foi devorada pelas Sombras.",
+          "ICON_NUMBER": 10
+        },
+        {
+          "TITLE": "Convergência Falha",
+          "DESCRIPTION": "A Convergência não aconteceu. Sem o alinhamento correto, essa informação não pode ser revelada.",
+          "ICON_NUMBER": 1
+        },
+        {
+          "TITLE": "Véu Impenetrável",
+          "DESCRIPTION": "A lâmina de prata não cortou a escuridão. Essa página está protegida por um véu que nem o Caçador pode rasgar.",
+          "ICON_NUMBER": 3
+        },
+        {
+          "TITLE": "Nome Riscado",
+          "DESCRIPTION": "Você tentou acessar o Registro... mas o nome foi riscado. A página foi esquecida até pelos deuses antigos.",
+          "ICON_NUMBER": 10
+        },
+        {
+          "TITLE": "Reflexo Ausente",
+          "DESCRIPTION": "O espelho negro não refletiu nada. Esse conteúdo foi banido para além do Abismo.",
+          "ICON_NUMBER": 11
+        },
+        {
+          "TITLE": "Cabala Rejeita",
+          "DESCRIPTION": "A Cabala não autorizou seu acesso. Você precisa de mais conhecimento oculto para prosseguir.",
+          "ICON_NUMBER": 7
+        },
+        {
+          "TITLE": "Ruínas Digitais",
+          "DESCRIPTION": "A Entidade que habitava essa página partiu há muito tempo. Agora só restam ecos e ruínas digitais.",
+          "ICON_NUMBER": 2
+        }
+      ]
     }
   }
 }
