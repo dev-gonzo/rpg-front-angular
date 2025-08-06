@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "projeto-referencia": {
+    "rpg-front": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/rpg-front",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
@@ -64,10 +65,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "projeto-referencia:build:production"
+              "buildTarget": "rpg-front:build:production"
             },
             "development": {
-              "buildTarget": "projeto-referencia:build:development"
+              "buildTarget": "rpg-front:build:development"
             }
           },
           "defaultConfiguration": "development"
