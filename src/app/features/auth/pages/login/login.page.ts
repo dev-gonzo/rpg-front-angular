@@ -37,8 +37,6 @@ export class LoginPage extends BaseTranslateComponent implements OnInit {
   private readonly toast = inject(ToastService);
   loginSchema!: ReturnType<typeof createLoginSchema>;
 
-  public readonly baseUrl = inject(API_BASE_URL);
-
   form!: TypedFormGroup<LoginFormData>;
 
   ngOnInit(): void {
