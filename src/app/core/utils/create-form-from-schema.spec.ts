@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { createFormFromSchema } from './createFormFromSchema';
+import { createFormFromSchema } from './create-form-from-schema';
 
 describe('createFormFromSchema', () => {
   const schema = yup.object({

@@ -8,7 +8,7 @@ import { AuthService } from '@/auth/service/auth.service';
 import { BaseTranslateComponent } from '@/core/base/base-translate.component';
 import { FormValidatorService } from '@/core/forms/form-validator.service';
 import { TypedFormGroup } from '@/core/types/forms';
-import { createFormFromSchema } from '@/core/utils/createFormFromSchema';
+import { createFormFromSchema } from '@/core/utils/create-form-from-schema';
 import { InputComponent } from '@/shared/components/form/input/input.component';
 import { ToastService } from '@/shared/components/toast/toast.service';
 import { TranslateModule } from '@ngx-translate/core';

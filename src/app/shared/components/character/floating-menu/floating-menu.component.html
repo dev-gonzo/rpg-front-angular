@@ -2,74 +2,81 @@
   class="d-flex flex-row-reverse align-items-start gap-2 top-fixed transition-top z-3 mt-1"
   [ngClass]="{ 'top-5': !atTop, 'top-16': atTop }"
 >
- <div class="d-flex flex-column align-items-end gap-3">
+  <div class="d-flex flex-column align-items-end gap-3">
     <app-button-icon size="sm" (click)="toggleMenu()">
       <app-icon-menu />
     </app-button-icon>
 
-    <div class="d-flex flex-column gap-2" *ngIf="showMenu && !showExtras">
-      <app-button-icon size="sm" (click)="toggleExtras()">
-        <app-icon-repeat class="text-xs" />
-      </app-button-icon>
+    @if (showMenu && !showMenu) {
+      <div class="d-flex flex-column gap-2">
+        <app-button-icon size="sm" (click)="toggleExtras()">
+          <app-icon-repeat class="text-xs" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-attributes class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-attributes class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-improvements class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-improvements class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-skill class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-skill class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-combat-skill class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-combat-skill class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-weapon class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-weapon class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-equipament class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-equipament class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-magia class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-magia class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-ritual class="text-2xl" />
-      </app-button-icon>
-    </div>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-ritual class="text-2xl" />
+        </app-button-icon>
+      </div>
+    }
 
-    <div class="d-flex flex-column gap-2" *ngIf="showMenu && showExtras">
-      <app-button-icon size="sm" (click)="toggleExtras()">
-        <app-icon-repeat class="text-xs" />
-      </app-button-icon>
+    @if (showMenu && showMenu) {
+      <div class="d-flex flex-column gap-2">
+        <app-button-icon size="sm" (click)="toggleExtras()">
+          <app-icon-repeat class="text-xs" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-info class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-info class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-person class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-person class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-background class="text-2xl" />
-      </app-button-icon>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-background class="text-2xl" />
+        </app-button-icon>
 
-      <app-button-icon size="sm" color="secondary">
-        <app-icon-note class="text-2xl" />
-      </app-button-icon>
-    </div>
+        <app-button-icon size="sm" color="secondary">
+          <app-icon-note class="text-2xl" />
+        </app-button-icon>
+      </div>
+    }
   </div>
 
-  <app-button-icon size="sm" (click)="handleBack()">
+  <app-button-icon size="sm" (click)="handleEdit()" *ngIf="edit">
     <app-icon-edit />
+  </app-button-icon>
+  <app-button-icon size="sm" (click)="handleClose()" *ngIf="!edit">
+    <app-icon-close />
   </app-button-icon>
   <app-button-icon size="sm" (click)="handleBack()">
     <app-icon-back />

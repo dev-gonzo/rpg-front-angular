@@ -13,6 +13,13 @@
       "CONFIRM": "Tem certeza que deseja sair da sua conta?",
       "FORCED": "Você foi desconectado por inatividade"
     },
+    "REST": {
+      "SUCCESS": "{{resource}} salvo com sucesso",
+      "ERROR": "Erro ao salvar {{resource}}"
+    },
+    "PARAMS": {
+      "NOT_PARAMS": "{{field}} não informado ou não encontrado"
+    },
     "HTTP": {
       "NOT_FOUND": [
         {

@@ -8,52 +8,16 @@ export function createInfoEditSchema(translate: TranslateService) {
         field: translate.instant('CHARACTER.NAME'),
       }),
     ),
-    profession: yup.string().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.PROFESSION'),
-      }),
-    ),
-    birthDate: yup.string().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.BIRTHDATE'),
-      }),
-    ),
-    birthPlace: yup.string().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.BIRTHPLACE'),
-      }),
-    ),
-    gender: yup.string().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.GENDER'),
-      }),
-    ),
-    age: yup.number().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.AGE'),
-      }),
-    ),
 
-    apparentAge: yup.number().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.APPARENTAGE'),
-      }),
-    ),
-    heightCm: yup.number().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.HEIGHTCM'),
-      }),
-    ),
-    weightKg: yup.number().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.WEIGHTKG'),
-      }),
-    ),
-    religion: yup.string().required(() =>
-      translate.instant('VALIDATION.REQUIRED', {
-        field: translate.instant('CHARACTER.RELIGION'),
-      }),
-    ),
+    profession: yup.string().notRequired(),
+    birthDate: yup.string().notRequired(),
+    birthPlace: yup.string().notRequired(),
+    gender: yup.string().notRequired(),
+    age: yup.number().notRequired(),
+    apparentAge: yup.number().notRequired(),
+    heightCm: yup.number().notRequired(),
+    weightKg: yup.number().notRequired(),
+    religion: yup.string().notRequired(),
   });
 }
 

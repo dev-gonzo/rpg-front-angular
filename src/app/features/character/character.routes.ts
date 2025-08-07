@@ -5,37 +5,26 @@ import { LayoutMainComponent } from '../../layouts/layout-main/layout-main.compo
 
 export const CHARACTER_ROUTES: Routes = [
   {
-    path: '',
+    path: 'character',
+    component: LayoutMainComponent,
     children: [
       {
-        path: 'character/:id',
-        component: LayoutMainComponent,
-        children: [
-          {
-            path: 'info',
-            loadComponent: () =>
-              import('./pages/info/info.page').then((m) => m.InfoPage),
-            canActivate: [AuthGuard],
-          },
-          {
-            path: 'info/:edit',
-            loadComponent: () =>
-              import('./pages/info/info.page').then((m) => m.InfoPage),
-            canActivate: [AuthGuard],
-          },
-        ],
+        path: 'create',
+        loadComponent: () =>
+          import('./pages/info/info.page').then((m) => m.InfoPage),
+        canActivate: [AuthGuard],
       },
       {
-        path: 'character',
-        component: LayoutMainComponent,
-        children: [
-          {
-            path: 'create',
-            loadComponent: () =>
-              import('./pages/info/info.page').then((m) => m.InfoPage),
-            canActivate: [AuthGuard],
-          },
-        ],
+        path: ':id/info',
+        loadComponent: () =>
+          import('./pages/info/info.page').then((m) => m.InfoPage),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: ':id/info/:edit',
+        loadComponent: () =>
+          import('./pages/info/info.page').then((m) => m.InfoPage),
+        canActivate: [AuthGuard],
       },
     ],
   },

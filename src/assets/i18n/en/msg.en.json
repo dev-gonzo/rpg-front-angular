@@ -13,6 +13,13 @@
       "CONFIRM": "Are you sure you want to log out?",
       "FORCED": "You have been logged out due to inactivity"
     },
+    "REST": {
+      "SUCCESS": "{{resource}} saved successfully",
+      "ERROR": "Failed to save {{resource}}"
+    },
+    "PARAMS": {
+      "NOT_PARAMS": "{{field}} not provided or not found"
+    },
     "HTTP": {
       "NOT_FOUND": [
         {

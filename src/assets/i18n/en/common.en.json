@@ -1,5 +1,6 @@
 {
   "COMMON": {
+    "CHARACTER": "Character",
     "EMAIL": "Email",
     "NAME": "Name",
     "SAVE": "Save",
@@ -32,6 +33,9 @@
     "SETTINGS": "Settings",
     "PROFILE": "Profile",
     "LANGUAGE": "Language",
-    "ACTIONS": "Actions"
+    "ACTIONS": "Actions",
+    "PLACEHOLDER": {
+      "DATE": "DD/MM/YYYY"
+    }
   }
 }

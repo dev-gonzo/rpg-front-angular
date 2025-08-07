@@ -1,36 +1,18 @@
 import { UserResponse } from '../users/user.types';
 
-export interface CharacterInfoDto {
-  id: string;
+export interface CharacterInfoRequest {
   name: string;
-  age: number;
-  apparentAge: number;
-  profession: string;
+  profession?: string;
+  birthDate: Date | string;
+  birthPlace?: string;
+  gender?: string;
+  age?: number;
+  apparentAge?: number;
+  heightCm?: number;
+  weightKg?: number;
+  religion?: string;
+}
 
-  birthDate: string | Date;
-  birthPlace: string;
-  gender: string;
-  heightCm: number;
-  weightKg: number;
-  religion: string;
-
-  hitPoints: number;
-  currentHitPoints: number;
-  initiative: number;
-  currentInitiative: number;
-  heroPoints: number;
-  currentHeroPoints: number;
-  magicPoints: number;
-  currentMagicPoints: number;
-  faithPoints: number;
-  currentFaithPoints: number;
-  protectionIndex: number;
-  currentProtectionIndex: number;
-
-  image: string;
-
-  controlUserId: string;
-  controlUser: UserResponse;
-
-  edit: boolean;
+export interface CharacterInfoResponse extends CharacterInfoRequest {
+  id: string;
 }

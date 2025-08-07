@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColumnHostClass } from '../../abstract/ColumnHostClass';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-form-input',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskDirective ],
   templateUrl: './input.component.html',
 })
 export class InputComponent extends ColumnHostClass {

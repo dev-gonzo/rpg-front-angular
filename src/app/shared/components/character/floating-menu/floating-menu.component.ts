@@ -1,11 +1,11 @@
 import { CommonModule, Location } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject, Input } from '@angular/core';
 import { ButtonIconComponent } from '../../button-icon/button-icon.component';
 import { IconAttributesComponent } from '../../icons/attributes-icon.component';
 import { IconBackComponent } from '../../icons/back-icon.component';
 import { IconBackgroundComponent } from '../../icons/background-icon.component';
 import { IconCombatSkillComponent } from '../../icons/combat-skill-icon.component';
-import { IconEditComponent } from "../../icons/edit-icon.component";
+import { IconEditComponent } from '../../icons/edit-icon.component';
 import { IconEquipamentComponent } from '../../icons/equipament-icon.component';
 import { IconImprovementsComponent } from '../../icons/improvements-icon.component';
 import { IconInfoComponent } from '../../icons/info-icon.component';
@@ -17,6 +17,8 @@ import { IconRepeatComponent } from '../../icons/repeat-icon.component';
 import { IconRitualComponent } from '../../icons/ritual-icon.component';
 import { IconSkillComponent } from '../../icons/skill-icon.component';
 import { IconWeaponComponent } from '../../icons/weapon-icon.component';
+import { IconCloseComponent } from '../../icons/close-icon.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-flutuante',
@@ -38,12 +40,21 @@ import { IconWeaponComponent } from '../../icons/weapon-icon.component';
     IconMenuComponent,
     IconRepeatComponent,
     IconBackComponent,
-    IconEditComponent
-],
+    IconEditComponent,
+    IconCloseComponent,
+  ],
   templateUrl: './floating-menu.component.html',
   standalone: true,
 })
 export class MenuFlutuanteComponent {
+  @Input() edit: boolean = false;
+
+  @Input() navigateEditTo: string = 'edit';
+  @Input() navigateCloseTo: string = '';
+
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+
   showMenu = false;
   showExtras = false;
   atTop = true;
@@ -52,6 +63,29 @@ export class MenuFlutuanteComponent {
 
   handleBack(): void {
     this.location.back();
+  }
+
+  handleEdit(): void {
+    if (this.navigateEditTo) {
+      const isAbsolute = this.navigateEditTo.startsWith('/');
+
+      if (isAbsolute) {
+        this.router.navigateByUrl(this.navigateEditTo, { replaceUrl: true });
+      } else {
+        this.router.navigate([this.navigateEditTo], {
+          relativeTo: this.route,
+          replaceUrl: true,
+        });
+      }
+    }
+  }
+
+  handleClose(): void {
+    if (this.navigateCloseTo) {
+      this.router.navigateByUrl(this.navigateCloseTo, { replaceUrl: true });
+    } else {
+      this.location.back();
+    }
   }
 
   toggleMenu(): void {

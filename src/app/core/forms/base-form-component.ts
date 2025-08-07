@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Directive, OnInit, inject } from '@angular/core';
 import { TypedFormGroup } from '@/core/types/forms';
-import { createFormFromSchema } from '@/core/utils/createFormFromSchema';
+import { createFormFromSchema } from '@/core/utils/create-form-from-schema';
 import { ToastService } from '@/shared/components/toast/toast.service';
 import * as yup from 'yup';
 import { Observable, isObservable } from 'rxjs';

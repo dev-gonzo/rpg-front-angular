@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 
 import { CharacterHomeApiService } from '@/api/characters/character-home.api.servive';
-import { CharacterHomeDto } from '@/api/characters/character.types';
 import { CardHomeComponent } from '@/shared/components/character/card-home/card-home.compoment';
 import { PageHeaderComponent } from '@/shared/components/page-header/page-header.component';
 import { HomeToolbarComponent } from "@/shared/components/home-toolbar/home-toolbar.component";
+import { CharacterHomeDto } from '@/api/characters/character-home.types';
 
 @Component({
   standalone: true,

@@ -1,6 +1,10 @@
-// src/app/core/utils/format-to-day-month-year.ts
 export function formatToDayMonthYear(value: string | Date | undefined | null): string | null {
   if (!value) return null;
+
+  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    const [year, month, day] = value.split('-');
+    return `${day}/${month}/${year}`;
+  }
 
   let date: Date;
 

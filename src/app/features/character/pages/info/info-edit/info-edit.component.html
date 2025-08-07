@@ -6,57 +6,59 @@
   />
   <app-form-input
     [label]="'CHARACTER.PROFESSION' | translate"
-    [control]="form.controls.profession"
+    [control]="form.controls.profession!"
     col="12"
   />
   <app-form-input
     [label]="'CHARACTER.BIRTHDATE' | translate"
-    [control]="form.controls.birthDate"
+    [control]="form.controls.birthDate!"
+    mask="d0/M0/0000"
+    [placeholder]="'COMMON.PLACEHOLDER.DATE' | translate"
     col="12"
   />
   <app-form-input
     [label]="'CHARACTER.BIRTHPLACE' | translate"
-    [control]="form.controls.birthPlace"
+    [control]="form.controls.birthPlace!"
     col="12"
   />
   <app-form-input
     [label]="'CHARACTER.GENDER' | translate"
-    [control]="form.controls.gender"
+    [control]="form.controls.gender!"
     col="12"
   />
   <app-form-input
     [label]="'CHARACTER.AGE' | translate"
     type="number"
-    [control]="form.controls.age"
+    [control]="form.controls.age!"
     col="6"
   />
   <app-form-input
     [label]="'CHARACTER.APPARENTAGE' | translate"
     type="number"
-    [control]="form.controls.apparentAge"
+    [control]="form.controls.apparentAge!"
     col="6"
   />
   <app-form-input
     [label]="'CHARACTER.HEIGHTCM' | translate"
     type="number"
-    [control]="form.controls.heightCm"
+    [control]="form.controls.heightCm!"
     col="6"
   />
   <app-form-input
     [label]="'CHARACTER.WEIGHTKG' | translate"
     type="number"
-    [control]="form.controls.weightKg"
+    [control]="form.controls.weightKg!"
     col="6"
   />
   <app-form-input
     [label]="'CHARACTER.RELIGION' | translate"
-    [control]="form.controls.religion"
+    [control]="form.controls.religion!"
     col="12"
   />
 
   <div class="col-12 text-end mt-3">
     <button type="submit" class="btn btn-primary">
-      {{ 'COMMON.SAVE' | translate }}
+      {{ "COMMON.SAVE" | translate }}
     </button>
   </div>
 </form>
