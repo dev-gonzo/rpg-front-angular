@@ -41,7 +41,7 @@ export class TranslationService {
 
       `assets/i18n/${lang}/feature.${lang}.json`,
 
-      `assets/i18n/${lang}/shared/character/attributes.${lang}.json`,
+      `assets/i18n/${lang}/character.${lang}.json`,
     ];
 
     const translationData = await Promise.all(

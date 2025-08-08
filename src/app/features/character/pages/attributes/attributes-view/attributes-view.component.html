@@ -1,0 +1,287 @@
+<div class="row row-gap-3">
+  <div class="col-12 col-md-6">
+    <div class="card border-0 theme-primary p-3">
+      <div class="row row-gap-4 text-center mb-2">
+        <div class="col-6">
+          <span class="fw-bold fs-5">
+            {{ "CHARACTER.ATTRIBUTES.CON.LABEL" | translate }}</span
+          >
+          <br />
+          <small class="text-xs">
+            {{ "CHARACTER.ATTRIBUTES.CON.ABBR" | translate }} [
+            {{ "CHARACTER.ATTRIBUTES.MOD.ABBR" | translate }}]
+          </small>
+        </div>
+        <div class="col-6"><span class="fs-1 fw-bold"> % </span></div>
+        <div class="col-6">
+          <h1 class="text-center">
+            {{ attributes?.con }}
+            @if (attributes?.conMod) {
+              <span> [{{ attributes?.conMod }}] </span>
+            }
+          </h1>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center">{{ attributes?.conPercentTotal }}%</h1>
+        </div>
+      </div>
+
+      <div class="progress-stacked rounded-pill">
+        <div class="progress" [style.width.%]="attributes?.conPercent">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" [style.width.%]="attributes?.conPercentMod">
+          <div class="progress-bar bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="card border-0 theme-primary p-3">
+      <div class="row row-gap-4 text-center mb-2">
+        <div class="col-6">
+          <span class="fw-bold fs-5">
+            {{ "CHARACTER.ATTRIBUTES.FR.LABEL" | translate }}</span
+          >
+          <br />
+          <small class="text-xs">
+            {{ "CHARACTER.ATTRIBUTES.FR.ABBR" | translate }} [
+            {{ "CHARACTER.ATTRIBUTES.MOD.ABBR" | translate }}]
+          </small>
+        </div>
+        <div class="col-6"><span class="fs-1 fw-bold"> % </span></div>
+        <div class="col-6">
+          <h1 class="text-center">
+            {{ attributes?.fr }}
+            @if (attributes?.frMod) {
+              <span> [{{ attributes?.frMod }}] </span>
+            }
+          </h1>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center">{{ attributes?.frPercentTotal }}%</h1>
+        </div>
+      </div>
+
+      <div class="progress-stacked rounded-pill">
+        <div class="progress" [style.width.%]="attributes?.frPercent">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" [style.width.%]="attributes?.frPercentMod">
+          <div class="progress-bar bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="card border-0 theme-primary p-3">
+      <div class="row row-gap-4 text-center mb-2">
+        <div class="col-6">
+              <span class="fw-bold fs-5">
+            {{ "CHARACTER.ATTRIBUTES.DEX.LABEL" | translate }}</span
+          >
+          <br />
+          <small class="text-xs">  {{ "CHARACTER.ATTRIBUTES.DEX.ABBR" | translate }} [{{ "CHARACTER.ATTRIBUTES.MOD.ABBR" | translate }}] </small>
+        </div>
+        <div class="col-6"><span class="fs-1 fw-bold"> % </span></div>
+        <div class="col-6">
+          <h1 class="text-center">
+            {{ attributes?.dex }}
+            @if (attributes?.dexMod) {
+              <span> [{{ attributes?.dexMod }}] </span>
+            }
+          </h1>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center">{{ attributes?.dexPercentTotal }}%</h1>
+        </div>
+      </div>
+
+      <div class="progress-stacked rounded-pill">
+        <div class="progress" [style.width.%]="attributes?.dexPercent">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" [style.width.%]="attributes?.dexPercentMod">
+          <div class="progress-bar bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="card border-0 theme-primary p-3">
+      <div class="row row-gap-4 text-center mb-2">
+        <div class="col-6">
+              <span class="fw-bold fs-5">
+            {{ "CHARACTER.ATTRIBUTES.AGI.LABEL" | translate }}</span
+          >
+          <br />
+          <small class="text-xs">  {{ "CHARACTER.ATTRIBUTES.AGI.ABBR" | translate }} [{{ "CHARACTER.ATTRIBUTES.MOD.ABBR" | translate }}] </small>
+        </div>
+        <div class="col-6"><span class="fs-1 fw-bold"> % </span></div>
+        <div class="col-6">
+          <h1 class="text-center">
+            {{ attributes?.agi }}
+            @if (attributes?.agiMod) {
+              <span> [{{ attributes?.agiMod }}] </span>
+            }
+          </h1>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center">{{ attributes?.agiPercentTotal }}%</h1>
+        </div>
+      </div>
+
+      <div class="progress-stacked rounded-pill">
+        <div class="progress" [style.width.%]="attributes?.agiPercent">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" [style.width.%]="attributes?.agiPercentMod">
+          <div class="progress-bar bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="card border-0 theme-primary p-3">
+      <div class="row row-gap-4 text-center mb-2">
+        <div class="col-6">
+              <span class="fw-bold fs-5">
+            {{ "CHARACTER.ATTRIBUTES.INT.LABEL" | translate }}</span
+          >
+          <br />
+          <small class="text-xs">  {{ "CHARACTER.ATTRIBUTES.INT.ABBR" | translate }} [{{ "CHARACTER.ATTRIBUTES.MOD.ABBR" | translate }}] </small>
+        </div>
+        <div class="col-6"><span class="fs-1 fw-bold"> % </span></div>
+        <div class="col-6">
+          <h1 class="text-center">
+            {{ attributes?.int }}
+            @if (attributes?.intMod) {
+              <span> [{{ attributes?.intMod }}] </span>
+            }
+          </h1>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center">{{ attributes?.intPercentTotal }}%</h1>
+        </div>
+      </div>
+
+      <div class="progress-stacked rounded-pill">
+        <div class="progress" [style.width.%]="attributes?.intPercent">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" [style.width.%]="attributes?.intPercentMod">
+          <div class="progress-bar bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="card border-0 theme-primary p-3">
+      <div class="row row-gap-4 text-center mb-2">
+        <div class="col-6">
+              <span class="fw-bold fs-5">
+            {{ "CHARACTER.ATTRIBUTES.WILL.LABEL" | translate }}</span
+          >
+          <br />
+          <small class="text-xs">  {{ "CHARACTER.ATTRIBUTES.WILL.ABBR" | translate }} [{{ "CHARACTER.ATTRIBUTES.MOD.ABBR" | translate }}] </small>
+        </div>
+        <div class="col-6"><span class="fs-1 fw-bold"> % </span></div>
+        <div class="col-6">
+          <h1 class="text-center">
+            {{ attributes?.will }}
+            @if (attributes?.willMod) {
+              <span> [{{ attributes?.willMod }}] </span>
+            }
+          </h1>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center">{{ attributes?.willPercentTotal }}%</h1>
+        </div>
+      </div>
+
+      <div class="progress-stacked rounded-pill">
+        <div class="progress" [style.width.%]="attributes?.willPercent">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" [style.width.%]="attributes?.willPercentMod">
+          <div class="progress-bar bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="card border-0 theme-primary p-3">
+      <div class="row row-gap-4 text-center mb-2">
+        <div class="col-6">
+              <span class="fw-bold fs-5">
+            {{ "CHARACTER.ATTRIBUTES.PER.LABEL" | translate }}</span
+          >
+          <br />
+          <small class="text-xs">  {{ "CHARACTER.ATTRIBUTES.PER.ABBR" | translate }} [{{ "CHARACTER.ATTRIBUTES.MOD.ABBR" | translate }}] </small>
+        </div>
+        <div class="col-6"><span class="fs-1 fw-bold"> % </span></div>
+        <div class="col-6">
+          <h1 class="text-center">
+            {{ attributes?.per }}
+            @if (attributes?.perMod) {
+              <span> [{{ attributes?.perMod }}] </span>
+            }
+          </h1>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center">{{ attributes?.perPercentTotal }}%</h1>
+        </div>
+      </div>
+
+      <div class="progress-stacked rounded-pill">
+        <div class="progress" [style.width.%]="attributes?.perPercent">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" [style.width.%]="attributes?.perPercentMod">
+          <div class="progress-bar bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="card border-0 theme-primary p-3">
+      <div class="row row-gap-4 text-center mb-2">
+        <div class="col-6">
+             <span class="fw-bold fs-5">
+            {{ "CHARACTER.ATTRIBUTES.CAR.LABEL" | translate }}</span
+          >
+          <br />
+          <small class="text-xs">  {{ "CHARACTER.ATTRIBUTES.CAR.ABBR" | translate }} [{{ "CHARACTER.ATTRIBUTES.MOD.ABBR" | translate }}] </small>
+        </div>
+        <div class="col-6"><span class="fs-1 fw-bold"> % </span></div>
+        <div class="col-6">
+          <h1 class="text-center">
+            {{ attributes?.car }}
+            @if (attributes?.carMod) {
+              <span> [{{ attributes?.carMod }}] </span>
+            }
+          </h1>
+        </div>
+        <div class="col-6">
+          <h1 class="text-center">{{ attributes?.carPercentTotal }}%</h1>
+        </div>
+      </div>
+
+      <div class="progress-stacked rounded-pill">
+        <div class="progress" [style.width.%]="attributes?.carPercent">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" [style.width.%]="attributes?.carPercentMod">
+          <div class="progress-bar bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

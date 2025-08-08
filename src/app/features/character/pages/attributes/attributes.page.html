@@ -1,0 +1,9 @@
+<app-page-header [title]="'PAGE.CHARACTER.ATTRIBUTES.TITLE' | translate" />
+
+<app-menu-flutuante [edit]="!isEditMode" [navigateCloseTo]="navigateCloseTo" />
+
+@if (isEditMode) {
+  <app-attributes-edit [attributes]="attributes" [characterId]="characterId" />
+} @else {
+  <app-attributes-view [attributes]="attributes" />
+}

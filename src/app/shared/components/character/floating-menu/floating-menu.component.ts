@@ -19,6 +19,7 @@ import { IconSkillComponent } from '../../icons/skill-icon.component';
 import { IconWeaponComponent } from '../../icons/weapon-icon.component';
 import { IconCloseComponent } from '../../icons/close-icon.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu-flutuante',
@@ -42,6 +43,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     IconBackComponent,
     IconEditComponent,
     IconCloseComponent,
+    TranslateModule,
   ],
   templateUrl: './floating-menu.component.html',
   standalone: true,
@@ -72,8 +74,7 @@ export class MenuFlutuanteComponent {
       if (isAbsolute) {
         this.router.navigateByUrl(this.navigateEditTo, { replaceUrl: true });
       } else {
-        this.router.navigate([this.navigateEditTo], {
-          relativeTo: this.route,
+        this.router.navigate([this.router.url, this.navigateEditTo], {
           replaceUrl: true,
         });
       }

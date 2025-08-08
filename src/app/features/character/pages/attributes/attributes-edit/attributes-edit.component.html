@@ -1,0 +1,199 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card theme-primary p-2 mb-3 text-center">
+      Total Gasto: {{ total }} | MOD: {{ totalMod }}
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="row row-gap-3">
+  <app-form-input-number
+    [label]="
+      ('CHARACTER.ATTRIBUTES.CON.LABEL' | translate) +
+      ' (' +
+      ('CHARACTER.ATTRIBUTES.CON.ABBR' | translate) +
+      ')'
+    "
+    [control]="form.controls.con"
+    col="6"
+  />
+  <app-form-input-number
+    [label]="'CHARACTER.ATTRIBUTES.MOD.ABBR' | translate"
+    [control]="form.controls.conMod"
+    [minValue]="-100"
+    col="4"
+  />
+  <div
+    class="col-2 d-flex flex-column justify-content-between text-end pe-4 pb-1"
+  >
+    <span></span>
+    <span>{{ percentageValue("con") }}%</span>
+  </div>
+
+  <app-form-input-number
+    [label]="
+      ('CHARACTER.ATTRIBUTES.FR.LABEL' | translate) +
+      ' (' +
+      ('CHARACTER.ATTRIBUTES.FR.ABBR' | translate) +
+      ')'
+    "
+    [control]="form.controls.fr"
+    col="6"
+  />
+  <app-form-input-number
+    [label]="'CHARACTER.ATTRIBUTES.MOD.ABBR' | translate"
+    [control]="form.controls.frMod"
+    [minValue]="-100"
+    col="4"
+  />
+  <div
+    class="col-2 d-flex flex-column justify-content-between text-end pe-4 pb-1"
+  >
+    <span></span>
+    <span>{{ percentageValue("fr") }}%</span>
+  </div>
+
+  <app-form-input-number
+    [label]="
+      ('CHARACTER.ATTRIBUTES.DEX.LABEL' | translate) +
+      ' (' +
+      ('CHARACTER.ATTRIBUTES.DEX.ABBR' | translate) +
+      ')'
+    "
+    [control]="form.controls.dex"
+    col="6"
+  />
+  <app-form-input-number
+    [label]="'CHARACTER.ATTRIBUTES.MOD.ABBR' | translate"
+    [control]="form.controls.dexMod"
+    [minValue]="-100"
+    col="4"
+  />
+  <div
+    class="col-2 d-flex flex-column justify-content-between text-end pe-4 pb-1"
+  >
+    <span></span>
+    <span>{{ percentageValue("dex") }}%</span>
+  </div>
+
+  <app-form-input-number
+    [label]="
+      ('CHARACTER.ATTRIBUTES.AGI.LABEL' | translate) +
+      ' (' +
+      ('CHARACTER.ATTRIBUTES.AGI.ABBR' | translate) +
+      ')'
+    "
+    [control]="form.controls.agi"
+    col="6"
+  />
+  <app-form-input-number
+    [label]="'CHARACTER.ATTRIBUTES.MOD.ABBR' | translate"
+    [control]="form.controls.agiMod"
+    [minValue]="-100"
+    col="4"
+  />
+  <div
+    class="col-2 d-flex flex-column justify-content-between text-end pe-4 pb-1"
+  >
+    <span></span>
+    <span>{{ percentageValue("agi") }}%</span>
+  </div>
+
+  <app-form-input-number
+    [label]="
+      ('CHARACTER.ATTRIBUTES.INT.LABEL' | translate) +
+      ' (' +
+      ('CHARACTER.ATTRIBUTES.INT.ABBR' | translate) +
+      ')'
+    "
+    [control]="form.controls.int"
+    col="6"
+  />
+  <app-form-input-number
+    [label]="'CHARACTER.ATTRIBUTES.MOD.ABBR' | translate"
+    [control]="form.controls.intMod"
+    [minValue]="-100"
+    col="4"
+  />
+  <div
+    class="col-2 d-flex flex-column justify-content-between text-end pe-4 pb-1"
+  >
+    <span></span>
+    <span>{{ percentageValue("int") }}%</span>
+  </div>
+
+  <app-form-input-number
+    [label]="
+      ('CHARACTER.ATTRIBUTES.WILL.LABEL' | translate) +
+      ' (' +
+      ('CHARACTER.ATTRIBUTES.WILL.ABBR' | translate) +
+      ')'
+    "
+    [control]="form.controls.will"
+    col="6"
+  />
+  <app-form-input-number
+    [label]="'CHARACTER.ATTRIBUTES.MOD.ABBR' | translate"
+    [control]="form.controls.willMod"
+    [minValue]="-100"
+    col="4"
+  />
+  <div
+    class="col-2 d-flex flex-column justify-content-between text-end pe-4 pb-1"
+  >
+    <span></span>
+    <span>{{ percentageValue("will") }}%</span>
+  </div>
+
+  <app-form-input-number
+    [label]="
+      ('CHARACTER.ATTRIBUTES.PER.LABEL' | translate) +
+      ' (' +
+      ('CHARACTER.ATTRIBUTES.PER.ABBR' | translate) +
+      ')'
+    "
+    [control]="form.controls.per"
+    col="6"
+  />
+  <app-form-input-number
+    [label]="'CHARACTER.ATTRIBUTES.MOD.ABBR' | translate"
+    [control]="form.controls.perMod"
+    [minValue]="-100"
+    col="4"
+  />
+  <div
+    class="col-2 d-flex flex-column justify-content-between text-end pe-4 pb-1"
+  >
+    <span></span>
+    <span>{{ percentageValue("per") }}%</span>
+  </div>
+
+  <app-form-input-number
+    [label]="
+      ('CHARACTER.ATTRIBUTES.CAR.LABEL' | translate) +
+      ' (' +
+      ('CHARACTER.ATTRIBUTES.CAR.ABBR' | translate) +
+      ')'
+    "
+    [control]="form.controls.car"
+    col="6"
+  />
+  <app-form-input-number
+    [label]="'CHARACTER.ATTRIBUTES.MOD.ABBR' | translate"
+    [control]="form.controls.carMod"
+    [minValue]="-100"
+    col="4"
+  />
+  <div
+    class="col-2 d-flex flex-column justify-content-between text-end pe-4 pb-1"
+  >
+    <span></span>
+    <span>{{ percentageValue("car") }}%</span>
+  </div>
+
+  <div class="col-12 text-end mt-3">
+    <button type="submit" class="btn btn-primary">
+      {{ "COMMON.SAVE" | translate }}
+    </button>
+  </div>
+</form>

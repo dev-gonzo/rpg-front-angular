@@ -1,22 +1,25 @@
 <div class="d-flex flex-column w-100 align-items-center position-relative">
   <button
-    class="btn btn-circle  rounded-pill transition-all btn-primary border-0"
+    class="btn btn-circle rounded-pill transition-all btn-primary border-0"
     [ngClass]="[sizeClass, colorClass]"
   >
     <ng-content></ng-content>
   </button>
 
-  <small
-    class="text-secondary text-truncate w-100 text-center mt-1 px-3"
-    *ngIf="label"
+  @if (label) {
+    <small
+      class="text-secondary text-truncate w-100 text-center mt-1 px-2 text-xxs "
+      style="padding-top: 3px; padding-bottom: 3px"
     >
-    {{ label }}
-  </small>
-  
-  <small
-  class="badge-button position-absolute top-50 start-50 translate-middle-x badge rounded-pill  mt-2 ms-3 mt-2 text-xxs bg-secondary"
-  *ngIf="badge"
-  >
-    {{ badge }}
-  </small>
+      {{ label }}
+    </small>
+  }
+
+  @if (badge) {
+    <small
+      class="badge-button position-absolute top-50 start-50 translate-middle-x badge rounded-pill mt-2 ms-3 mt-2 text-xxs bg-secondary"
+    >
+      {{ badge }}
+    </small>
+  }
 </div>

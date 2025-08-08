@@ -1,0 +1,52 @@
+<label
+  class="form-label"
+  [attr.for]="inputId"
+  [ngClass]="{
+    '': !error,
+    'text-danger': error,
+  }"
+>
+  {{ label }}
+</label>
+<div class="input-group">
+  <span
+    class="input-group-text bg-surface text-surface border-default p-0"
+    id="basic-addon1"
+  >
+    <button
+      type="button"
+      class="btn m-0 p-1 px-2 text-surface"
+      (click)="handleMinus()"
+    >
+      <app-icon-minus />
+    </button>
+  </span>
+  <input
+    [id]="inputId"
+    [type]="type"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    class="form-control bg-surface text-surface border-default text-center"
+    [ngClass]="{
+      'border-danger text-danger': error,
+    }"
+  />
+  <span
+    class="input-group-text bg-surface text-surface border-default p-0"
+    id="basic-addon1"
+  >
+    <button
+      type="button"
+      class="btn m-0 p-1 px-2 text-surface"
+      (click)="handlePlus()"
+    >
+      <app-icon-plus />
+    </button>
+  </span>
+</div>
+
+@if (error) {
+  <div class="invalid-feedback d-block">
+    {{ error }}
+  </div>
+}

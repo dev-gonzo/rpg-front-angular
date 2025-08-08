@@ -34,6 +34,7 @@
     "PROFILE": "Profile",
     "LANGUAGE": "Language",
     "ACTIONS": "Actions",
+    "TOGGLE": "Toggle",
     "PLACEHOLDER": {
       "DATE": "DD/MM/YYYY"
     }

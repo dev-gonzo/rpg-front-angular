@@ -1,84 +1,143 @@
 <div
-  class="d-flex flex-row-reverse align-items-start gap-2 top-fixed transition-top z-3 mt-1"
+  class="d-flex flex-row-reverse jus align-items-start gap-2 top-fixed transition-top z-3 mt-1"
   [ngClass]="{ 'top-5': !atTop, 'top-16': atTop }"
 >
-  <div class="d-flex flex-column align-items-end gap-3">
+  <div
+    class="d-flex flex-row-reverse jus align-items-start gap-2 top-fixed transition-top z-3 mt-1"
+  >
     <app-button-icon size="sm" (click)="toggleMenu()">
-      <app-icon-menu />
+      @if (showMenu) {
+        <app-icon-close />
+      } @else {
+        <app-icon-menu />
+      }
     </app-button-icon>
 
-    @if (showMenu && !showMenu) {
-      <div class="d-flex flex-column gap-2">
-        <app-button-icon size="sm" (click)="toggleExtras()">
-          <app-icon-repeat class="text-xs" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-attributes class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-improvements class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-skill class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-combat-skill class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-weapon class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-equipament class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-magia class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-ritual class="text-2xl" />
-        </app-button-icon>
-      </div>
-    }
-
-    @if (showMenu && showMenu) {
-      <div class="d-flex flex-column gap-2">
-        <app-button-icon size="sm" (click)="toggleExtras()">
-          <app-icon-repeat class="text-xs" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-info class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-person class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-background class="text-2xl" />
-        </app-button-icon>
-
-        <app-button-icon size="sm" color="secondary">
-          <app-icon-note class="text-2xl" />
-        </app-button-icon>
-      </div>
+    @if (!showMenu) {
+      <app-button-icon size="sm" (click)="handleEdit()" *ngIf="edit">
+        <app-icon-edit />
+      </app-button-icon>
+      <app-button-icon size="sm" (click)="handleClose()" *ngIf="!edit">
+        <app-icon-close />
+      </app-button-icon>
+      <app-button-icon size="sm" (click)="handleBack()">
+        <app-icon-back />
+      </app-button-icon>
     }
   </div>
+  @if (showMenu) {
+    <div
+      class="d-flex flex-column align-items-end gap-3 py-2 mt-5 theme-secondary rounded-4"
+    >
+      <div class="d-flex flex-column gap-2">
+        <app-button-icon
+          size="sm"
+          color="secondary"
+          (click)="toggleExtras()"
+          [label]="'COMMON.TOGGLE' | translate"
+        >
+          <app-icon-repeat class="text-xs" />
+        </app-button-icon>
+        @if (!showExtras) {
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.ATTRIBUTES.TITLE' | translate"
+          >
+            <app-icon-attributes class="text-2xl" />
+          </app-button-icon>
 
-  <app-button-icon size="sm" (click)="handleEdit()" *ngIf="edit">
-    <app-icon-edit />
-  </app-button-icon>
-  <app-button-icon size="sm" (click)="handleClose()" *ngIf="!edit">
-    <app-icon-close />
-  </app-button-icon>
-  <app-button-icon size="sm" (click)="handleBack()">
-    <app-icon-back />
-  </app-button-icon>
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.IMPROVEMENTS.TITLE' | translate"
+          >
+            <app-icon-improvements class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.SKILLS.TITLE' | translate"
+          >
+            <app-icon-skill class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.COMBAT_SKILLS.TITLE' | translate"
+          >
+            <app-icon-combat-skill class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.WEAPONS.TITLE' | translate"
+          >
+            <app-icon-weapon class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.EQUIPMENT.TITLE' | translate"
+          >
+            <app-icon-equipament class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.SPELLS.TITLE' | translate"
+          >
+            <app-icon-magia class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.RITUALS_AND_POWERS.TITLE' | translate"
+          >
+            <app-icon-ritual class="text-2xl" />
+          </app-button-icon>
+        }
+
+        @if (showExtras) {
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.INFO.TITLE' | translate"
+          >
+            <app-icon-info class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.CONTACTS.TITLE' | translate"
+          >
+            <app-icon-person class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.BACKGROUND.TITLE' | translate"
+          >
+            <app-icon-background class="text-2xl" />
+          </app-button-icon>
+
+          <app-button-icon
+            size="sm"
+            color="secondary"
+            [label]="'PAGE.CHARACTER.NOTES.TITLE' | translate"
+          >
+            <app-icon-note class="text-2xl" />
+          </app-button-icon>
+        }
+      </div>
+    </div>
+  }
 </div>

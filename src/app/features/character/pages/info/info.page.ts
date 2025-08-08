@@ -3,14 +3,14 @@ import { MenuFlutuanteComponent } from '@/shared/components/character/floating-m
 import { PageHeaderComponent } from '@/shared/components/page-header/page-header.component';
 import { InfoViewComponent } from './info-view/info-view.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { InfoEditComponent } from './info-edit/info-edit.component';
 import { CommonModule } from '@angular/common';
 import { CharacterInfoApiService } from '@/api/characters/character-info.api.servive';
 import { ToastService } from '@/shared/components/toast/toast.service';
 import { BaseTranslateComponent } from '@/core/base/base-translate.component';
 import { CharacterInfoResponse } from '@/api/characters/character-info.types';
-
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-info.page',
   imports: [
@@ -38,9 +38,10 @@ export class InfoPage extends BaseTranslateComponent implements OnInit {
   constructor() {
     super(inject(TranslateService), inject(ActivatedRoute));
 
-    const routePath = this.route.snapshot.routeConfig?.path;
-    const editParam = this.route.snapshot.paramMap.get('edit');
+    this.route = inject(ActivatedRoute);
+    this.router = inject(Router);
 
+    const routePath = this.route.snapshot.routeConfig?.path;
     const currentUrl = this.router.url;
 
     if (currentUrl.includes('/create')) {
@@ -49,7 +50,8 @@ export class InfoPage extends BaseTranslateComponent implements OnInit {
       this.navigateCloseTo = currentUrl.replace(/\/edit$/, '');
     }
 
-    this.isEditMode = routePath === 'create' || editParam === 'edit';
+    this.isEditMode =
+      currentUrl.endsWith('/edit') || routePath?.includes('create') || false;
   }
 
   ngOnInit(): void {
@@ -61,6 +63,20 @@ export class InfoPage extends BaseTranslateComponent implements OnInit {
         this.reloadCharacters();
       }
     });
+
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const currentUrl = this.router.url;
+        const routePath = this.route.snapshot.routeConfig?.path;
+
+        this.isEditMode =
+          currentUrl.endsWith('/edit') ||
+          routePath?.includes('create') ||
+          false;
+
+        this.navigateCloseTo = currentUrl.replace(/\/edit$/, '');
+      });
   }
 
   reloadCharacters(): void {
@@ -70,7 +86,8 @@ export class InfoPage extends BaseTranslateComponent implements OnInit {
           this.character = response;
         },
         error: (err) => {
-          this.toast.error(err);
+          if (err?.status == 404) return;
+          this.toast.error(err?.error?.title);
         },
       });
     }

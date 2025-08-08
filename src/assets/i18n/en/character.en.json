@@ -1,0 +1,26 @@
+{
+  "CHARACTER": {
+    "NAME": "Name",
+    "PROFESSION": "Profession",
+    "BIRTHDATE": "Birth date",
+    "BIRTHPLACE": "Birth place",
+    "GENDER": "Gender",
+    "AGE": "Age",
+    "APPARENTAGE": "Apparent age",
+    "HEIGHTCM": "Height (cm)",
+    "WEIGHTKG": "Weight (kg)",
+    "RELIGION": "Religion",
+
+    "ATTRIBUTES": {
+      "CON": { "ABBR": "CON", "LABEL": "Constitution" },
+      "FR": { "ABBR": "STR", "LABEL": "Strength" },
+      "DEX": { "ABBR": "DEX", "LABEL": "Dexterity" },
+      "AGI": { "ABBR": "AGI", "LABEL": "Agility" },
+      "INT": { "ABBR": "INT", "LABEL": "Intelligence" },
+      "WILL": { "ABBR": "WIL", "LABEL": "Willpower" },
+      "PER": { "ABBR": "PER", "LABEL": "Perception" },
+      "CAR": { "ABBR": "CHA", "LABEL": "Charisma" },
+      "MOD": { "ABBR": "MOD", "LABEL": "Modifier" }
+    }
+  }
+}

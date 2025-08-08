@@ -47,25 +47,67 @@ body {
   font-size: var(--font-size-base, 15px);
 }
 
-html[data-font="sm"] { --font-size-base: 12px; }
-html[data-font="md"] { --font-size-base: 15px; }
-html[data-font="lg"] { --font-size-base: 18px; }
-html[data-font="xl"] { --font-size-base: 22px; }
+html[data-font="sm"] {
+  --font-size-base: 12px;
+}
+html[data-font="md"] {
+  --font-size-base: 15px;
+}
+html[data-font="lg"] {
+  --font-size-base: 18px;
+}
+html[data-font="xl"] {
+  --font-size-base: 22px;
+}
 
-.theme-background   { background-color: var(--md-sys-color-background); color: var(--md-sys-color-on-background); }
-.theme-surface      { background-color: var(--md-sys-color-surface); color: var(--md-sys-color-on-surface); }
-.theme-primary      { background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
-.theme-secondary    { background-color: var(--md-sys-color-secondary); color: var(--md-sys-color-on-secondary); }
-.theme-muted        { background-color: var(--color-muted); color: var(--md-sys-color-on-surface); }
-.theme-border       { border-color: var(--color-border); }
+.theme-background {
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+}
+.theme-surface {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+}
+.theme-primary {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+.theme-secondary {
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+}
+.theme-muted {
+  background-color: var(--color-muted);
+  color: var(--md-sys-color-on-surface);
+}
+.theme-border {
+  border-color: var(--color-border);
+}
 
-.text-primary       { color: var(--md-sys-color-primary); }
-.text-secondary     { color: var(--md-sys-color-secondary); }
-.text-surface       { color: var(--md-sys-color-on-surface); }
-.text-background    { color: var(--md-sys-color-on-background); }
+.text-primary {
+  color: var(--md-sys-color-primary);
+}
+.text-secondary {
+  color: var(--md-sys-color-secondary);
+}
+.text-surface {
+  color: var(--md-sys-color-on-surface);
+}
+.text-background {
+  color: var(--md-sys-color-on-background);
+}
 
-.bg-surface         { background-color: var(--md-sys-color-surface); }
-.bg-background      { background-color: var(--md-sys-color-background); }
+.bg-surface {
+  background-color: var(--md-sys-color-surface);
+}
+.bg-background {
+  background-color: var(--md-sys-color-background);
+}
+
+.theme-primary.card {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+}
 
 /* ===================== BOTÕES ===================== */
 .btn-primary {
@@ -99,11 +141,31 @@ html[data-theme="dark"] .btn-primary:hover {
 }
 
 /* btn-circle tamanhos */
-.btn-circle-xs { width: 24px; height: 24px; font-size: 0.75rem; }
-.btn-circle-sm { width: 32px; height: 32px; font-size: 0.875rem; }
-.btn-circle-md { width: 40px; height: 40px; font-size: 1rem; }
-.btn-circle-lg { width: 48px; height: 48px; font-size: 1.25rem; }
-.btn-circle-xl { width: 56px; height: 56px; font-size: 1.5rem; }
+.btn-circle-xs {
+  width: 24px;
+  height: 24px;
+  font-size: 0.75rem;
+}
+.btn-circle-sm {
+  width: 32px;
+  height: 32px;
+  font-size: 0.875rem;
+}
+.btn-circle-md {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+}
+.btn-circle-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
+}
+.btn-circle-xl {
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
+}
 
 /* Temas para btn-circle */
 html[data-theme="light"] .btn-circle.theme-primary {
@@ -147,6 +209,20 @@ html[data-theme="dark"] .btn-circle.btn-outline {
   width: 10rem;
 }
 
+
+.progress-stacked{
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  border: var(--md-sys-color-primary)  solid 1px;
+}
+
+.progress-bar {
+  background-color: var(--md-sys-color-on-background) ;
+  color: var(--md-sys-color-on-surface);
+  
+}
+
+
 /* ===================== FORM CONTROLS ===================== */
 .form-control.bg-surface:focus {
   background-color: var(--md-sys-color-surface) !important;
@@ -157,22 +233,47 @@ html[data-theme="dark"] .btn-circle.btn-outline {
 .form-control.border-default {
   border: 1px solid var(--color-border);
 }
+.input-group-text.border-default {
+  border: 1px solid var(--color-border);
+}
 .form-control.border-default:focus {
   border-color: var(--color-border) !important;
   box-shadow: none;
 }
-input::placeholder { color: inherit; }
-input.text-danger::placeholder { color: #dc3545; }
+input::placeholder {
+  color: inherit;
+}
+input.text-danger::placeholder {
+  color: #dc3545;
+}
 
 /* ===================== TIPOGRAFIA ===================== */
-.font-base     { font-size: var(--font-size-base); }
-.text-title    { font-size: calc(var(--font-size-base) * 1.5); font-weight: 600; }
-.text-subtitle { font-size: calc(var(--font-size-base) * 1.25); font-weight: 500; }
-.text-body     { font-size: var(--font-size-base); font-weight: 400; }
-.text-caption  { font-size: calc(var(--font-size-base) * 0.85); font-weight: 400; }
+.font-base {
+  font-size: var(--font-size-base);
+}
+.text-title {
+  font-size: calc(var(--font-size-base) * 1.5);
+  font-weight: 600;
+}
+.text-subtitle {
+  font-size: calc(var(--font-size-base) * 1.25);
+  font-weight: 500;
+}
+.text-body {
+  font-size: var(--font-size-base);
+  font-weight: 400;
+}
+.text-caption {
+  font-size: calc(var(--font-size-base) * 0.85);
+  font-weight: 400;
+}
 
-.text-xs  { font-size: 0.75rem; }
-.text-xxs { font-size: 0.58rem; }
+.text-xs {
+  font-size: 0.75rem;
+}
+.text-xxs {
+  font-size: 0.58rem;
+}
 
 /* ===================== OFFCANVAS ===================== */
 .transition-top {
@@ -183,8 +284,12 @@ input.text-danger::placeholder { color: #dc3545; }
   position: fixed;
   right: 1rem;
 }
-.top-5  { top: 1.25rem; }
-.top-16 { top: 5rem; }
+.top-5 {
+  top: 1.25rem;
+}
+.top-16 {
+  top: 5rem;
+}
 
 /* ===================== LIST GROUP ===================== */
 .theme-surface .list-group-item {
@@ -253,14 +358,16 @@ input.text-danger::placeholder {
   }
 }
 
-html, body {
+html,
+body {
   background-color: black;
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-app-root, body > div {
+app-root,
+body > div {
   background-color: black;
   min-height: 100vh;
 }

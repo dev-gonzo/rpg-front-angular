@@ -2,14 +2,60 @@
   "PAGE": {
     "HOME": {
       "TITLE": "Página Inicial",
-      "DESCRIPTION": "Bem-vindo à RPG System"
+      "DESCRIPTION": "Bem-vindo ao RPG System."
     },
     "LOGIN": {
-      "TITLE": "Entrar"
+      "TITLE": "Entrar",
+      "DESCRIPTION": "Acesse sua conta para continuar."
     },
     "CHARACTER": {
       "INFO": {
-        "TITLE": "Dados Básicos"
+        "TITLE": "Dados Básicos",
+        "DESCRIPTION": "Nome, conceito, origem e ficha-base em Trevas (Daemon)."
+      },
+      "ATTRIBUTES": {
+        "TITLE": "Atributos",
+        "DESCRIPTION": "Valores-base que definem capacidades físicas, mentais e sociais."
+      },
+      "IMPROVEMENTS": {
+        "TITLE": "Aprimoramentos",
+        "DESCRIPTION": "Vantagens, especializações e evoluções."
+      },
+      "SKILLS": {
+        "TITLE": "Perícias",
+        "DESCRIPTION": "Conhecimentos e treinamentos gerais."
+      },
+      "COMBAT_SKILLS": {
+        "TITLE": "Perícias de Combate",
+        "DESCRIPTION": "Técnicas e proficiências para combate e uso de armas."
+      },
+      "SPELLS": {
+        "TITLE": "Magias",
+        "DESCRIPTION": "Poderes mágicos, caminhos e formas que utilizam Pontos de Magia."
+      },
+      "RITUALS_AND_POWERS": {
+        "TITLE": "Rituais e Poderes",
+        "DESCRIPTION": "Poderes mágicos, sobrenaturais e religiosos."
+      },
+      "WEAPONS": {
+        "TITLE": "Armas",
+        "DESCRIPTION": "Listagem de armas com detalhes de dano, munição etc."
+      },
+      "EQUIPMENT": {
+        "TITLE": "Equipamentos",
+        "DESCRIPTION": "Itens e recursos diversos."
+      },
+      "CONTACTS": {
+        "TITLE": "Contatos",
+        "DESCRIPTION": "Pessoas relevantes, aliados e relações importantes."
+      },
+      "BACKGROUND": {
+        "TITLE": "Background",
+        "DESCRIPTION": "História e motivações."
+      },
+      "NOTES": {
+        "TITLE": "Notas",
+        "DESCRIPTION": "Observações e lembretes da mesa."
       }
     }
   }

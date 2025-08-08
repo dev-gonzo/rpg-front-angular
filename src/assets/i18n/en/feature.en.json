@@ -2,14 +2,60 @@
   "PAGE": {
     "HOME": {
       "TITLE": "Home",
-      "DESCRIPTION": "Welcome to the RPG System"
+      "DESCRIPTION": "Welcome to RPG System."
     },
     "LOGIN": {
-      "TITLE": "Login"
+      "TITLE": "Login",
+      "DESCRIPTION": "Access your account to continue."
     },
     "CHARACTER": {
       "INFO": {
-        "TITLE": "Basic Information"
+        "TITLE": "Basic Information",
+        "DESCRIPTION": "Name, concept, origin, and base character sheet in Trevas (Daemon)."
+      },
+      "ATTRIBUTES": {
+        "TITLE": "Attributes",
+        "DESCRIPTION": "Base values that define physical, mental, and social abilities."
+      },
+      "IMPROVEMENTS": {
+        "TITLE": "Enhancements",
+        "DESCRIPTION": "Advantages, specializations, and improvements."
+      },
+      "SKILLS": {
+        "TITLE": "Skills",
+        "DESCRIPTION": "General knowledge and training."
+      },
+      "COMBAT_SKILLS": {
+        "TITLE": "Combat Skills",
+        "DESCRIPTION": "Techniques and proficiencies for combat and weapon use."
+      },
+      "SPELLS": {
+        "TITLE": "Spells",
+        "DESCRIPTION": "Magical powers, paths, and forms that use Magic Points."
+      },
+      "RITUALS_AND_POWERS": {
+        "TITLE": "Rituals and Powers",
+        "DESCRIPTION": "Magical, supernatural, and religious powers."
+      },
+      "WEAPONS": {
+        "TITLE": "Weapons",
+        "DESCRIPTION": "List of weapons with details on damage, ammunition, etc."
+      },
+      "EQUIPMENT": {
+        "TITLE": "Equipment",
+        "DESCRIPTION": "Various items and resources."
+      },
+      "CONTACTS": {
+        "TITLE": "Contacts",
+        "DESCRIPTION": "Relevant people, allies, and important relationships."
+      },
+      "BACKGROUND": {
+        "TITLE": "Background",
+        "DESCRIPTION": "Character history and motivations."
+      },
+      "NOTES": {
+        "TITLE": "Notes",
+        "DESCRIPTION": "Observations and game session reminders."
       }
     }
   }
