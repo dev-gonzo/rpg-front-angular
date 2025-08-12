@@ -35,6 +35,8 @@
     "LANGUAGE": "Idioma",
     "ACTIONS": "Ações",
     "TOGGLE": "Alternar",
+    "CITY": "Cidade",
+    "COUNTRY": "País",
     "PLACEHOLDER": {
       "DATE": "DD/MM/AAAA"
     }

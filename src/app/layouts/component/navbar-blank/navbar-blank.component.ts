@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { ThemeService } from '@/design/theme/theme.service';
 import { ButtonIconComponent } from '@/shared/components/button-icon/button-icon.component';
 import { IconLanguageComponent } from '@/shared/components/icons/language-icon.component';
+import { IconLoginComponent } from '@/shared/components/icons/login-icon.component';
 import { IconMoonComponent } from '@/shared/components/icons/moon-icon.component';
 import { IconSunComponent } from '@/shared/components/icons/sun-icon.component';
 import { CommonModule } from '@angular/common';
@@ -16,10 +18,12 @@ import { TranslationService } from '@/core/i18n/translation.service';
   imports: [
     CommonModule,
     RouterModule,
+    TranslateModule,
     ButtonIconComponent,
     IconSunComponent,
     IconMoonComponent,
     IconLanguageComponent,
+    IconLoginComponent,
   ],
 })
 export class NavbarBlankComponent {
@@ -27,6 +31,7 @@ export class NavbarBlankComponent {
 
   theme = inject(ThemeService);
   lang = inject(TranslationService);
+  router = inject(Router);
 
   toggleTheme(): void {
     this.theme.toggleTheme();
@@ -46,5 +51,13 @@ export class NavbarBlankComponent {
 
   resetFont(): void {
     this.theme.resetFontSize();
+  }
+
+  navigateToLogin(): void {
+    this.router.navigate(['/auth/login']);
+  }
+
+  navigateToHome(): void {
+    this.router.navigate(['/']);
   }
 }

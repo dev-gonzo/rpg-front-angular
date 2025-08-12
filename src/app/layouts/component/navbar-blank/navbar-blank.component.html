@@ -1,18 +1,47 @@
-<div class="w-100 p-3 d-flex justify-content-end gap-4">
-  <app-button-icon
-    (click)="toggleLanguage()"
-    badge="{{ lang.language() === 'pt' ? 'PT' : 'EN' }}"
-    size="sm"
-  >
-    <app-icon-language class="fs-6" />
-  </app-button-icon>
+<div class="w-100 p-3 d-flex justify-content-between align-items-center">
+  <!-- Logo (lado esquerdo) -->
+  <div class="d-flex align-items-center">
+    <button 
+      type="button"
+      class="btn p-0 border-0 bg-transparent d-flex align-items-center text-decoration-none"
+      (click)="navigateToHome()"
+    >
+      <img 
+        [src]="theme.theme() === 'dark' ? 'assets/logo-white.png' : 'assets/logo-gray.png'" 
+        alt="RPG System Logo" 
+        style="width: 7rem; cursor: pointer;" 
+      />
+    </button>
+  </div>
 
-  <app-button-icon (click)="toggleTheme()" style="width: 24px" size="sm">
-    <ng-container *ngIf="theme.theme() !== 'dark'; else darkTheme">
-      <app-icon-sun class="fs-6" />
-    </ng-container>
-    <ng-template #darkTheme>
-      <app-icon-moon class="fs-6" />
-    </ng-template>
-  </app-button-icon>
+  <!-- Botões de ação (lado direito) -->
+  <div class="d-flex gap-3 align-items-center">
+    <!-- Botão Entrar -->
+    <button 
+      class="btn btn-outline-primary btn-sm d-flex align-items-center gap-2"
+      (click)="navigateToLogin()"
+    >
+      <app-icon-login class="fs-6" />
+      <span>{{ 'COMMON.LOGIN' | translate }}</span>
+    </button>
+
+    <!-- Botão de idioma -->
+    <app-button-icon
+      (click)="toggleLanguage()"
+      badge="{{ lang.language() === 'pt' ? 'PT' : 'EN' }}"
+      size="sm"
+    >
+      <app-icon-language class="fs-6" />
+    </app-button-icon>
+
+    <!-- Botão de tema -->
+    <app-button-icon (click)="toggleTheme()" style="width: 24px" size="sm">
+      <ng-container *ngIf="theme.theme() !== 'dark'; else darkTheme">
+        <app-icon-sun class="fs-6" />
+      </ng-container>
+      <ng-template #darkTheme>
+        <app-icon-moon class="fs-6" />
+      </ng-template>
+    </app-button-icon>
+  </div>
 </div>

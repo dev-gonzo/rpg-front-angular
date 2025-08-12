@@ -1,0 +1,44 @@
+{
+  "PAGE": {
+    "LOGIN": {
+      "TITLE": "Sign in to your account"
+    },
+    "REGISTER": {
+      "TITLE": "Create your account",
+      "SUBTITLE": "Fill in the details below to register for RPG System",
+      "BACK_TO_LOGIN": "Already have an account? Sign in",
+      "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+      "SIGN_IN_HERE": "Sign in here"
+    },
+    "HOME": {
+      "HERO": {
+        "TITLE": "The Ultimate RPG System",
+        "SUBTITLE": "Manage characters, campaigns and adventures in a complete and intuitive platform",
+        "CTA_PRIMARY": "Get Started",
+        "CTA_SECONDARY": "View Demo"
+      },
+      "FEATURES": {
+        "TITLE": "Powerful Features",
+        "CHARACTER_MANAGEMENT": {
+          "TITLE": "Character Management",
+          "DESCRIPTION": "Create and manage complete sheets with all your character details"
+        },
+        "CAMPAIGN_TOOLS": {
+          "TITLE": "Campaign Tools",
+          "DESCRIPTION": "Organize your adventures with maps, NPCs and engaging stories"
+        },
+        "REAL_TIME": {
+          "TITLE": "Real Time",
+          "DESCRIPTION": "Play online with your friends in synchronized sessions"
+        }
+      },
+      "BENEFITS": {
+        "TITLE": "Why choose our system?",
+        "EASY_USE": {
+          "TITLE": "Easy to Use",
+          "DESCRIPTION": "Intuitive interface that any player can master quickly"
+        }
+      }
+    }
+  }
+}

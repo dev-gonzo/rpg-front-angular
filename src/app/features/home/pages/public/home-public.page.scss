@@ -1,0 +1,69 @@
+// Prevent horizontal overflow
+:host {
+  overflow-x: hidden;
+}
+
+// Minimal custom styles - using Bootstrap utilities primarily
+
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-primary-dark) 100%);
+  position: relative;
+  overflow: hidden;
+  
+  // Ensure content is above background decorations
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  // Background decoration should be behind content
+  .hero-bg-decoration {
+    z-index: 1;
+    pointer-events: none; // Prevent interference with buttons
+  }
+  
+  // Ensure buttons are clickable and have proper hover
+  .btn {
+    position: relative;
+    z-index: 3;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 80vh;
+    padding: 2rem 0;
+  }
+}
+
+// Ensure all sections don't cause horizontal overflow
+section {
+  overflow-x: hidden;
+}
+
+// Card hover effects
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+// Screenshot card hover
+.screenshot-card {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.02);
+  }
+}

@@ -30,7 +30,7 @@ export const HOME_ROUTES: Routes = [
             path: '',
             loadComponent: () =>
               import('./pages/public/home-public.page').then(
-                (m) => m.HomePublicPage,
+                (m) => m.HomePublicPageComponent,
               ),
           },
         ],

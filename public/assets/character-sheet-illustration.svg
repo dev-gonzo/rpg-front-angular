@@ -1,0 +1,99 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paper-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f1f5f9" />
+  
+  <!-- Character Sheet Paper -->
+  <rect x="50" y="30" width="300" height="240" rx="8" fill="url(#paper-gradient)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1" />
+  
+  <!-- Header -->
+  <rect x="70" y="50" width="120" height="20" rx="4" fill="#1c49aa" />
+  <text x="130" y="64" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="bold">FICHA DE PERSONAGEM</text>
+  
+  <!-- Character Name -->
+  <rect x="70" y="80" width="260" height="15" rx="2" fill="#e2e8f0" />
+  <text x="75" y="91" fill="#1e293b" font-family="Arial" font-size="10">Nome: Aragorn, Guardião do Norte</text>
+  
+  <!-- Attributes Section -->
+  <text x="70" y="115" fill="#1c49aa" font-family="Arial" font-size="11" font-weight="bold">ATRIBUTOS</text>
+  
+  <!-- Attribute Circles -->
+  <g transform="translate(70, 125)">
+    <circle cx="25" cy="25" r="20" fill="#1c49aa" opacity="0.1" stroke="#1c49aa" stroke-width="2" />
+    <text x="25" y="20" text-anchor="middle" fill="#1c49aa" font-family="Arial" font-size="8" font-weight="bold">FOR</text>
+    <text x="25" y="32" text-anchor="middle" fill="#1c49aa" font-family="Arial" font-size="12" font-weight="bold">18</text>
+  </g>
+  
+  <g transform="translate(130, 125)">
+    <circle cx="25" cy="25" r="20" fill="#1c49aa" opacity="0.1" stroke="#1c49aa" stroke-width="2" />
+    <text x="25" y="20" text-anchor="middle" fill="#1c49aa" font-family="Arial" font-size="8" font-weight="bold">DES</text>
+    <text x="25" y="32" text-anchor="middle" fill="#1c49aa" font-family="Arial" font-size="12" font-weight="bold">16</text>
+  </g>
+  
+  <g transform="translate(190, 125)">
+    <circle cx="25" cy="25" r="20" fill="#1c49aa" opacity="0.1" stroke="#1c49aa" stroke-width="2" />
+    <text x="25" y="20" text-anchor="middle" fill="#1c49aa" font-family="Arial" font-size="8" font-weight="bold">INT</text>
+    <text x="25" y="32" text-anchor="middle" fill="#1c49aa" font-family="Arial" font-size="12" font-weight="bold">14</text>
+  </g>
+  
+  <g transform="translate(250, 125)">
+    <circle cx="25" cy="25" r="20" fill="#1c49aa" opacity="0.1" stroke="#1c49aa" stroke-width="2" />
+    <text x="25" y="20" text-anchor="middle" fill="#1c49aa" font-family="Arial" font-size="8" font-weight="bold">CON</text>
+    <text x="25" y="32" text-anchor="middle" fill="#1c49aa" font-family="Arial" font-size="12" font-weight="bold">17</text>
+  </g>
+  
+  <!-- Skills Section -->
+  <text x="70" y="190" fill="#1c49aa" font-family="Arial" font-size="11" font-weight="bold">PERÍCIAS</text>
+  
+  <rect x="70" y="200" width="100" height="12" rx="2" fill="#e2e8f0" />
+  <text x="75" y="209" fill="#1e293b" font-family="Arial" font-size="9">Espadas: 85%</text>
+  
+  <rect x="180" y="200" width="100" height="12" rx="2" fill="#e2e8f0" />
+  <text x="185" y="209" fill="#1e293b" font-family="Arial" font-size="9">Rastreamento: 78%</text>
+  
+  <rect x="70" y="220" width="100" height="12" rx="2" fill="#e2e8f0" />
+  <text x="75" y="229" fill="#1e293b" font-family="Arial" font-size="9">Liderança: 72%</text>
+  
+  <rect x="180" y="220" width="100" height="12" rx="2" fill="#e2e8f0" />
+  <text x="185" y="229" fill="#1e293b" font-family="Arial" font-size="9">Sobrevivência: 90%</text>
+  
+  <!-- Equipment Section -->
+  <text x="290" y="190" fill="#1c49aa" font-family="Arial" font-size="11" font-weight="bold">EQUIPAMENTOS</text>
+  
+  <!-- Sword Icon -->
+  <g transform="translate(295, 200)">
+    <rect x="0" y="0" width="2" height="20" fill="#1c49aa" />
+    <rect x="-2" y="16" width="6" height="2" fill="#1c49aa" />
+    <circle cx="1" cy="22" r="1.5" fill="#93c5fd" />
+    <text x="10" y="12" fill="#1e293b" font-family="Arial" font-size="8">Andúril</text>
+  </g>
+  
+  <!-- Shield Icon -->
+  <g transform="translate(295, 225)">
+    <path d="M0,0 Q4,-2 8,0 L8,10 Q4,12 0,10 Z" fill="#1c49aa" opacity="0.8" />
+    <text x="15" y="6" fill="#1e293b" font-family="Arial" font-size="8">Escudo Élfico</text>
+  </g>
+  
+  <!-- Character Portrait -->
+  <circle cx="300" cy="120" r="25" fill="#93c5fd" opacity="0.3" stroke="#1c49aa" stroke-width="2" />
+  <circle cx="300" cy="110" r="8" fill="#1e3a8a" />
+  <rect x="292" y="120" width="16" height="20" rx="8" fill="#1e3a8a" />
+  
+  <!-- Decorative Elements -->
+  <g transform="translate(320, 50)">
+    <path d="M0,0 L5,5 L0,10 L-5,5 Z" fill="#1c49aa" opacity="0.3" />
+  </g>
+  
+  <g transform="translate(60, 250)">
+    <path d="M0,0 L3,3 L0,6 L-3,3 Z" fill="#93c5fd" opacity="0.5" />
+  </g>
+</svg>

@@ -1,8 +1,50 @@
 {
   "PAGE": {
     "HOME": {
-      "TITLE": "Home",
-      "DESCRIPTION": "Welcome to RPG System."
+      "TITLE": "RPG System",
+      "SUBTITLE": "The Ultimate System for Your RPG Games",
+      "DESCRIPTION": "Manage characters, campaigns, and adventures with the most complete tool for game masters and players.",
+      "HERO": {
+        "TITLE": "Transform Your Adventures into Epic Legends",
+        "SUBTITLE": "The complete platform to create, manage, and live your RPG stories like never before.",
+        "CTA_PRIMARY": "Get Started",
+        "CTA_SECONDARY": "Watch Demo"
+      },
+      "FEATURES": {
+        "TITLE": "Powerful Features for Masters and Players",
+        "CHARACTER_MANAGEMENT": {
+          "TITLE": "Complete Character Management",
+          "DESCRIPTION": "Create and manage detailed character sheets with attributes, skills, spells, and equipment. Compatible with Trevas (Daemon) and other systems."
+        },
+        "CAMPAIGN_TOOLS": {
+          "TITLE": "Campaign Tools",
+          "DESCRIPTION": "Organize your sessions, track story progress, and keep important notes always at hand."
+        },
+        "REAL_TIME": {
+          "TITLE": "Real-Time Collaboration",
+          "DESCRIPTION": "Play online with your friends, share information, and keep everyone synchronized during sessions."
+        }
+      },
+      "BENEFITS": {
+        "TITLE": "Why Choose RPG System?",
+        "EASY_USE": {
+          "TITLE": "Easy to Use",
+          "DESCRIPTION": "Intuitive interface that lets you focus on what really matters: fun and storytelling."
+        },
+        "COMPLETE": {
+          "TITLE": "Complete System",
+          "DESCRIPTION": "Everything you need in one place: character sheets, dice, maps, and management tools."
+        },
+        "SECURE": {
+          "TITLE": "Safe and Reliable",
+          "DESCRIPTION": "Your data is protected with state-of-the-art encryption and automatic backups."
+        }
+      },
+      "CTA": {
+        "TITLE": "Ready to Start Your Next Adventure?",
+        "DESCRIPTION": "Join thousands of masters and players who have already discovered the best way to play RPG.",
+        "BUTTON": "Create Free Account"
+      }
     },
     "LOGIN": {
       "TITLE": "Login",

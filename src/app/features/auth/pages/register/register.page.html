@@ -1,0 +1,109 @@
+<section class="theme-background d-flex flex-column align-items-center min-vh-100 py-4">
+  <div class="text-center my-3">
+    <img 
+      [src]="theme.theme() === 'dark' ? 'assets/logo-white.png' : 'assets/logo-gray.png'" 
+      alt="RPG System Logo" 
+      width="160" 
+    />
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5">
+        <form
+          *ngIf="form"
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()"
+          class="d-flex flex-column gap-3"
+        >
+          <!-- Título e Subtítulo -->
+          <div class="text-center mb-4">
+            <h1 class="text-title text-primary mb-3">
+              {{ "PAGE.REGISTER.TITLE" | translate }}
+            </h1>
+            <p class="text-surface">
+              {{ "PAGE.REGISTER.SUBTITLE" | translate }}
+            </p>
+          </div>
+
+          <!-- Campo Nome -->
+          <app-form-input
+            [label]="'COMMON.NAME' | translate"
+            [placeholder]="
+              'PLACEHOLDER.DEFAULT'
+                | translate
+                  : { field: translate.instant('COMMON.NAME'), pronoun: 'seu' }
+            "
+            [control]="form.controls.name!"
+            col="12"
+          >
+          </app-form-input>
+
+          <!-- Campo E-mail -->
+          <app-form-input
+            [label]="'COMMON.EMAIL' | translate"
+            [placeholder]="
+              'PLACEHOLDER.DEFAULT'
+                | translate
+                  : { field: translate.instant('COMMON.EMAIL'), pronoun: 'seu' }
+            "
+            type="email"
+            [control]="form.controls.email!"
+            col="12"
+          >
+          </app-form-input>
+
+          <!-- Campo Cidade -->
+          <app-form-input
+            [label]="'COMMON.CITY' | translate"
+            [placeholder]="
+              'PLACEHOLDER.DEFAULT'
+                | translate
+                  : { field: translate.instant('COMMON.CITY'), pronoun: 'sua' }
+            "
+            [control]="form.controls.city!"
+            col="12"
+          >
+          </app-form-input>
+
+          <!-- Campo País -->
+          <app-form-input
+            [label]="'COMMON.COUNTRY' | translate"
+            [placeholder]="
+              'PLACEHOLDER.DEFAULT'
+                | translate
+                  : { field: translate.instant('COMMON.COUNTRY'), pronoun: 'seu' }
+            "
+            [control]="form.controls.country!"
+            col="12"
+          >
+          </app-form-input>
+
+          <!-- Botão de Registro -->
+          <button 
+            type="submit" 
+            class="btn btn-primary btn-lg w-100 mt-3"
+            [disabled]="form.invalid || isSubmitting"
+          >
+            <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
+            {{ "COMMON.REGISTER" | translate }}
+          </button>
+
+          <!-- Link para Login -->
+          <div class="text-center mt-4">
+            <p class="text-surface mb-2">
+              {{ "PAGE.REGISTER.ALREADY_HAVE_ACCOUNT" | translate }}
+            </p>
+            <button 
+              type="button" 
+              class="btn btn-link text-primary p-0"
+              (click)="navigateToLogin()"
+            >
+              {{ "PAGE.REGISTER.SIGN_IN_HERE" | translate }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

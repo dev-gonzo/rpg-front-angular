@@ -11,7 +11,13 @@
       "SUCCESS": "Você saiu com sucesso",
       "ERROR": "Falha ao sair da conta",
       "CONFIRM": "Tem certeza que deseja sair da sua conta?",
-      "FORCED": "Você foi desconectado por inatividade"
+      "CANCEL": "Cancelar logout"
+    },
+    "REGISTER": {
+      "SUCCESS": "Cadastro realizado com sucesso! Faça login para continuar",
+      "ERROR": "Não foi possível realizar o cadastro. Tente novamente",
+      "EMAIL_EXISTS": "Este e-mail já está cadastrado",
+      "INVALID_DATA": "Dados inválidos. Verifique as informações"
     },
     "REST": {
       "SUCCESS": "{{resource}} salvo com sucesso",

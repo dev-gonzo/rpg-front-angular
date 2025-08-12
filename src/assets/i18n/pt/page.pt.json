@@ -1,0 +1,44 @@
+{
+  "PAGE": {
+    "LOGIN": {
+      "TITLE": "Entrar na sua conta"
+    },
+    "REGISTER": {
+      "TITLE": "Criar sua conta",
+      "SUBTITLE": "Preencha os dados abaixo para se cadastrar no RPG System",
+      "BACK_TO_LOGIN": "Já tem conta? Entrar",
+      "ALREADY_HAVE_ACCOUNT": "Já possui conta?",
+      "SIGN_IN_HERE": "Entre aqui"
+    },
+    "HOME": {
+      "HERO": {
+        "TITLE": "O Sistema de RPG Definitivo",
+        "SUBTITLE": "Gerencie personagens, campanhas e aventuras em uma plataforma completa e intuitiva",
+        "CTA_PRIMARY": "Começar Agora",
+        "CTA_SECONDARY": "Ver Demonstração"
+      },
+      "FEATURES": {
+        "TITLE": "Recursos Poderosos",
+        "CHARACTER_MANAGEMENT": {
+          "TITLE": "Gestão de Personagens",
+          "DESCRIPTION": "Crie e gerencie fichas completas com todos os detalhes dos seus personagens"
+        },
+        "CAMPAIGN_TOOLS": {
+          "TITLE": "Ferramentas de Campanha",
+          "DESCRIPTION": "Organize suas aventuras com mapas, NPCs e histórias envolventes"
+        },
+        "REAL_TIME": {
+          "TITLE": "Tempo Real",
+          "DESCRIPTION": "Jogue online com seus amigos em sessões sincronizadas"
+        }
+      },
+      "BENEFITS": {
+        "TITLE": "Por que escolher nosso sistema?",
+        "EASY_USE": {
+          "TITLE": "Fácil de Usar",
+          "DESCRIPTION": "Interface intuitiva que qualquer jogador pode dominar rapidamente"
+        }
+      }
+    }
+  }
+}

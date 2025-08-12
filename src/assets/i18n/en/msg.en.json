@@ -13,6 +13,12 @@
       "CONFIRM": "Are you sure you want to log out?",
       "FORCED": "You have been logged out due to inactivity"
     },
+    "REGISTER": {
+      "SUCCESS": "Registration successful! Please login to continue",
+      "ERROR": "Unable to complete registration. Please try again",
+      "EMAIL_EXISTS": "This email is already registered",
+      "INVALID_DATA": "Invalid data. Please check the information"
+    },
     "REST": {
       "SUCCESS": "{{resource}} saved successfully",
       "ERROR": "Failed to save {{resource}}"

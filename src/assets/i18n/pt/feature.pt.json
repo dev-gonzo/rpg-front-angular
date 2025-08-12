@@ -1,8 +1,50 @@
 {
   "PAGE": {
     "HOME": {
-      "TITLE": "Página Inicial",
-      "DESCRIPTION": "Bem-vindo ao RPG System."
+      "TITLE": "RPG System",
+      "SUBTITLE": "O Sistema Definitivo para Seus Jogos de RPG",
+      "DESCRIPTION": "Gerencie personagens, campanhas e aventuras com a ferramenta mais completa para mestres e jogadores.",
+      "HERO": {
+        "TITLE": "Transforme Suas Aventuras em Épicas Lendárias",
+        "SUBTITLE": "A plataforma completa para criar, gerenciar e viver suas histórias de RPG como nunca antes.",
+        "CTA_PRIMARY": "Começar Agora",
+        "CTA_SECONDARY": "Ver Demonstração"
+      },
+      "FEATURES": {
+        "TITLE": "Recursos Poderosos para Mestres e Jogadores",
+        "CHARACTER_MANAGEMENT": {
+          "TITLE": "Gestão Completa de Personagens",
+          "DESCRIPTION": "Crie e gerencie fichas detalhadas com atributos, perícias, magias e equipamentos. Sistema compatível com Trevas (Daemon) e outros sistemas."
+        },
+        "CAMPAIGN_TOOLS": {
+          "TITLE": "Ferramentas de Campanha",
+          "DESCRIPTION": "Organize suas sessões, acompanhe o progresso da história e mantenha notas importantes sempre à mão."
+        },
+        "REAL_TIME": {
+          "TITLE": "Colaboração em Tempo Real",
+          "DESCRIPTION": "Jogue online com seus amigos, compartilhe informações e mantenha todos sincronizados durante as sessões."
+        }
+      },
+      "BENEFITS": {
+        "TITLE": "Por Que Escolher o RPG System?",
+        "EASY_USE": {
+          "TITLE": "Fácil de Usar",
+          "DESCRIPTION": "Interface intuitiva que permite focar no que realmente importa: a diversão e a narrativa."
+        },
+        "COMPLETE": {
+          "TITLE": "Sistema Completo",
+          "DESCRIPTION": "Tudo que você precisa em um só lugar: fichas, dados, mapas e ferramentas de gestão."
+        },
+        "SECURE": {
+          "TITLE": "Seguro e Confiável",
+          "DESCRIPTION": "Seus dados estão protegidos com criptografia de ponta e backups automáticos."
+        }
+      },
+      "CTA": {
+        "TITLE": "Pronto para Começar Sua Próxima Aventura?",
+        "DESCRIPTION": "Junte-se a milhares de mestres e jogadores que já descobriram a melhor forma de jogar RPG.",
+        "BUTTON": "Criar Conta Grátis"
+      }
     },
     "LOGIN": {
       "TITLE": "Entrar",

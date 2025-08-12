@@ -19,6 +19,19 @@ export const AUTH_ROUTES: Routes = [
           },
         ],
       },
+      {
+        path: 'register',
+        component: LayoutBlankComponent,
+        children: [
+          {
+            path: '',
+            loadComponent: () =>
+              import('./pages/register/register.page').then(
+                (m) => m.RegisterPage
+              ),
+          },
+        ],
+      },
     ],
   },
 ];
